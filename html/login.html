@@ -75,16 +75,20 @@
                     <h1 style="font-size: 40px;">登入</h1>
                 </div>
                 <div class="body-login-form">
-                    <form action="">
+                    <form id="loginFrom">
                         <input type="text" id="username" name="username" placeholder="使用者名稱" required>
                         <input type="password" id="password" name="password" placeholder="密碼" required>
-                        <a href="../html/forgotpassword.html" id="forgot">忘記密碼</a>
-                        <input type="submit" value="登入" class="submit" onclick="">
-                        <a href="../html/signup.html" id="signup">前往註冊</a>
-                    </form>  
+                        <a>登陸結果：</a><span id="result"></span>
+                        <a href="../忘記密碼/index.html" id="forgot">忘記密碼</a>
+                        <input type="button" value="登入" class="submit" onclick="sendData()">
+                        <a href="../註冊/index.html" id="signup">前往註冊</a>
+                      </form>  
                 </div>
             </div>
         </div>        
     </div>
+
+
+    <script src="../js/login.js"></script>
 </body>
 </html>

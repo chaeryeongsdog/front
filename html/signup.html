@@ -86,13 +86,17 @@
                             </div>
                         </div>
                         <input type="text" id="username" name="username" placeholder="使用者名稱" required>
+                        <input type="email" id="gmail" name="gmail" placeholder="example@xxxxx.com" required>
                         <input type="password" id="password" name="password" placeholder="密碼" required>
                         <input type="text" id="comfirm_password" name="comfirm_password" placeholder="確認密碼">
-                        <input type="submit" value="註冊" class="submit" onclick="">
+                        <span id="result"></span>
+                        <input type="button" value="註冊" class="submit" onclick="sendData()">
                     </form>
                 </div>
             </div>
         </div>        
     </div>
+
+    <script src="../js/register.js"></script>
 </body>
 </html>
