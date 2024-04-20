@@ -225,6 +225,48 @@ body{
     border-bottom: solid white 10px;
 }
 
+.add-button{
+    display: flex;
+}
+
+#downloadpaper{
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1FA84C;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    margin: 0 20px 10px 0;
+    border: none;
+    cursor: pointer;
+}
+
+#addBtn{
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1FA84C;
+    font-size: 20px;
+    font-weight: bold;   
+    color: white;
+    margin: 0 30px 10px 0;
+    border: none;
+    cursor: pointer;
+}
+
+#addpaper{
+    display: none;
+}
+
+
 .class-bar{    
     display: flex;
 }
@@ -243,13 +285,6 @@ body{
     align-items: center;
     background-color: #d9d9d9;
     border-radius: 16px 16px 0 0;
-}
-
-.content-top button{
-    border: none;
-    color: white;
-    margin: 0 20px 20px 0;
-    cursor: pointer;
 }
 
 .test{
@@ -288,25 +323,9 @@ body{
     margin-right: 20px;
 }
 
-.add{
-    width: 100px;
-    height: 60px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1FA84C;
-    font-size: 24px;
-    font-weight: bold;   
-    color: white;
-    margin: 0 10px;
-    border: none;
-    cursor: pointer;
-}
-
 .modi{
     width: 100px;
-    height: 60px;
+    height: 50px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -314,11 +333,15 @@ body{
     background-color: #006BCE;
     font-size: 24px;
     font-weight: bold;
+    color: white;
+    margin: 0 10px;
+    border: none;
+    cursor: pointer;
 }
 
 .dele{
     width: 100px;
-    height: 60px;
+    height: 50px;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -326,6 +349,10 @@ body{
     background-color: #CB1D1D;
     font-size: 24px;
     font-weight: bold;
+    color: white;
+    margin: 0 10px;
+    border: none;
+    cursor: pointer;
 }
 
 .footer{
