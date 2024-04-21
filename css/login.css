@@ -257,7 +257,7 @@ body{
     justify-content: center;
 }
 
-.body-login-form input[type=submit]{
+.body-login-form input[class=submit]{
     background-color: #034A8C;
     color: white;
     font-size: 24px;

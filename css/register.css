@@ -213,14 +213,14 @@ body{
     justify-content: center;
     align-items: center;
     width: 100vw;
-    margin-top: 38px;
+    margin-top: 60px;
 }
 
 .body-signup{
     background-color: white;
-    margin-top: 80px;
+    margin: 20px 0;
     width: 650px;
-    height: 500px;
+    height: 590px;
     border-radius: 30px;
 }
 
@@ -277,7 +277,7 @@ body{
     margin: 0 10px 0 80px;
 }
 
-.body-signup-form input[type=submit]{
+.body-signup-form input[class=submit]{
     background-color: #034A8C;
     color: white;
     font-size: 24px;
