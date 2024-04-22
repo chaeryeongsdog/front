@@ -106,11 +106,14 @@ body{
   margin: 10px 0 0 16px;
 }
 
+.block span.num{
+  width: 30px;
+  cursor: pointer;
+}
+
 .block a{
   text-decoration: none;
   color: #034A8C;
-  cursor: default;
-  width: 30px;
   margin-right: 30px;
 }
 

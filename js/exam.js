@@ -93,6 +93,7 @@ let quizs = [
     correct: "C",
   },
 ];
+testans.length = quizs.length;
 
 loadnum();
 function loadnum() {
@@ -124,34 +125,108 @@ function getSelected() {
   answerEl.forEach((answerEl) => {
     if (answerEl.checked) {
       answer = answerEl.id;
-      testans.push(answer)
+      testans[currentQuiz]=answer;
+      document.getElementById("o"+(currentQuiz+1)).innerHTML=answer;
     }
   });
   return answer;
 }
 
 nextBtn.addEventListener("click", () => {
-  let answer = getSelected(); //找出被使用者選中的那個選項
-  let i = testans.length;
+  currentQuiz++;
+  loadQuiz();
+})
 
-  if (answer) {
-    if (answer === quizs[currentQuiz].correct) {
-      score++;
-    }
+const Abutton = document.getElementById("A");
+const Bbutton = document.getElementById("B");
+const Cbutton = document.getElementById("C");
+const Dbutton = document.getElementById("D");
 
-    currentQuiz++; //答對了進到下一題
+Abutton.addEventListener("click", () =>{
+  getSelected();
+})
+Bbutton.addEventListener("click", () =>{
+  getSelected();
+})
+Cbutton.addEventListener("click", () =>{
+  getSelected();
+})
+Dbutton.addEventListener("click", () =>{
+  getSelected();
+})
 
-    if (currentQuiz < quizs.length) {
-      loadQuiz();
-    } else {
-      container.innerHTML = `<h2>恭喜你完成此份測驗，共答對:${score} / ${quizs.length} 題</h2>`;
-    }
-    document.getElementById("o"+currentQuiz).innerHTML=testans[i-1];
-  }
-});
+// nextBtn.addEventListener("click", () => {
+//   let answer = getSelected(); //找出被使用者選中的那個選項
+//   let i = testans.length;
+
+//   if (answer) {
+//     if (answer === quizs[currentQuiz].correct) {
+//       score++;
+//     }
+
+//     currentQuiz++; //答對了進到下一題
+
+//     if (currentQuiz < quizs.length) {
+//       loadQuiz();
+//     } else {
+//       container.innerHTML = `<h2>恭喜你完成此份測驗，共答對:${score} / ${quizs.length} 題</h2>`;
+//     }
+//     document.getElementById("o"+currentQuiz).innerHTML=testans[i-1];
+//   }
+// });
 
 backBtn.addEventListener("click", () => {
   currentQuiz--;
   loadQuiz();
+});
+
+function changepage(elementId){
+  var numberPart = elementId.slice(1);
+  var ans = parseInt(numberPart, 10);
+  getquizById(ans);
 }
-)
+
+function getquizById(ans) {
+  deselectAnswer();  //清除選取的選項
+  currentQuiz = ans-1;
+  let currentQuizData = quizs[currentQuiz];
+  questionEl.innerText = currentQuizData.question;
+  a_text.innerText = currentQuizData.A;
+  b_text.innerText = currentQuizData.B;
+  c_text.innerText = currentQuizData.C;
+  d_text.innerText = currentQuizData.D;
+};
+
+var correctans = [];
+
+function correctans123() {
+  for(var i = 0; i < quizs.length; i++){
+    currentQuiz = i;
+    let currentQuizData = quizs[currentQuiz];
+    correctans.push(currentQuizData.correct);
+  }
+  if(correctans.length > quizs.length){
+    correctans.length = quizs.length;
+  }
+};
+
+function abc(){
+  var aa = 0;
+for(var a = 0 ; a<quizs.length;a++)
+{
+  if(testans[a] == correctans[a]){
+    aa+=1;
+    
+  }
+}
+console.log(aa);
+}
+
+const testbutton = document.getElementById("test");
+testbutton.addEventListener("click", () =>{
+  console.log(testans);
+  correctans123();
+  console.log(correctans);
+  abc();
+})
+
