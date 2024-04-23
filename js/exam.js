@@ -8,9 +8,8 @@ const d_text = document.getElementById("d-text");
 const backBtn = document.getElementById("back");
 const nextBtn = document.getElementById("next");
 const testans = [];
+const star = document.getElementById("star");
 let currentQuiz = 0; //當前測驗
-let score = 0;
-
 let quizs = [
   {
     question: "1. 下列文句何者有語病？",
@@ -91,7 +90,7 @@ let quizs = [
     C: "(C) 這個圖形不是正方形。",
     D: "(D) 無確切的結論。",
     correct: "C",
-  },
+  }
 ];
 testans.length = quizs.length;
 
@@ -134,8 +133,44 @@ function getSelected() {
 
 nextBtn.addEventListener("click", () => {
   currentQuiz++;
-  loadQuiz();
+  if(currentQuiz <= quizs.length - 1){
+    loadQuiz();
+  }
+  else if(currentQuiz >= quizs.length -1){
+    correctans123();
+    countscore();
+  };
+  if (currentQuiz >= quizs.length - 1){
+    document.getElementById("next").innerHTML="交卷"
+  }
+  else{
+    document.getElementById("next").innerHTML="下一題"
+  };
 })
+
+backBtn.addEventListener("click", () => {
+  currentQuiz--;
+  loadQuiz();
+  if (currentQuiz <= quizs.length - 1){
+    document.getElementById("next").innerHTML="下一題"
+  }
+});
+
+star.addEventListener("click", () => {
+  if(star.checked){
+    document.getElementById("s"+(currentQuiz+1)).style.display="flex";
+  }
+  else{
+    document.getElementById("s"+(currentQuiz+1)).style.display="none";
+  }
+})
+
+setblock();
+function setblock(){
+  for(var i = 1; i < quizs.length+1; i++){
+    document.getElementById("n"+i).style.height="50px";
+  }
+}
 
 const Abutton = document.getElementById("A");
 const Bbutton = document.getElementById("B");
@@ -175,11 +210,6 @@ Dbutton.addEventListener("click", () =>{
 //   }
 // });
 
-backBtn.addEventListener("click", () => {
-  currentQuiz--;
-  loadQuiz();
-});
-
 function changepage(elementId){
   var numberPart = elementId.slice(1);
   var ans = parseInt(numberPart, 10);
@@ -195,6 +225,12 @@ function getquizById(ans) {
   b_text.innerText = currentQuizData.B;
   c_text.innerText = currentQuizData.C;
   d_text.innerText = currentQuizData.D;
+  if(currentQuiz >= quizs.length - 1){
+    document.getElementById("next").innerHTML="交卷"
+  }
+  else{
+    document.getElementById("next").innerHTML="下一題"
+  };
 };
 
 var correctans = [];
@@ -210,23 +246,13 @@ function correctans123() {
   }
 };
 
-function abc(){
-  var aa = 0;
-for(var a = 0 ; a<quizs.length;a++)
+function countscore(){
+  var score = 0;
+for(var i = 0 ; i < quizs.length;i++)
 {
-  if(testans[a] == correctans[a]){
-    aa+=1;
-    
+  if(testans[i] == correctans[i]){
+    score+=1;
   }
 }
-console.log(aa);
+console.log(score);
 }
-
-const testbutton = document.getElementById("test");
-testbutton.addEventListener("click", () =>{
-  console.log(testans);
-  correctans123();
-  console.log(correctans);
-  abc();
-})
-
