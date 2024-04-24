@@ -63,6 +63,12 @@ body{
     align-items: center;
 }
 
+.header-icon img{
+    height: 40px;
+    width: 40px;
+    margin: 0 2px;
+}
+
 .header-icon a:hover{
     background-color: #034A8C;
 }
@@ -201,63 +207,166 @@ body{
     border-bottom: 1px solid #c0c0c0;
 }
 
-.body-content{
+.main{
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.main-main{
+    width: 800px;
     display: flex;
     flex-direction: column;
+    margin-right: 30vw;
+}
+
+.main-header{
+    display: flex;
+    background-color: white;
+    padding: 4px 0 3px;
+    margin-top: 20px;
+}
+
+.main-header-left{
+    margin-left: 250px;
+    width: 100px;
+}
+
+.main-header-right{
+    width: 100px;
+    margin-left: 250px;
+}
+
+.main-content{
+    display: flex;
+}
+
+.main-content::after{
+    width: 96%;
+    height: 1.2px;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.229);
+}
+
+.main .main-content:last-child::after{
+    height: 0;
+}
+
+.main-content-left{
+    width: 55%;
+}
+
+.main-content-right{
+    width: 45%;
+    display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    margin-top: 60px;
 }
 
-.topic{
-    background-color: #d9d9d9;
-    width: 1000px;
-    height: 600px;
-    margin-top: 60px;
+.item{
+    display: flex;
+    margin: 3rem 0;
+}
+
+.item-pic{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-pic img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.item-txt{
+    padding-left: 1.8rem;
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
-    box-shadow: 1px 1px 20px -3px;
+    width: 50%;
+    justify-content: space-between;
 }
 
-.topic-up-mid{
-    font-size: 30px;
+.item-txt h3{
+    text-align: end;
+}
+
+.main-sub{
+    width: 200px;
+    position: fixed;
+    top: 80px;
+    left: 80vw;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    height: 200px;
+}
+
+.main-sub-content{
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 40px;
-    font-weight: bold;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
 }
 
-.topic-up-button{
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
+.checkout-btn{
+    margin-top: 50px;
 }
 
-.topic-up-button button{
-    width: 120px;
+.checkout-btn, .checkout-back{
+    background-color: #1D85E7;
+    color: white;
+    display: block;
+    width: 200px;
     height: 40px;
-    border-radius: 10px;
-    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 12px;
+}
+
+.checkout .main .main-title{
+    justify-content: start;
+    margin-bottom: 1.4rem;
+}
+
+.main form h3{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 0.7rem;
+}
+
+.main form input{
     border: none;
+    padding: 0.4rem 1rem;
+    width: 80%;
+    margin-bottom: 1rem;
+    outline: none;
 }
 
-.topic-up-button button:hover{
-    background-color: #d9d9d9;
+.main form textarea{
+    width: 100%;
+    outline: none;
+    resize: none;
 }
 
-.topic-down{
-    width: 600px;
-    overflow-wrap: break-word;
-    height: fit-content;
-    margin: 30px 200px 20px 200px;
-    border-radius: 10px;
-    background-color: #FFFFFF;
-    overflow:auto;
-    scrollbar-width:thin;
-    padding: 5px;
+.checkout-form-pic{
+    display: flex;
+    justify-content: end;
+    margin-top: 1.2rem;
+    margin-bottom: -1rem;
+}
+
+.checkout .main-btn{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+.checkout .main-btn a{
+    width: 200px;
 }
 
 .footer{
@@ -268,5 +377,5 @@ body{
     align-items: center;
     justify-content: center;
     color: white;
-    margin-top: 100px;
+    margin-top: 300px;
 }

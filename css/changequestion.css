@@ -63,6 +63,12 @@ body{
     align-items: center;
 }
 
+.header-icon img{
+    height: 40px;
+    width: 40px;
+    margin: 0 2px;
+}
+
 .header-icon a:hover{
     background-color: #034A8C;
 }
@@ -206,58 +212,162 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
     margin-top: 60px;
 }
 
-.topic{
+.add-button{
+    margin-top: 20px;
+    width: 1200px;
+    display: flex;
+    justify-content: end;
+}
+
+#addBtn{
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1FA84C;
+    font-size: 20px;
+    font-weight: bold;   
+    color: white;
+    margin: 0 30px 10px 0;
+    border: none;
+    cursor: pointer;
+}
+
+.test-block{
+    width: 1200px;
+    height: 100px;
     background-color: #d9d9d9;
-    width: 1000px;
-    height: 600px;
-    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid white 10px;
+    margin: 20px 0;
+}
+
+.block-left{
+    margin: 0 20px;
+    height: 60px;
+    width: 800px;
+}
+
+.block-right{
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.modi{
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #006BCE;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    margin: 0 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.dele{
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #CB1D1D;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    margin: 0 10px;
+    border: none;
+    cursor: pointer;
+}
+
+dialog{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 40vw;
+    height: 80vh;
+    margin-left: -20vw;
+    margin-top: -40vh;
+    border: none;
+    padding: 20px;
+    border-radius: 20px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+dialog form{
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
-    box-shadow: 1px 1px 20px -3px;
 }
 
-.topic-up-mid{
-    font-size: 30px;
+.dialog-block{
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 40px;
-    font-weight: bold;
+    align-items: center;
+    margin: 10px 0;
+    width: 36vw;
+    height: 10vh;
 }
 
-.topic-up-button{
+.dialog-block h3{
+    width: 5vw;
+    margin-right: 1vw;
+}
+
+.dialog-block textarea{
+    width: 30vw;
+    height: 10vh;
+    font-size: 16px;
+}
+
+.dialog-block:nth-of-type(6){
+    height: 5vh;
+    margin-bottom: 3vh;
     display: flex;
-    justify-content: center;
-    margin-top: 40px;
 }
 
-.topic-up-button button{
-    width: 120px;
-    height: 40px;
-    border-radius: 10px;
-    font-size: 20px;
+.dialog-block .radio{
+    margin-left: 5vw;
+    display: flex;
+    align-items: center;
+}
+
+.dialog-block label{
+    font-size: 24px;
+}
+
+.dialog-block input{
+    height: 3vh;
+    margin: 0 2vw 0 1vw;
+}
+
+.dialog .button{
+    display: flex;
+}
+
+dialog button{
+    width: 6vw;
+    height: 6vh;
+    margin: 0 2vw;
     border: none;
-}
-
-.topic-up-button button:hover{
-    background-color: #d9d9d9;
-}
-
-.topic-down{
-    width: 600px;
-    overflow-wrap: break-word;
-    height: fit-content;
-    margin: 30px 200px 20px 200px;
     border-radius: 10px;
-    background-color: #FFFFFF;
-    overflow:auto;
-    scrollbar-width:thin;
-    padding: 5px;
+    background-color: #034A8C;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
 }
 
 .footer{

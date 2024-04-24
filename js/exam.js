@@ -103,7 +103,6 @@ function loadnum() {
 
 loadQuiz();
 function loadQuiz() {
-  deselectAnswer();  //清除選取的選項
 
   let currentQuizData = quizs[currentQuiz];
   questionEl.innerText = currentQuizData.question;
@@ -111,6 +110,27 @@ function loadQuiz() {
   b_text.innerText = currentQuizData.B;
   c_text.innerText = currentQuizData.C;
   d_text.innerText = currentQuizData.D;
+}
+
+function checkstar(){
+  var temp = document.getElementById("s"+(currentQuiz+1));
+  if (temp.style.display == ""){
+    star.checked = false;
+  }
+  else{
+    star.checked = true;
+  };
+  console.log(temp.style.display);
+}
+
+function checkSelected(){
+  temp = document.getElementById("o"+(currentQuiz+1)).innerText;
+  console.log(temp);
+  answerEl.forEach((answerEl) => {
+    if(temp == answerEl.id){
+      answerEl.checked = true;
+    }
+  });
 }
 
 function deselectAnswer() {
@@ -133,6 +153,9 @@ function getSelected() {
 
 nextBtn.addEventListener("click", () => {
   currentQuiz++;
+  checkstar();
+  deselectAnswer();
+  checkSelected();
   if(currentQuiz <= quizs.length - 1){
     loadQuiz();
   }
@@ -150,7 +173,9 @@ nextBtn.addEventListener("click", () => {
 
 backBtn.addEventListener("click", () => {
   currentQuiz--;
-  loadQuiz();
+  checkstar();
+  deselectAnswer();
+  checkSelected();
   if (currentQuiz <= quizs.length - 1){
     document.getElementById("next").innerHTML="下一題"
   }
@@ -161,7 +186,7 @@ star.addEventListener("click", () => {
     document.getElementById("s"+(currentQuiz+1)).style.display="flex";
   }
   else{
-    document.getElementById("s"+(currentQuiz+1)).style.display="none";
+    document.getElementById("s"+(currentQuiz+1)).style.display="";
   }
 })
 
@@ -214,10 +239,12 @@ function changepage(elementId){
   var numberPart = elementId.slice(1);
   var ans = parseInt(numberPart, 10);
   getquizById(ans);
+  checkstar();
+  deselectAnswer();
+  checkSelected();
 }
 
 function getquizById(ans) {
-  deselectAnswer();  //清除選取的選項
   currentQuiz = ans-1;
   let currentQuizData = quizs[currentQuiz];
   questionEl.innerText = currentQuizData.question;

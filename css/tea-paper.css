@@ -339,22 +339,6 @@ body{
     cursor: pointer;
 }
 
-.dele{
-    width: 100px;
-    height: 50px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #CB1D1D;
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    margin: 0 10px;
-    border: none;
-    cursor: pointer;
-}
-
 .footer{
     background-color: #177ede;
     width: 100vw;

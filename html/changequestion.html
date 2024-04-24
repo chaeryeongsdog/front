@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/tea-paper.css">
+    <link rel="stylesheet" href="../css/changequestion.css">
     <title>小專</title>
 </head>
 <body style="background-color:#ededed">
@@ -15,9 +15,8 @@
             <h1>網站名稱</h1>
         </div>
         <div class="header-user">            
-            <a href="../html/register.html" id="register">註冊</a>
-            <a href="../html/login.html" id="login">登入</a>
-            <span id="userid" ></span>
+            <a href="../html/register.html">註冊</a>
+            <a href="../html/login.html">登入</a>
             <div class="header-icon">
                 <a href="">
                     <img src="../image/cart.png" alt="">
@@ -47,18 +46,18 @@
                                     </a>
                                 </li>
                                 <li class = "nav-link">
-                                    <a href = "../html/tea-class.html"> 
+                                    <a href = "../html/stu-class.html"> 
                                         <i class='bx bx-book-open icon' ></i>
                                         <span class ="text nav-text">課程</span>
                                     </a>
                                 </li>
                                 <li class = "nav-link">
-                                    <a href = "../html/tea-paper.html"> 
+                                    <a href = "../html/stu-paper.html"> 
                                         <i class='bx bx-calculator icon'></i>
                                         <span class ="text nav-text">試卷</span>
                                     </a>
                                 </li>
-                                <li class = "nav-link" onclick="logout()">
+                                <li class = "nav-link">
                                     <a href = "#"> 
                                         <i class='bx bx-log-out icon'></i>
                                         <span class ="text nav-text">登出</span>
@@ -71,73 +70,93 @@
             </div>
         </div>
         <div class="body-content">
-            <div class="content-top">                
-                <nav class="class-bar">
-                    <a href="">
-                        <div class="class-button" style="background-color: #707070; color: white;">國文</div>
-                    </a>
-                    <a href="">
-                        <div class="class-button">數學</div>
-                    </a>
-                    <a href="">
-                        <div class="class-button">英文</div>
-                    </a>
-                    <a href="">
-                        <div class="class-button">自然</div>
-                    </a>
-                    <a href="">
-                        <div class="class-button">社會</div>
-                    </a>
-                </nav>
-                <div class="add-button">
-                    <a href="../file/addpaper.xlsx" download="試卷上傳格式.xlsx" id="downloadpaper">格式下載</a>
-                    <input type="file" id="addpaper">
-                    <label for="addpaper" id="addBtn">新增</label>
-                </div>
+            <div class="add-button">
+                <button id="addBtn" onclick="openDialog()">新增</label>
             </div>
             <div class="test">
                 <div class="test-block">
                     <div class="block-left">
-                        <h2>112年歷屆試題</h2>
-                        <div class="test-quan">40題</div>
+                        <h2>1.考試題目</h2>
                     </div>
                     <div class="block-right">
-                        <button class="modi">修改</button>
+                        <button class="modi" onclick="openDialog()">修改</button>
+                        <button class="dele">刪除</button>
                     </div>
                 </div>
                 <div class="test-block">
                     <div class="block-left">
-                        <h2>112年歷屆試題</h2>
-                        <div class="test-quan">40題</div>
+                        <h2>2.考試題目</h2>
                     </div>
                     <div class="block-right">
-                        <button class="modi">修改</button>
+                        <button class="modi" onclick="openDialog()">修改</button>
+                        <button class="dele">刪除</button>
                     </div>
                 </div>
                 <div class="test-block">
                     <div class="block-left">
-                        <h2>112年歷屆試題</h2>
-                        <div class="test-quan">40題</div>
+                        <h2>3.考試題目</h2>
                     </div>
                     <div class="block-right">
-                        <button class="modi">修改</button>
+                        <button class="modi" onclick="openDialog()">修改</button>
+                        <button class="dele">刪除</button>
                     </div>
                 </div>
                 <div class="test-block">
                     <div class="block-left">
-                        <h2>112年歷屆試題</h2>
-                        <div class="test-quan">40題</div>
+                        <h2>4.考試題目</h2>
                     </div>
                     <div class="block-right">
-                        <button class="modi">修改</button>
+                        <button class="modi" onclick="openDialog()">修改</button>
+                        <button class="dele">刪除</button>
                     </div>
                 </div>
             </div>
+            <dialog>
+                <form action="" name="change">
+                    <div class="dialog-block">
+                        <h3>題目：</h3>
+                        <textarea name="" id="">1. 下列文句何者有語病？</textarea>
+                    </div>
+                    <div class="dialog-block">
+                        <h3>選項A：</h3>
+                        <textarea name="" id="">他不但才華出眾，而且和藹可親</textarea>
+                    </div>
+                    <div class="dialog-block">
+                        <h3>選項B：</h3>
+                        <textarea name="" id="">幸虧你事先做好準備，否則災情慘重</textarea>
+                    </div>
+                    <div class="dialog-block">
+                        <h3>選項C：</h3>
+                        <textarea name="" id="">原來他有難言之隱，難怪總是愁眉不展</textarea>
+                    </div>
+                    <div class="dialog-block">
+                        <h3>選項D：</h3>
+                        <textarea name="" id="">與其讓你在事後落淚，難道讓你犯錯懊悔</textarea>
+                    </div>
+                    <div class="dialog-block">
+                        <h3>解答：</h3>
+                        <div class="radio">
+                            <label for="A">A</label>
+                            <input type="radio" name="Ans" id="A">
+                            <label for="B">B</label>
+                            <input type="radio" name="Ans" id="B">
+                            <label for="C">C</label>
+                            <input type="radio" name="Ans" id="C">
+                            <label for="D">D</label>
+                            <input type="radio" name="Ans" id="D" checked>
+                        </div>
+                    </div>
+                </form>
+                <div class="button">
+                    <button onclick="closeDialog()">儲存</button>
+                    <button onclick="closeDialog()">取消</button>
+                </div>
+            </dialog>
         </div>
     </div>
     <div class="footer">
         <footer>&copy; Copyright 2024 HTML.am</footer>
     </div>
-    <script src="../js/tea-paper.js"></script>
+    <script src="../js/changequestion.js"></script>
 </body>
 </html>

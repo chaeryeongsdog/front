@@ -2,7 +2,7 @@ function send(ItemName,element){
     var name = ItemName;
     var tempprice = element.querySelector('.price');
     var price = tempprice.textContent.slice(2);
-    var url ='./image/class.jpg';
+    var url ='../image/class.jpg';
     var time = new Date();
     var dueDate = new Date(time);
     dueDate.setFullYear(time.getFullYear()+1);

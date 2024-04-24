@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/tea-paper.css">
+    <link rel="stylesheet" href="../css/cart.css">
     <title>小專</title>
 </head>
 <body style="background-color:#ededed">
@@ -19,7 +19,7 @@
             <a href="../html/login.html" id="login">登入</a>
             <span id="userid" ></span>
             <div class="header-icon">
-                <a href="">
+                <a href="../87/cart.html">
                     <img src="../image/cart.png" alt="">
                 </a>
                 <a href="../html/#">
@@ -41,24 +41,24 @@
                             </li>
                             <ul class = "menu-links">
                                 <li class = "nav-link">
-                                    <a href = "index.html"> 
+                                    <a href = "../html/index.html"> 
                                         <i class='bx bx-home-alt icon' ></i>
                                         <span class ="text nav-text">首頁</span>
                                     </a>
                                 </li>
                                 <li class = "nav-link">
-                                    <a href = "../html/tea-class.html"> 
+                                    <a href = "../html/stu-class.html"> 
                                         <i class='bx bx-book-open icon' ></i>
                                         <span class ="text nav-text">課程</span>
                                     </a>
                                 </li>
                                 <li class = "nav-link">
-                                    <a href = "../html/tea-paper.html"> 
+                                    <a href = "../html/stu-paper.html"> 
                                         <i class='bx bx-calculator icon'></i>
                                         <span class ="text nav-text">試卷</span>
                                     </a>
                                 </li>
-                                <li class = "nav-link" onclick="logout()">
+                                <li class = "nav-link">
                                     <a href = "#"> 
                                         <i class='bx bx-log-out icon'></i>
                                         <span class ="text nav-text">登出</span>
@@ -70,74 +70,30 @@
                 </nav>
             </div>
         </div>
-        <div class="body-content">
-            <div class="content-top">                
-                <nav class="class-bar">
-                    <a href="">
-                        <div class="class-button" style="background-color: #707070; color: white;">國文</div>
-                    </a>
-                    <a href="">
-                        <div class="class-button">數學</div>
-                    </a>
-                    <a href="">
-                        <div class="class-button">英文</div>
-                    </a>
-                    <a href="">
-                        <div class="class-button">自然</div>
-                    </a>
-                    <a href="">
-                        <div class="class-button">社會</div>
-                    </a>
-                </nav>
-                <div class="add-button">
-                    <a href="../file/addpaper.xlsx" download="試卷上傳格式.xlsx" id="downloadpaper">格式下載</a>
-                    <input type="file" id="addpaper">
-                    <label for="addpaper" id="addBtn">新增</label>
+        <div class="main">
+            <div class="main-main">
+                <div class="main-header">
+                    <div class="main-header-left">課程名稱</div>
+                    <div class="main-header-right">價格</div>
+                </div>
+                <ul id="main-container">
+                    
+                </ul>
+                <div class="main-sub">
+                    <div class="main-sub-content">
+                        <p>總計:</p>
+                        <span id="price">$NT 33,000</span>
+                    </div>
+                    <a class="checkout-btn" href="./結帳.html">前往結帳</a><br>
+                    <a class="checkout-back" href="http://127.0.0.1:5500/front/html/stu-class.html">繼續購買</a>
                 </div>
             </div>
-            <div class="test">
-                <div class="test-block">
-                    <div class="block-left">
-                        <h2>112年歷屆試題</h2>
-                        <div class="test-quan">40題</div>
-                    </div>
-                    <div class="block-right">
-                        <button class="modi">修改</button>
-                    </div>
-                </div>
-                <div class="test-block">
-                    <div class="block-left">
-                        <h2>112年歷屆試題</h2>
-                        <div class="test-quan">40題</div>
-                    </div>
-                    <div class="block-right">
-                        <button class="modi">修改</button>
-                    </div>
-                </div>
-                <div class="test-block">
-                    <div class="block-left">
-                        <h2>112年歷屆試題</h2>
-                        <div class="test-quan">40題</div>
-                    </div>
-                    <div class="block-right">
-                        <button class="modi">修改</button>
-                    </div>
-                </div>
-                <div class="test-block">
-                    <div class="block-left">
-                        <h2>112年歷屆試題</h2>
-                        <div class="test-quan">40題</div>
-                    </div>
-                    <div class="block-right">
-                        <button class="modi">修改</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        </div>            
+    </div>    
     <div class="footer">
         <footer>&copy; Copyright 2024 HTML.am</footer>
     </div>
-    <script src="../js/tea-paper.js"></script>
+
+    <script src="../js/buyLesson.js"></script>
 </body>
 </html>
