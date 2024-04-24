@@ -1,209 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/changeuserdata.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/userdata.css" />
     <title>小專</title>
-</head>
-<body style="background-color:#ededed">
+  </head>
+  <body style="background-color: #ededed">
     <div class="header">
-        <div class="header-left">
-            <label for="sidebar-active" style="cursor: pointer;">
-                <img src="../image/sidebar-button.png">
-            </label>
-            <h1>網站名稱</h1>
+      <div class="header-left">
+        <label for="sidebar-active" style="cursor: pointer">
+          <img src="../image/sidebar-button.png" />
+        </label>
+        <h1>網站名稱</h1>
+      </div>
+      <div class="header-user">
+        <a href="../註冊/index.html">註冊</a>
+        <a href="../登入/index.html">登入</a>
+        <div class="header-icon">
+          <a href="../會員資料/index.html">
+            <img src="../image/User.png" alt="" height="40px" />
+          </a>
         </div>
-        <div class="header-user">
-                <a href="../註冊/index.html">註冊</a>
-                <a href="../登入/index.html">登入</a>           
-            <div class="header-icon">
-                <a href="../會員資料/index.html">
-                    <img src="../image/User.png" alt="" height="40px">
-                </a>
-            </div>
-        </div>
+      </div>
     </div>
     <div class="body">
-        <div class="body-sidebar">
-            <input type="checkbox" name="" id="sidebar-active">
-            <div class="sidebar-content" id="sidebar-content">
-                <nav class = "sidebar close">
-                    <div class = "menu-bar">
-                        <div class=" menu">
-                            <li class = "search-box">                      
-                                <i class='bx bx-search icon' ></i>
-                                 <input type="search" placeholder="Search...">
-                            </li>
-                            <ul class = "menu-links">
-                                <li class = "nav-link">
-                                    <a href = "../首頁/index.html"> 
-                                        <i class='bx bx-home-alt icon' ></i>
-                                        <span class ="text nav-text">首頁</span>
-                                    </a>
-                                </li>
-                                <li class = "nav-link">
-                                    <a href = "../學生-課程/index.html"> 
-                                        <i class='bx bx-book-open icon' ></i>
-                                        <span class ="text nav-text">課程</span>
-                                    </a>
-                                </li>
-                                <li class = "nav-link">
-                                    <a href = "../學生-試卷/index.html"> 
-                                        <i class='bx bx-calculator icon'></i>
-                                        <span class ="text nav-text">試卷</span>
-                                    </a>
-                                </li>
-                                <li class = "nav-link">
-                                    <a href = "../學生-課程/index.html"> 
-                                        <i class='bx bx-log-out icon'></i>
-                                        <span class ="text nav-text">已訂閱課程</span>
-                                    </a>
-                                </li>
-                                <li class = "nav-link">
-                                    <a href = "#"> 
-                                        <i class='bx bx-log-out icon'></i>
-                                        <span class ="text nav-text">測驗紀錄</span>
-                                    </a>
-                                </li>    
-                                <li class = "nav-link">
-                                    <a href = "#"> 
-                                        <i class='bx bx-log-out icon'></i>
-                                        <span class ="text nav-text">登出</span>
-                                    </a>
-                                </li>  
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
+      <div class="body-sidebar">
+        <input type="checkbox" name="" id="sidebar-active" />
+        <div class="sidebar-content" id="sidebar-content">
+          <nav class="sidebar close">
+            <div class="menu-bar">
+              <div class="menu">
+                <li class="search-box">
+                  <i class="bx bx-search icon"></i>
+                  <input type="search" placeholder="Search..." />
+                </li>
+                <ul class="menu-links">
+                  <li class="nav-link">
+                    <a href="../首頁/index.html">
+                      <i class="bx bx-home-alt icon"></i>
+                      <span class="text nav-text">首頁</span>
+                    </a>
+                  </li>
+                  <li class="nav-link">
+                    <a href="../學生-課程/index.html">
+                      <i class="bx bx-book-open icon"></i>
+                      <span class="text nav-text">課程</span>
+                    </a>
+                  </li>
+                  <li class="nav-link">
+                    <a href="../學生-試卷/index.html">
+                      <i class="bx bx-calculator icon"></i>
+                      <span class="text nav-text">試卷</span>
+                    </a>
+                  </li>
+                  <li class="nav-link">
+                    <a href="../學生-課程/index.html">
+                      <i class="bx bx-log-out icon"></i>
+                      <span class="text nav-text">已訂閱課程</span>
+                    </a>
+                  </li>
+                  <li class="nav-link">
+                    <a href="#">
+                      <i class="bx bx-log-out icon"></i>
+                      <span class="text nav-text">測驗紀錄</span>
+                    </a>
+                  </li>
+                  <li class="nav-link">
+                    <a href="#">
+                      <i class="bx bx-log-out icon"></i>
+                      <span class="text nav-text">登出</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
+          </nav>
         </div>
-        <div class="body-content">
-            <div class="userdata">
-                <div class = "content-left"> 
-                    <div class = "content-left-up">
-                        <p>學生專區</p>
-                    </div>
-                    <div class="content-left-down">
-                        <div class="up">
-                            <div class="username" >
-                                <p>使用者名稱</p>
-                            </div>
-                        </div>
-                        <div class="down"> 
-                                <a href="../html/userdata.html">
-                                <div class="down-block">
-                                    <p>返回</p>
-                                </div>
-                                </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="content-right">
-                    <div class = "content-right-up">
-                        <p>會員資料修改</p>
-                    </div>
-                    <div class="content-down1">
-                        <div class="down1">
-                            Email:
-                        </div>
-                        <div class="down1">
-                            0958546521@gmail.com
-                        </div>
-                    </div>
-                    <div class="content-down2">
-                        <div class="down1">
-                            Password:
-                        </div>                        
-                        <div class="down1">
-                            <input type="Password" type="password" style="text-align: center;" />
-                        </div>
-                        <div class="down2">
-                            <a href = "../html/changepassword.html" style="font-size: 20px;">
-                                <button>更改密碼</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="mid">
-                        <span>姓名:</span>
-                        <input type="text" style="text-align: center; font-size: 20px;">
-                    </div>
-                    <div class="mid">
-                        <span>年級:</span>
-                        <select name="年級" id="select" style="text-align: center; font-size: 20px;" >
-                            <option>請選擇你的年級</option>
-                            <option>國三</option>
-                            <option>國二</option>
-                            <option>國一</option>
-                        </select>
-                    </div>
-                    <div class="mid">
-                        <span>生日:</span>
-                        <select name="month" id="month"style="text-align: center;" >
-                            <option>請選擇</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option> 
-                        </select>
-                        <span class="bb" style="font-size: 20px;">月</span>
-                        <select name="month" id="month" style="text-align: center;">
-                            <option>請選擇</option>
-                            <option>01</option>
-                            <option>02</option>
-                            <option>03</option>
-                            <option>04</option>
-                            <option>05</option>
-                            <option>06</option>
-                            <option>07</option>
-                            <option>08</option>
-                            <option>09</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                            <option>13</option>
-                            <option>14</option>
-                            <option>15</option>
-                            <option>16</option>
-                            <option>17</option>
-                            <option>18</option>
-                            <option>19</option>
-                            <option>20</option>
-                            <option>21</option>
-                            <option>22</option>
-                            <option>23</option>
-                            <option>24</option>
-                            <option>25</option>
-                            <option>26</option>
-                            <option>27</option>
-                            <option>28</option>
-                            <option>29</option>
-                            <option>30</option>
-                            <option>31</option>
-                        </select>
-                        <span class="bb" style="font-size: 20px;">日</span>
-                    </div>
-                    <div class="body-up">
-                        <div class="body-up1">
-                            <button>存檔</button>
-                        </div> 
-                    </div>
-
-                
-                </div>
+      </div>
+      <div class="body-content">
+        <div class="userdata">
+          <div class="content-left">
+            <div class="content-left-up">
+              <p>會員專區</p>
             </div>
-        </div>        
+            <div class="content-left-down">
+              <a href="../html/userdata.html">
+                <div class="down-block">
+                  <p>會員資料</p>
+                </div>
+              </a>
+              <a href="../html/changeuserdata.html">
+                <div class="down-block">
+                  <p>更改密碼</p>
+                </div>
+              </a>
+              <a href="../html/stu-class.html">
+                <div class="down-block">
+                  <p>已購買課程</p>
+                </div>
+              </a>
+              <a href="../html/stu-paper.html">
+                <div class="down-block">
+                  <p>已作答試卷</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="content-right-up"></div>
+            <div class="content-down1">
+              <p>請輸入舊密碼</p>
+              <input />
+            </div>
+            <div class="content-down1">
+              <p>請輸入新密碼</p>
+              <input />
+            </div>
+            <div class="content-down1">
+              <p>請輸入新密碼確認</p>
+              <input />
+            </div>
+            <div class="content-right-down">
+              <button>確定修改</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="footer">
-        <footer>&copy; Copyright 2024 HTML.am</footer>
+      <footer>&copy; Copyright 2024 HTML.am</footer>
     </div>
-</body>
+  </body>
 </html>
