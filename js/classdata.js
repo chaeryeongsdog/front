@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded',function(){
     var token = localStorage.getItem('JwtToken');
     var userInfo = localStorage.getItem('userInfo');

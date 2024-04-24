@@ -6,8 +6,6 @@ function sendData() {
     var memberData = {
         Account,
     Password
-
-
     };
     console.log(memberData);
     var jsondata= JSON.stringify(memberData);
@@ -30,7 +28,10 @@ function sendData() {
         var members = data.members;
         localStorage.setItem('JwtToken',token);
         localStorage.setItem('userInfo',JSON.stringify(members));
+        if(data.members.role == "student")
         window.location.href='../html/index.html';
+        else
+        window.location.href='../html/tea-index.html';
         
     })
     .catch(error => {
