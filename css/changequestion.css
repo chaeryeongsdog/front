@@ -216,79 +216,8 @@ body{
     margin-top: 60px;
 }
 
-.content-top{
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-    margin-top: 20px;
-    width: 1200px;
-    border-bottom: solid white 10px;
-}
-
-.add-button{
-    display: flex;
-}
-
-#downloadpaper{
-    width: 100px;
-    height: 50px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1FA84C;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-    margin: 0 20px 10px 0;
-    border: none;
-    cursor: pointer;
-}
-
-#addBtn{
-    width: 100px;
-    height: 50px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1FA84C;
-    font-size: 20px;
-    font-weight: bold;   
-    color: white;
-    margin: 0 30px 10px 0;
-    border: none;
-    cursor: pointer;
-}
-
-#addpaper{
-    display: none;
-}
-
-
-.class-bar{    
-    display: flex;
-}
-
-.class-bar a{
-    text-decoration: none;
-    color: black;
-    margin: 0 1px;
-}
-
-.class-button{
-    width: 100px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #d9d9d9;
-    border-radius: 16px 16px 0 0;
-}
-
 .test{
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .test-block{
@@ -304,17 +233,8 @@ body{
 
 .block-left{
     margin: 0 20px;
-}
-
-.test-quan{
-    background-color: white;
-    width: 80px;
-    height: 24px;
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 16px;
+    height: 60px;
+    width: 800px;
 }
 
 .block-right{
@@ -331,6 +251,22 @@ body{
     justify-content: center;
     align-items: center;
     background-color: #006BCE;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    margin: 0 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.dele{
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #CB1D1D;
     font-size: 24px;
     font-weight: bold;
     color: white;
