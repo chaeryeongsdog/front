@@ -35,7 +35,7 @@
         totalPrice+=parseInt(product.price);
         productDiv.innerHTML = `
             <li class="main-content">
-            <div class="main-content-left">
+            <div class="main-content-left" style="border-bottom: 2px solid black;" >
                 <div class="item">
                     <div class="item-pic">
                         <img src="${product.url}" alt="">
@@ -46,16 +46,35 @@
                     </div>
                 </div>
             </div>
-            <div class="main-content-right">
+            <div class="main-content-right" style="border-bottom: 2px solid black;">
                 <span class="item-pice price">
                     <b>NT$ ${product.price}</b>
                 </span>
             </div>
         </li>
-        
         `;
         cartContainer.appendChild(productDiv);
     });
     document.querySelector('#price').innerHTML = 'NT' + totalPrice;
-    // <p>商品名称：${product.name}</p>
-    //         <p>价格：${product.price}</p>
+
+
+    
+document.addEventListener('DOMContentLoaded',function(){
+    var token = localStorage.getItem('JwtToken');
+    var userInfo = localStorage.getItem('userInfo');
+    const login = document.getElementById("login");
+    const register = document.getElementById("register");
+
+    if(userInfo){
+        var user = JSON.parse(userInfo);
+
+        if(login) login.style.display = 'none';
+        if(register) register.style.display ='none';
+        document.getElementById('userid').innerHTML=("歡迎:")+user.account;
+        // localStorage.removeItem('userInfo');
+        // localStorage.removeItem('JwtToken');
+    }
+
+});
+
+

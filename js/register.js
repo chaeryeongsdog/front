@@ -39,7 +39,7 @@ function sendData() {
     })
     .then(data => {
         console.log('Response from server:', data);
-        window.location.href = 'http://127.0.0.1:5500/front/html/index.html';
+        window.location.href = 'http://127.0.0.1:5500/front/html/login.html';
     })
     .catch(error => {
         console.error('There was a problem with the fetch operation:', error);

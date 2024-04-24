@@ -15,8 +15,9 @@
             <h1>網站名稱</h1>
         </div>
         <div class="header-user">
-                <a href="../註冊/index.html">註冊</a>
-                <a href="../登入/index.html">登入</a>           
+                <a href="../註冊/index.html" id="register">註冊</a>
+                <a href="../登入/index.html" id="login">登入</a>  
+                <span id="userid" ></span>          
             <div class="header-icon">
                 <a href="../會員資料/index.html">
                     <img src="../image/User.png" alt="" height="40px">
@@ -37,7 +38,7 @@
                             </li>
                             <ul class = "menu-links">
                                 <li class = "nav-link">
-                                    <a href = "../首頁/index.html"> 
+                                    <a href = "index.html"> 
                                         <i class='bx bx-home-alt icon' ></i>
                                         <span class ="text nav-text">首頁</span>
                                     </a>
@@ -205,5 +206,7 @@
     <div class="footer">
         <footer>&copy; Copyright 2024 HTML.am</footer>
     </div>
+
+    <script src="../js/changeuserdata.js"></script>
 </body>
 </html>

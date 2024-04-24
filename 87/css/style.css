@@ -346,6 +346,23 @@ body{
 }
 
 .checkout-btn{
+    border-radius: 10px;
+    background-color: #1D85E7;
+    color: white;
+    display: block;
+    width: 100%;
+    padding: 1rem 0;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    
+}
+.main-sub a:hover{
+    color: white;
+    background-color: #5DADE2 ;
+}
+.checkout-back{
+    border-radius: 10px;
     background-color: #1D85E7;
     color: white;
     display: block;
@@ -355,7 +372,10 @@ body{
     text-align: center;
     text-decoration: none;
 }
-
+.main-sub a:hover{
+    color: white;
+    background-color: #5DADE2 ;
+}
 .checkout .main .main-title{
     justify-content: start;
     margin-bottom: 1.4rem;
@@ -396,4 +416,13 @@ body{
 
 .checkout .main-btn a{
     width: 200px;
+}
+#userid{
+    display: flex; /* 讓 span 元素變成 inline-block 類型，可以應用 width */
+    height: 60px; /* 設置 span 元素的寬度為 100px */
+    justify-content: center;
+    align-items: center;
+    font-size: 16px; /* 調整文字大小 */
+    color:white;
+    padding: 0 12px;
 }

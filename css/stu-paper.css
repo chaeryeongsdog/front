@@ -317,3 +317,12 @@ body{
     color: white;
     margin-top: 100px;
 }
+#userid{
+    display: flex; /* 讓 span 元素變成 inline-block 類型，可以應用 width */
+    height: 60px; /* 設置 span 元素的寬度為 100px */
+    justify-content: center;
+    align-items: center;
+    font-size: 16px; /* 調整文字大小 */
+    color:white;
+    padding: 0 12px;
+}
