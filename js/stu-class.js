@@ -25,19 +25,21 @@ function send(ItemName,element){
     window.location.href="http://127.0.0.1:5500/front/87/cart.html";
 }
 
-// function send(element){
-//     const productName = element.getAttribute('data-name');
-//     var tempprice = element.querySelector('.price');
-// //     var price = tempprice.textContent.slice(2);
-//     const productsrc = element.getAttribute('data-src');
-//     const product = {
-//         name: productName,
-//         price: productPrice,
-//         src: productsrc
-//     };
-//     let cart = JSON.parse(localStorage.getItem('cart')) || []; 
-//     cart.push(product);
-//     localStorage.setItem('cart', JSON.stringify(cart));
-//     console.log(cart);
-//     //window.location.href="http://127.0.0.1:5500/front/87/cart.html";
-// }
+
+document.addEventListener('DOMContentLoaded',function(){
+    var token = localStorage.getItem('JwtToken');
+    var userInfo = localStorage.getItem('userInfo');
+    const login = document.getElementById("login");
+    const register = document.getElementById("register");
+
+    if(userInfo){
+        var user = JSON.parse(userInfo);
+
+        if(login) login.style.display = 'none';
+        if(register) register.style.display ='none';
+        document.getElementById('userid').innerHTML=("歡迎:")+user.account;
+        // localStorage.removeItem('userInfo');
+        // localStorage.removeItem('JwtToken');
+    }
+
+});
