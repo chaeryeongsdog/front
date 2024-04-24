@@ -15,8 +15,9 @@
             <h1>網站名稱</h1>
         </div>
         <div class="header-user">            
-            <a href="../html/register.html">註冊</a>
-            <a href="../html/login.html">登入</a>           
+            <a href="../html/register.html" id="register">註冊</a>
+            <a href="../html/login.html" id="login">登入</a>
+            <span id="userid" ></span>          
             <div class="header-icon">
                 <a href="">
                     <img src="../image/cart.png" alt="">
@@ -46,18 +47,18 @@
                                     </a>
                                 </li>
                                 <li class = "nav-link">
-                                    <a href = "../html/stu-class.html"> 
+                                    <a href = "../html/tea-class.html"> 
                                         <i class='bx bx-book-open icon' ></i>
                                         <span class ="text nav-text">課程</span>
                                     </a>
                                 </li>
                                 <li class = "nav-link">
-                                    <a href = "../html/stu-paper.html"> 
+                                    <a href = "../html/tea-paper.html"> 
                                         <i class='bx bx-calculator icon'></i>
                                         <span class ="text nav-text">試卷</span>
                                     </a>
                                 </li>
-                                <li class = "nav-link">
+                                <li class = "nav-link"  onclick="logout()">
                                     <a href = "#"> 
                                         <i class='bx bx-log-out icon'></i>
                                         <span class ="text nav-text">登出</span>
@@ -170,5 +171,7 @@
     <div class="footer">
         <footer>&copy; Copyright 2024 HTML.am</footer>
     </div>
+
+    <script src="../js/tea-class.js"></script>
 </body>
 </html>

@@ -4,10 +4,22 @@ function sendData() {
     var confirmPass=document.getElementById("comfirm_password").value;
     var Email = document.getElementById("gmail").value;
     const url = "http://localhost:5062/api/member/Register";
-    var Role = "string";
+
+    const radioButtons = document.querySelectorAll('input[name="iden"]');
+    function gettt(){
+    for(var i=0 ;i<radioButtons.length;i++){
+        const radioButton = radioButtons[i];
+        if (radioButton.checked) {
+            // 返回选中单选按钮的 id 属性值
+            return radioButton.id;
+        }
+    }}
+    var Role = gettt(); 
     var AuthCode = "string";
     var isDelete = true;
-    // 创建一个包含用户输入数据的 JavaScript 对象
+    
+
+    
     var memberData = {
         Account,
         Password,
@@ -16,6 +28,7 @@ function sendData() {
         isDelete,
         AuthCode
     };
+    console.log(memberData);
     if(Password != confirmPass){
         return document.getElementById("result").innerHTML="確認密碼輸入不正確";
     }
@@ -39,7 +52,7 @@ function sendData() {
     })
     .then(data => {
         console.log('Response from server:', data);
-        window.location.href = 'http://127.0.0.1:5500/front/html/login.html';
+        window.location.href = '../html/login.html';
     })
     .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
