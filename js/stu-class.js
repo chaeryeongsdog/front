@@ -22,7 +22,7 @@ function send(ItemName,element){
     if(cart.length >5){
         localStorage.removeItem('cart');
     }
-    window.location.href="http://127.0.0.1:5500/front/87/cart.html";
+    window.location.href="../87/cart.html";
 }
 
 
