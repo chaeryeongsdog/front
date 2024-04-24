@@ -70,13 +70,16 @@
             </div>
         </div>
         <div class="body-content">
+            <div class="add-button">
+                <button id="addBtn" onclick="openDialog()">新增</label>
+            </div>
             <div class="test">
                 <div class="test-block">
                     <div class="block-left">
                         <h2>1.考試題目</h2>
                     </div>
                     <div class="block-right">
-                        <button class="modi">修改</button>
+                        <button class="modi" onclick="openDialog()">修改</button>
                         <button class="dele">刪除</button>
                     </div>
                 </div>
@@ -85,7 +88,7 @@
                         <h2>2.考試題目</h2>
                     </div>
                     <div class="block-right">
-                        <button class="modi">修改</button>
+                        <button class="modi" onclick="openDialog()">修改</button>
                         <button class="dele">刪除</button>
                     </div>
                 </div>
@@ -94,7 +97,7 @@
                         <h2>3.考試題目</h2>
                     </div>
                     <div class="block-right">
-                        <button class="modi">修改</button>
+                        <button class="modi" onclick="openDialog()">修改</button>
                         <button class="dele">刪除</button>
                     </div>
                 </div>
@@ -103,16 +106,57 @@
                         <h2>4.考試題目</h2>
                     </div>
                     <div class="block-right">
-                        <button class="modi">修改</button>
+                        <button class="modi" onclick="openDialog()">修改</button>
                         <button class="dele">刪除</button>
                     </div>
                 </div>
             </div>
+            <dialog>
+                <form action="" name="change">
+                    <div class="dialog-block">
+                        <h3>題目：</h3>
+                        <textarea name="" id="">1. 下列文句何者有語病？</textarea>
+                    </div>
+                    <div class="dialog-block">
+                        <h3>選項A：</h3>
+                        <textarea name="" id="">他不但才華出眾，而且和藹可親</textarea>
+                    </div>
+                    <div class="dialog-block">
+                        <h3>選項B：</h3>
+                        <textarea name="" id="">幸虧你事先做好準備，否則災情慘重</textarea>
+                    </div>
+                    <div class="dialog-block">
+                        <h3>選項C：</h3>
+                        <textarea name="" id="">原來他有難言之隱，難怪總是愁眉不展</textarea>
+                    </div>
+                    <div class="dialog-block">
+                        <h3>選項D：</h3>
+                        <textarea name="" id="">與其讓你在事後落淚，難道讓你犯錯懊悔</textarea>
+                    </div>
+                    <div class="dialog-block">
+                        <h3>解答：</h3>
+                        <div class="radio">
+                            <label for="A">A</label>
+                            <input type="radio" name="Ans" id="A">
+                            <label for="B">B</label>
+                            <input type="radio" name="Ans" id="B">
+                            <label for="C">C</label>
+                            <input type="radio" name="Ans" id="C">
+                            <label for="D">D</label>
+                            <input type="radio" name="Ans" id="D" checked>
+                        </div>
+                    </div>
+                </form>
+                <div class="button">
+                    <button onclick="closeDialog()">儲存</button>
+                    <button onclick="closeDialog()">取消</button>
+                </div>
+            </dialog>
         </div>
     </div>
     <div class="footer">
         <footer>&copy; Copyright 2024 HTML.am</footer>
     </div>
-    <script src="../js/tea-paper.js"></script>
+    <script src="../js/changequestion.js"></script>
 </body>
 </html>
