@@ -27,7 +27,7 @@
     // document.querySelector('.main-container').innerHTML = mainContentHtml;
 
     
-    const cartData = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartData = JSON.parse(localStorage.getItem('aa')) || [];
     const cartContainer = document.getElementById('main-container');
     var totalPrice = 0;
     cartData.forEach(product => {

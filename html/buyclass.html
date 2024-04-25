@@ -14,7 +14,7 @@
             <label for="sidebar-active" style="cursor: pointer;">
                 <img src="../image/sidebar-button.png">
             </label>
-            <h1>網站名稱</h1>
+            <h1>會考會考</h1>
         </div>
         <div class="header-user">            
             <a href="../html/register.html" id="register">註冊</a>
@@ -93,8 +93,8 @@
             </div>
             <div class="right">
                 <div class="block">
-                    <h3>課程名稱</h3>
-                    <p>社會科會考總複習</p>
+                    <h3 id="name">課程名稱</h3>
+                    <p id="classname">社會科會考總複習</p>
                 </div>
                 <div class="block">
                     <h3>課程老師</h3>
@@ -102,14 +102,16 @@
                 </div>
                 <div class="block">
                     <h3>課程售價</h3>
-                    <p>$1000</p>
+                    <p id="price">NT1000</p>
                 </div>
-                <button id="add-cart">加入購物車</button>
+                <button id="add-cart" onclick="send()">加入購物車</button>
             </div>
         </div>
     </div>
     <div class="footer">
         <footer>&copy; Copyright 2024 HTML.am</footer>
     </div>
+
+    <script src="../js/buyclass.js"></script>
 </body>
 </html>

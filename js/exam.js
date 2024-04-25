@@ -10,6 +10,7 @@ const nextBtn = document.getElementById("next");
 const testans = [];
 const star = document.getElementById("star");
 let currentQuiz = 0; //當前測驗
+
 let quizs = [
   {
     question: "1. 下列文句何者有語病？",
@@ -93,7 +94,6 @@ let quizs = [
   }
 ];
 testans.length = quizs.length;
-
 loadnum();
 function loadnum() {
   for (var i = 1; i < quizs.length+1; i++) {
@@ -120,12 +120,10 @@ function checkstar(){
   else{
     star.checked = true;
   };
-  console.log(temp.style.display);
 }
 
 function checkSelected(){
   temp = document.getElementById("o"+(currentQuiz+1)).innerText;
-  console.log(temp);
   answerEl.forEach((answerEl) => {
     if(temp == answerEl.id){
       answerEl.checked = true;
@@ -159,11 +157,15 @@ nextBtn.addEventListener("click", () => {
   if(currentQuiz <= quizs.length - 1){
     loadQuiz();
   }
-  else if(currentQuiz >= quizs.length -1){
+  else if(currentQuiz == quizs.length){
     correctans123();
-    countscore();
+    console.log(correctans);
+    var anstemp = JSON.stringify(testans);
+    localStorage.setItem("correctans",JSON.stringify(correctans));
+    localStorage.setItem("testans",anstemp);
+    window.location.href = "../html/result.html";
   };
-  if (currentQuiz >= quizs.length - 1){
+  if (currentQuiz == quizs.length - 1){
     document.getElementById("next").innerHTML="交卷"
   }
   else{
@@ -272,17 +274,6 @@ function correctans123() {
     correctans.length = quizs.length;
   }
 };
-
-function countscore(){
-  var score = 0;
-for(var i = 0 ; i < quizs.length;i++)
-{
-  if(testans[i] == correctans[i]){
-    score+=1;
-  }
-}
-console.log(score);
-}
 
 document.addEventListener('DOMContentLoaded',function(){
   var token = localStorage.getItem('JwtToken');

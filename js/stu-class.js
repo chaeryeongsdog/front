@@ -7,7 +7,6 @@ function send(ItemName,element){
     var dueDate = new Date(time);
     dueDate.setFullYear(time.getFullYear()+1);
     var time = dueDate.toLocaleDateString();
-    
     var product = {
         name,
         price,
@@ -17,12 +16,12 @@ function send(ItemName,element){
 
     cart.push(product);
     
-    localStorage.setItem('cart', JSON.stringify(cart));
-    const max = 5;
-    if(cart.length >5){
-        localStorage.removeItem('cart');
-    }
-    window.location.href="../87/cart.html";
+    localStorage.setItem('product', JSON.stringify(product));
+    // const max = 5;
+    // if(cart.length >5){
+    //     localStorage.removeItem('cart');
+    // }
+    window.location.href="../html/buyclass.html";
 }
 
 

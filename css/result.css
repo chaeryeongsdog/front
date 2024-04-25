@@ -88,7 +88,7 @@ body{
 
 .body-sidebar{
   background-color: white;
-  width: 200px;
+  width: 300px;
   height: 100vh;
   float: left;
   overflow-y: scroll;
@@ -126,6 +126,15 @@ body{
   align-items: center;
 }
 
+span.wrong{
+  display: flex;
+  align-items: center;
+}
+
+.block span.wrong img{
+  display: flex;
+}
+
 .block img{
   width: 40px;
   display: none;
@@ -137,8 +146,8 @@ body{
     justify-content: center;
     align-items: center;
     width: 100vw;
-    margin-top: 60px;
-    margin-left: 200px;
+    margin-top: 80px;
+    margin-left: 300px;
   }
 
   .body-score{
@@ -171,6 +180,19 @@ body{
     padding: 30px;
   }
   
+  .stu-ans{
+    display: flex;
+    align-items: center;
+  }
+
+  .stu-ans h3{
+    margin-right: 20px;
+  }
+
+  #studentans{
+    color: red;
+  }
+
   .question ul{
     list-style: none;
   }
@@ -183,7 +205,7 @@ body{
   .question input[type=radio]{
     display: none;
   }
-  
+
   .body-exam #star{
     -webkit-appearance: none;
     -moz-appearance: none;

@@ -1,3 +1,40 @@
+function send(){
+    var text = document.getElementById('text').value;
+    var newpassword = document.getElementById('newpassword').value;
+    var newtext = document.getElementById('newtext').value;
+    var password ={
+        text,
+        newpassword,
+        newtext
+    }
+    var data = JSON.stringify(password);
+    console.log(data);
+    fetch('http://localhost:5062/api/member/changepassword',{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: data
+    })    .then(response => {
+        if (!response.ok) {
+            return Promise.reject(new Error('帳號或信箱輸入錯誤'))
+        }
+        return response.text();
+    })
+    .then(data => {
+        document.getElementById('TT').innerHTML=data;
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+        document.getElementById("TT").innerHTML = error.message;
+    });
+
+
+
+}
+
+
+
 
 document.addEventListener('DOMContentLoaded',function(){
     var token = localStorage.getItem('JwtToken');
