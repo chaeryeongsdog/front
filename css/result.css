@@ -1,13 +1,13 @@
 *{
     margin: 0;
     padding: 0;
-}
-
-body{
+  }
+  
+  body{
     overflow-x: hidden;
-}
-
-.header{
+  }
+  
+  .header{
     background-color: #034A8C;
     height: 60px;
     width: 100%;
@@ -15,19 +15,19 @@ body{
     justify-content: space-between;
     position: fixed;
     z-index: 100;
-}
-
-.header-left{
+  }
+  
+  .header-left{
     display: flex;
     align-items: center;
-}
-
-.header-left img{
+  }
+  
+  .header-left img{
     width: 40px;
     background-color: #034A8C;
-}
-
-.header-left h1{
+  }
+  
+  .header-left h1{
     font-size: 24px;
     color: white;
     text-decoration: none;
@@ -35,13 +35,13 @@ body{
     padding: 0 30px;
     display: flex;
     align-items: center;
-}
-
-.header-user{
+  }
+  
+  .header-user{
     display: flex;
-}
-
-.header-user a{
+  }
+  
+  .header-user a{
     padding: 0 12px;
     font-size: 16px;
     color: white;
@@ -50,252 +50,237 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.header-user a:hover{
+  }
+  
+  .header-user a:hover{
     color: #034A8C;
     background-color: white;
-}
-
-.header-icon{
+  }
+  
+  .header-icon{
     height: 60px;
     display: flex;
     align-items: center;
-}
-
-.header-icon img{
-    height: 40px;
-    width: 40px;
-    margin: 0 2px;
-}
-
-.header-icon a:hover{
+  }
+  
+  .header-icon a:hover{
     background-color: #034A8C;
-}
-
-.header-left label{
+  }
+  
+  .header-left label{
     display: flex;
     justify-content: center;
     margin: 0 10px;
-}
-
-.header-left img{
+  }
+  
+  .header-left img{
     width: 20px;
     height: 20px;
-}
-
-.body{
+  }
+  
+  .body{
     display: flex;
-    flex-direction: column;
-    justify-content: center;  
-}
-
-.body-sidebar{
-    display: flex;
-    flex-direction: column;
-    margin-top: 60px;
-    position: fixed;
-    z-index: 98;
-    top: 0;
-}
-
-.sidebar-content {
-    width: 260px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    padding: 50px 10px;
-    position: absolute;
-    z-index: 99;
-    transform: translateX(-100%);
-    transition: 0.5s;
-}
-
-#sidebar-active {
-    position: absolute;
-    opacity: 0;
-    z-index: -1;
-}
-
-#sidebar-active:checked+#sidebar-content {
-    transform: translateX(0);
-}
-
-:root {
-    --primary-color: #695CFE;
-    --primary-color-light: #F6F5FF;
-    --text-color: #707070;
-    --sidebar-color: #d9d9d9;
-}
-
-.sidebar .text {
-    font-size: 16px;
-    font-weight: 500;
-    columns: var(--text-color);
-    transition: var(--tran-03);
-    white-space: nowrap;
-    opacity: 1;
-}
-
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 250px;
-    padding: 10px 14px;
-    background-color: var(--sidebar-color);
-    transition: var(--tran-05);
-}
-
-.sidebar li {
-    height: 50px;
-    margin-top: 10px;
-    list-style: none;
-    display: flex;
-    align-items: center;
-}
-
-.sidebar li .icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 60px;
-    font-size: 20px;
-}
-
-.sidebar li .icon,
-.sidebar li .text {
-    color: var(--text-color);
-    transition: var(--tran-02);
-}
-
-.sidebar .search-box {
-    background: var(--primary-color-light);
-    border-radius: 6px;
-}
-
-.search-box input {
-    height: 100%;
-    width: 100%;
-    outline: none;
-    border: none;
-    border-radius: 6px;
-    background: var(--primary-color-light);
-}
-
-.sidebar li a {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: var(--tran-04);
-}
-
-.sidebar li a:hover {
-    background: var(--primary-color-light);
-}
-
-.sidebar li a:hover .icon,
-.sidebar li a:hover .text {
-    color: var(--sidebar-color);
-}
-
-.menu-links .nav-link {
-    border-bottom: 1px solid #c0c0c0;
-}
-
-.body-content{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 60px;
-}
-
-.body-left{
-    margin: 30px 0 0 80px;
-}
-
-.test-title{
-    margin-left: 20px;
-}
-
-.test-title h2{
-    margin: 10px 0;
-}
-
-.body-exam{
+  }
+  
+  .body-sidebar{
     background-color: white;
-    margin-top: 30px;
+    width: 250px;
+    height: 100vh;
+    float: left;
+    overflow-y: scroll;
+    position: fixed;
+    margin-top: 60px;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar-content{
+    margin: 10px 0 60px 10px;
+  }
+  
+  .body-sidebar .block{
+    width: 160px;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+  }
+  
+  .block span.num{
+    width: 40px;
+    margin-right: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    color: #034A8C;
+  }
+  
+  .block span.opt{
+    width: 40px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .block img{
+    width: 40px;
+    display: none;
+  }
+  
+  .body-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    margin-top: 60px;
+    margin-left: 200px;
+  }
+
+  .body-score{
+    margin-top: 10px;
     width: 1000px;
-    height: 360px;
+    font-size: 20px;
+  }
+
+  .body-score h3{
+    margin: 2px 0;
+  }
+
+  .body-score h3:nth-of-type(3){
+    color: red;
+  }
+  
+  .body-exam{
+    background-color: white;
+    margin-top: 20px;
+    width: 1100px;
+    height: 320px;
     border-radius: 30px;
     font-size: 20px;
     display: flex;
     flex-direction: row;
-}
-
-.body-exam-left{
-    width: 780px;
-    padding: 20px 30px;
-}
-
-.que-title{
-    display: flex;
-}
-
-.que-title img{
-    width: 26px;
-    height: 26px;
-    margin-left: 10px;
-}
-
-.question{
+  }
+  
+  .body-exam-que{
+    width: 1200px;
+    padding: 30px;
+  }
+  
+  .question ul{
+    list-style: none;
+  }
+  
+  .question li{
     margin: 20px 0 0 20px;
-    line-height: 36px;
-}
-
-.body-exam-right{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: end;
-}
-
-.body-exam-right #star{
+    line-height: 32px;
+  }
+  
+  .question input[type=radio]{
+    display: none;
+  }
+  
+  .body-exam #star{
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     background: url(../image/Star.png);
-    width: 70px;
+    width: 100px;
     height: 60px;
     margin: 10px 12px;
-}
-
-.body-exam-right #star:checked{
+  }
+  
+  .body-exam #star:checked{
     background: url(../image/Star_fill.png);
-}
-
-.body-exam-right h2{
-    font-size: 30px;
-    margin: 0 20px 20px 0;
-}
-
-.body-ans{
-    margin-top: 100px;
-    font-size: 20px;
-}
-
-.body-num{
-    margin-top: 30px;
-    width: 1000px;
+  }
+  
+  .body-ans form{
+    margin-top: 20px;
+    width: 760px;
     display: flex;
     justify-content: space-between;
-}
-
-.body-num button{
+  }
+  
+  .body-ans input:hover{
+    cursor: pointer;
+  }
+  
+  #A{
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    display: inline-block;
+    width: 100px;
+    height: 60px;
+    margin: 15px 5px 0 0;
+    background: url(../image/A.png);
+    background-size: cover;
+  }
+  
+  #A:checked{
+    background: url(../image/A\ \(1\).png);
+    background-size: cover;
+  }
+  
+  #B{
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    display: inline-block;
+    width: 100px;
+    height: 60px;
+    margin: 15px 5px 0 0;
+    background: url(../image/B.png);
+    background-size: cover;
+  }
+  
+  #B:checked{
+    background: url(../image/B\ \(1\).png);
+    background-size: cover;
+  }
+  
+  #C{
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    display: inline-block;
+    width: 100px;
+    height: 60px;
+    margin: 15px 5px 0 0;
+    background: url(../image/C.png);
+    background-size: cover;
+  }
+  
+  #C:checked{
+    background: url(../image/C\ \(1\).png);
+    background-size: cover;
+  }
+  
+  #D{
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    display: inline-block;
+    width: 100px;
+    height: 60px;
+    margin: 15px 5px 0 0;
+    background: url(../image/D.png);
+    background-size: cover;
+  }
+  
+  #D:checked{
+    background: url(../image/D\ \(1\).png);
+    background-size: cover;
+  }
+  
+  .body-next{
+    margin-top: 30px;
+    width: 1100px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .body-next button{
     width: 80px;
     height: 40px;
     font-size: 20px;
@@ -304,45 +289,9 @@ body{
     border: none;
     border-radius: 10px;
     cursor: pointer;
-}
-
-.body-right{
-    background-color: white;
-    width: 360px;
-    height: 580px;
-    margin: 30px 30px 0 0;
-    border-radius: 20px;
-    display: flex;
-}
-
-.num-block{
-    width: 300px;
-    display: flex;
-    flex-direction: column  ;
-    font-size: 24px;
-    margin: 12px 0 0 16px;
-}
-
-.block{
-    display: flex;
-}
-
-.block img{
-    width: 28px;
-    height: 28px;
-    margin-left: 10px;
-}
-
-.block .num{
-    width: 20px;
-    margin-right: 40px;
-}
-
-.block .num a{
-    text-decoration: none;
-    color: #034A8C;
-}
-#userid{
+  }
+  
+  #userid{
     display: flex; /* 讓 span 元素變成 inline-block 類型，可以應用 width */
     height: 60px; /* 設置 span 元素的寬度為 100px */
     justify-content: center;
@@ -350,4 +299,4 @@ body{
     font-size: 16px; /* 調整文字大小 */
     color:white;
     padding: 0 12px;
-}
+  }
