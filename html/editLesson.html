@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/editLesson.css">
+    <title>小專</title>
+</head>
+<body style="background-color:#ededed">
+    <div class="header">
+        <div class="header-left">
+            <label for="sidebar-active" style="cursor: pointer;">
+                <img src="../image/sidebar-button.png">
+            </label>
+            <h1>會考會考</h1>
+        </div>
+        <div class="header-user">            
+            <a href="../html/register.html" id="register">註冊</a>
+            <a href="../html/login.html" id="login">登入</a>
+            <span id="userid" ></span>
+            <div class="header-icon">
+                <a href="../html/cart.html">
+                    <img src="../image/cart.png" alt="">
+                </a>
+                <a href="../html/userdata.html">
+                    <img src="../image/User.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="body">
+        <div class="body-sidebar">
+            <input type="checkbox" name="" id="sidebar-active">
+            <div class="sidebar-content" id="sidebar-content">
+                <nav class = "sidebar close">
+                    <div class = "menu-bar">
+                        <div class=" menu">
+                            </li>
+                            <ul class = "menu-links">
+                                <li class = "nav-link">
+                                    <a href = "../html/index.html"> 
+                                        <i class='bx bx-home-alt icon' ></i>
+                                        <span class ="text nav-text">首頁</span>
+                                    </a>
+                                </li>
+                                <li class = "nav-link">
+                                    <a href = "../html/stu-class.html"> 
+                                        <i class='bx bx-book-open icon' ></i>
+                                        <span class ="text nav-text">課程</span>
+                                    </a>
+                                </li>
+                                <li class = "nav-link">
+                                    <a href = "../html/stu-paper.html"> 
+                                        <i class='bx bx-calculator icon'></i>
+                                        <span class ="text nav-text">試卷</span>
+                                    </a>
+                                </li>
+                                <li class = "nav-link">
+                                    <a href = "#"> 
+                                        <i class='bx bx-log-out icon'></i>
+                                        <span class ="text nav-text">已訂閱課程</span>
+                                    </a>
+                                </li>
+                                <li class = "nav-link">
+                                    <a href = "#"> 
+                                        <i class='bx bx-log-out icon'></i>
+                                        <span class ="text nav-text">測驗紀錄</span>
+                                    </a>
+                                </li>    
+                                <li class = "nav-link" onclick="logout()">
+                                    <a href = "#"> 
+                                        <i class='bx bx-log-out icon'></i>
+                                        <span class ="text nav-text">登出</span>
+                                    </a>
+                                </li>  
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="body-content">
+            <div class="content-up">
+                <div class="content-left">
+                    <div class="up-topic">
+                        新增課程
+                    </div>
+                    <div class="down-body">
+                        <div class="down-body1">
+                            選擇科目
+                        </div>
+                        <div class="down-body2">
+                            <select name="" id="select">
+                                <option>請選擇</option>
+                                <option>國文</option>
+                                <option>英文</option>
+                                <option>數學</option>
+                                <option>自然</option>
+                                <option>社會</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="down-body">
+                        <div class="down-body1">
+                            課程名稱
+                        </div>
+                        <div class="down-body2">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="down-body">
+                        <div class="down-body1">
+                            課程價格
+                        </div>
+                        <div class="down-body2">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="down-body">
+                        <div class="down-body1">
+                            課程介紹
+                        </div>
+                        <div class="down-body3">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="down-body">
+                        <div class="down-body1">
+                            影片連結
+                        </div>
+                        <div class="down-body2">
+                            <input type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="content-right">
+                   <a href="https://www.youtube.com/watch?v=TnfO1zGe8Rw">
+                    <div class="right1">
+                        <iframe width="300px" height="250px" src="https://www.youtube.com/embed/TnfO1zGe8Rw?si=eGroS0dMagS4n4NF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    </a>
+                    <div class="right2">
+                        影片預覽
+                    </div>
+                </div>
+            </div>
+            <div class="up-button">
+                <div class="button1" type="button">
+                    <button>完成</button>
+                </div>
+            </div>
+        </div>
+    <div class="footer">
+        <footer>&copy; Copyright 2024 HTML.am</footer>
+    </div>
+</body>
+</html>
