@@ -34,6 +34,9 @@
                 <div class="block">
                     <span class="num" id="n1" onclick="changepage('n1')"></span>
                     <span class="opt" id="o1"></span>
+                    <span class="wrong">
+                        <img src="" alt="" id="w1" width="40px">
+                    </span>
                     <img src="../image/Star_fill.png" alt="" id="s1">
                 </div>
                 <div class="block">
@@ -242,7 +245,10 @@
             <div class="body-exam">
                 <div class="body-exam-que" id="container">
                     <div class="question">
-                        <h3 id="question">Question Test</h3>
+                        <div class="stu-ans">
+                            <h3 id="question">Question Test</h3>
+                            <h3 id="studentans">C</h3>
+                        </div>
                         <ul>
                             <!-- 題目一 -->
                             <li>
@@ -263,22 +269,26 @@
                         </ul>
                     </div>
                 </div>
-                <input type="checkbox" id="star">
+                <div class="exam-right">
+                    <input type="checkbox" id="star">
+                    <h2>解答：<label id="correct" style="color: red;"></label></h2>
+                </div>
             </div>
-            <div class="body-ans">
+            <!-- <div class="body-ans">
                 <form action="" id="ansform">
                     <input type="radio" id="A" name="answer" class="answer">
                     <input type="radio" id="B" name="answer" class="answer">
                     <input type="radio" id="C" name="answer" class="answer">
                     <input type="radio" id="D" name="answer" class="answer">
                 </form>
-            </div>
+            </div> -->
             <div class="body-next">
                 <button id="back">上一題</button>
                 <button id="next">下一題</button>
+                <button onclick="countscore()">123</button>
             </div>
         </div>
     </div>
-    <script src="../js/exam.js"></script>
+    <script src="../js/result.js"></script>
 </body>
 </html>

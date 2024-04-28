@@ -63,6 +63,10 @@ body{
   align-items: center;
 }
 
+.header-icon img{
+  width: 40px;
+}
+
 .header-icon a:hover{
   background-color: #034A8C;
 }
