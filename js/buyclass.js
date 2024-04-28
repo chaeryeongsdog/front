@@ -2,8 +2,10 @@
 const cartData = JSON.parse(localStorage.getItem('product')) ;
 console.log("name:",cartData.name);
 console.log("price",cartData.price);
+console.log("content:",cartData.content);
 document.getElementById('classname').innerHTML= cartData.name;
 document.getElementById('price').innerHTML= cartData.price;
+document.getElementById('contentt').innerHTML=cartData.content;
 
 function send(){
     var name = document.getElementById('classname').innerText;

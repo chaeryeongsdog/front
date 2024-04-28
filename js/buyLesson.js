@@ -32,7 +32,7 @@
     var totalPrice = 0;
     cartData.forEach(product => {
         const productDiv = document.createElement('div');
-        totalPrice+=parseInt(product.price);
+        totalPrice+=parseInt(product.price);  
         productDiv.innerHTML = `
             <li class="main-content">
             <div class="main-content-left" style="border-bottom: 2px solid black;" >
