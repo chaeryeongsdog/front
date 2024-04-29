@@ -5,6 +5,7 @@
 
 body{
     overflow-x: hidden;
+    height: 100%;
 }
 
 .header{
@@ -87,7 +88,9 @@ body{
 .body{
     display: flex;
     flex-direction: column;
-    justify-content: center;  
+    justify-content: center;
+    min-height: 100vh;
+    margin-bottom: -40px;
 }
 
 .body-sidebar{
@@ -211,10 +214,12 @@ body{
     margin-top: 60px;
     display: flex;
     justify-content: center;
+    padding-bottom: 80px;
 }
 
 .left {
     width: 800px;
+    height: 400px;
     font-size: 20px;
     background-color: white;
     margin-top: 20px;
@@ -228,10 +233,12 @@ body{
 
 .right {
     width: 300px;
+    height: 400px;
     background-color: white;
     margin-top: 20px;
     margin-left: 40px;
     border-radius: 20px;
+    padding: 20px;
 }
 
 .block{
@@ -282,6 +289,4 @@ body{
     align-items: center;
     justify-content: center;
     color: white;
-    position: absolute;
-    margin-top: 100px;
 }
