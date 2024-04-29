@@ -5,6 +5,7 @@
 
 body{
     overflow-x: hidden;
+    height: 100%;
 }
 
 .header{
@@ -87,7 +88,9 @@ body{
 .body{
     display: flex;
     flex-direction: column;
-    justify-content: center;  
+    justify-content: center;
+    min-height: 100vh;
+    margin-bottom: -40px;
 }
 
 .body-sidebar{
@@ -212,7 +215,18 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100vw;
     margin-top: 60px;
+    padding-bottom: 80px;
+}
+
+.body-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    padding-bottom: 80px;
 }
 
 .add-button{
@@ -378,5 +392,4 @@ dialog button{
     align-items: center;
     justify-content: center;
     color: white;
-    margin-top: 100px;
 }

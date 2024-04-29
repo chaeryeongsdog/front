@@ -5,6 +5,7 @@
 
 body{
     overflow-x: hidden;
+    height: 100%;
 }
 
 .header{
@@ -87,7 +88,9 @@ body{
 .body{
     display: flex;
     flex-direction: column;
-    justify-content: center;  
+    justify-content: center;
+    min-height: 100vh;
+    margin-bottom: -40px;
 }
 
 .body-sidebar{
@@ -214,6 +217,7 @@ body{
     align-items: center;
     width: 100vw;
     margin-top: 60px;
+    padding-bottom: 80px;
 }
 
 .content-board{
