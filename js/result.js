@@ -118,6 +118,41 @@ function countscore(){
   document.getElementById("score").innerHTML=`分數：${score} / ${quizs.length} 題`
 }
 
+showStuAns();
+function showStuAns(){
+  for(var i = 0; i < quizs.length; i++){
+    document.getElementById("o"+(i+1)).innerHTML=bb[i]
+  }
+}
+
+TrueOrFalse();
+function TrueOrFalse(){
+  for(var i = 0; i < quizs.length; i++){
+    if(aa[i] == bb[i]){
+      document.getElementById("w"+(i+1)).src = yes;
+    }
+    else{
+      document.getElementById("w"+(i+1)).src = wrong;
+    }
+  }
+  
+}
+
+showstar();
+function showstar(){
+  const starArray = localStorage.getItem("starArray")
+  var cc = starArray.split(',');
+  console.log(cc)
+  for(var i = 0; i < quizs.length; i++){
+    if(cc[i] == "Y"){
+      document.getElementById("s"+(i+1)).style.display = "flex"
+    }
+    else{
+      document.getElementById("s"+(i+1)).style.display = ""
+    }
+  }
+}
+
 loadstuans();
 function loadstuans(){
   document.getElementById("studentans").innerHTML=bb[currentQuiz]

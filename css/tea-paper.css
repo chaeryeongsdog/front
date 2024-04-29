@@ -341,6 +341,7 @@ body{
     margin: 0 10px;
     border: none;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .footer{
