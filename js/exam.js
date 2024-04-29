@@ -122,6 +122,20 @@ function checkstar(){
   };
 }
 
+function sendStar(){
+  var starArray = [];
+  for(var i = 1; i < quizs.length+1; i++){
+    if(document.getElementById("s"+i).style.display == "flex"){
+      starArray.push("Y");
+    }
+    else{
+      starArray.push("N");
+    }
+  }
+  console.log(starArray);
+  localStorage.setItem("starArray",starArray);
+}
+
 function checkSelected(){
   temp = document.getElementById("o"+(currentQuiz+1)).innerText;
   answerEl.forEach((answerEl) => {
@@ -164,6 +178,7 @@ nextBtn.addEventListener("click", () => {
     localStorage.setItem("correctans",JSON.stringify(correctans));
     localStorage.setItem("testans",anstemp);
     window.location.href = "../html/result.html";
+    sendStar();
   };
   if (currentQuiz == quizs.length - 1){
     document.getElementById("next").innerHTML="交卷"

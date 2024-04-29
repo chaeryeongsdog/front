@@ -138,9 +138,18 @@ function TrueOrFalse(){
   
 }
 
+showstar();
 function showstar(){
+  const starArray = localStorage.getItem("starArray")
+  var cc = starArray.split(',');
+  console.log(cc)
   for(var i = 0; i < quizs.length; i++){
-
+    if(cc[i] == "Y"){
+      document.getElementById("s"+(i+1)).style.display = "flex"
+    }
+    else{
+      document.getElementById("s"+(i+1)).style.display = ""
+    }
   }
 }
 
