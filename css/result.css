@@ -88,7 +88,7 @@ body{
 
 .body-sidebar{
   background-color: white;
-  width: 300px;
+  width: 260px;
   height: 100vh;
   float: left;
   overflow-y: scroll;
@@ -137,6 +137,7 @@ span.wrong{
 
 .block img{
   width: 40px;
+  margin-left: 10px;
   display: none;
 }
 

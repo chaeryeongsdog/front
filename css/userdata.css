@@ -453,7 +453,6 @@ body{
   justify-content: center;
   color: white;
   position: absolute;
-  margin-top: 100px;
 }
 .mid .year {
   display: flex;
