@@ -388,3 +388,7 @@ body{
     color:white;
     padding: 0 12px;
 }
+
+#delete-cart{
+    cursor: pointer;
+}

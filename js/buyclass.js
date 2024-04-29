@@ -1,8 +1,5 @@
 
 const cartData = JSON.parse(localStorage.getItem('product')) ;
-console.log("name:",cartData.name);
-console.log("price",cartData.price);
-console.log("content:",cartData.content);
 document.getElementById('classname').innerHTML= cartData.name;
 document.getElementById('price').innerHTML= cartData.price;
 document.getElementById('contentt').innerHTML=cartData.content;
@@ -22,7 +19,7 @@ function send(){
         url,
         time};
     let aa = JSON.parse(localStorage.getItem('aa')) || [];
-        console.log(abc);
+    console.log(abc);
     aa.push(abc);
     
     localStorage.setItem('aa', JSON.stringify(aa));
@@ -30,7 +27,32 @@ function send(){
     if(aa.length >5){
         localStorage.removeItem('aa');
     }
+    var jsondata = JSON.stringify(abc);
+    var token = localStorage.getItem('JwtToken');
+    var book =localStorage.getItem('book');
+    fetch("http://localhost:5062/api/Book/AddToCart",{
+      method:'POST',
+      headers:{
+        'Content-Type' : 'application/json',
+        'Authorization':`Bearer ${token}`
+      },
+      body: book
+    })
+    .then(res => {
+        if(!res.ok){
+            return (res);
+            return Promise.reject(new Error('沒有傳入到後端'))
+        }
+        return res.text();
+    })
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('Problem:',error);
+    })
     window.location.href="cart.html";
+
 }
 
 

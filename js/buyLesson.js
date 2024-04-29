@@ -30,11 +30,12 @@
     const cartData = JSON.parse(localStorage.getItem('aa')) || [];
     const cartContainer = document.getElementById('main-container');
     var totalPrice = 0;
+    var idd = localStorage.getItem('book');
     cartData.forEach(product => {
         const productDiv = document.createElement('div');
         totalPrice+=parseInt(product.price);  
         productDiv.innerHTML = `
-            <li class="main-content">
+            <li class="main-content" id="bookk">
             <div class="main-content-left" style="border-bottom: 2px solid black;" >
                 <div class="item">
                     <div class="item-pic">
@@ -50,6 +51,10 @@
                 <span class="item-pice price">
                     <b>NT$ ${product.price}</b>
                 </span>
+                
+            </div>
+            <div>
+            <a class="checkout-btn" id="delete-cart" style ="margin-top:85px;" onclick="deletee()">刪除</a><br>
             </div>
         </li>
         `;
@@ -58,7 +63,22 @@
     document.querySelector('#price').innerHTML = 'NT' + totalPrice;
 
 
-    
+function deletee(){
+    var token = localStorage.getItem('JwtToken');
+fetch('http://localhost:5062/api/Book/RemoveFromCart',{
+    method:'POST',
+      headers:{
+        'Content-Type' : 'application/json',
+        'Authorization':`Bearer ${token}`
+      }
+    })
+    .then(res => res.text())
+    .then(data => {
+        console.log(data);
+    })
+}
+
+
 document.addEventListener('DOMContentLoaded',function(){
     var token = localStorage.getItem('JwtToken');
     var userInfo = localStorage.getItem('userInfo');

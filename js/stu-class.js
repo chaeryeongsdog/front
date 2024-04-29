@@ -1,6 +1,7 @@
 function send(ItemName,element){
     var name = ItemName;
     var tempprice = element.querySelector('.price');
+    var lessonID = element.getAttribute('id');
     var price = tempprice.textContent.slice(2);
     var url ='../image/class.jpg';
     var time = new Date();
@@ -15,16 +16,26 @@ function send(ItemName,element){
         time,
         content};
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
+    var aa = new Date();
+    var temptime = new Date(aa);
+    temptime.setFullYear(aa.getFullYear()+1);
+    var endTime = temptime.toLocaleDateString();
+    var startTime = aa.toLocaleDateString();
+    var account = element.getAttribute('account');
+    console.log("account:",account);
+    var temp ={
+        lessonID
+    }
+    localStorage.setItem('book',JSON.stringify(temp));
     cart.push(product);
-    
+    console.log(product);
+    console.log(temp);
     localStorage.setItem('product', JSON.stringify(product));
     const max = 5;
     if(cart.length >5){
         localStorage.removeItem('cart');
     }
     window.location.href="../html/buyclass.html";
-    
 }
 
 
@@ -63,6 +74,7 @@ document.addEventListener('DOMContentLoaded',function(){
         if (!container) {
             console.error('Could not find element with id "body-class".');
             return;}
+        console.log(data);
         data.forEach(DD => {
             const divtemp = document.createElement('div');
             function takeName(){
@@ -79,7 +91,7 @@ document.addEventListener('DOMContentLoaded',function(){
             }
             divtemp.innerHTML = `
             <div class="body-block">
-                    <div class="block-content" id="英文課程" data-name="英文課程" onclick="send('${takeName()}',this)">
+                    <div class="block-content" id="${DD.lessonID}" account=${DD.account} data-name="英文課程" onclick="send('${takeName()}',this)">
                         <img data-src="../image/class.jpg" src="../image/class.jpg" alt="">                        
                         <div class="block-title">
                             <h2>${takeName()}</h2>
