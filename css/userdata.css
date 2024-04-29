@@ -225,6 +225,7 @@ body{
   box-shadow: 1px 1px 20px -3px;
   padding: 20px;
   flex-direction: row;
+  border: #034a8c solid 8px;
 }
 
 .content-left {
@@ -484,3 +485,5 @@ body{
   color:white;
   padding: 0 12px;
 }
+
+

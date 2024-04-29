@@ -219,7 +219,7 @@ body{
 .content-up{
     width: 1000px;
     height: 600px;
-    background-color: #D9D9D9;
+    background-color:  white;
     margin-top: 40px;
     overflow-y: scroll ;
     overflow-x: hidden;
@@ -227,6 +227,8 @@ body{
     scrollbar-width:thin;
     display: flex;
     flex-direction: row;
+    border: #034A8C solid 8px;
+    border-radius: 10px;
 }
 
 .up-topic{
@@ -244,7 +246,7 @@ body{
 }
 
 .down-body1{
-    background-color: #f0f8ff ;
+    background-color: #034A8C ;
     font-size: 20px;
     font-weight: bold;
     display: flex;
@@ -254,6 +256,7 @@ body{
     width: 100px;
     height: 50px;
     border-radius: 10px;
+    color: white;
 }
 
 .down-body2 #select{
@@ -299,7 +302,6 @@ body{
     margin-top: 30px;
     display: flex;
     justify-content: center;
-    background-color: #777777;
     border: none;
     border-radius: 10px;
 }
@@ -312,7 +314,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #777777;
+    background-color: #034A8C;
     border: none;
     border-radius: 10px;
     color: white;
@@ -334,7 +336,7 @@ body{
 .right1{
     width: 300px;
     height: 250px;
-    background-color: #177ede;
+    background-color: white;
     margin: 50px 40px 40px 45px ;
 }
 
