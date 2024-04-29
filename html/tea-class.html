@@ -14,11 +14,14 @@
             </label>
             <h1>會考會考</h1>
         </div>
-        <div class="header-user">            
+        <div class="header-user">
             <a href="../html/register.html" id="register">註冊</a>
             <a href="../html/login.html" id="login">登入</a>
-            <span id="userid" ></span>          
+            <span id="userid" ></span>
             <div class="header-icon">
+                <a href="cart.html">
+                    <img src="../image/cart.png" alt="">
+                </a>
                 <a href="userdata.html">
                     <img src="../image/User.png" alt="">
                 </a>
@@ -68,7 +71,29 @@
             </div>
         </div>
         <div class="body-content">
-            <div class="add-button">
+            <div class="body-top">
+                <div class="search">
+                    <label for="exampleDataList" class="form-label">科目：</label>
+                    <input class="form-control" list="datalistOptions" id="exampleDataList">
+                    <datalist id="datalistOptions">
+                    <option value="國文">
+                    <option value="英文">
+                    <option value="數學">
+                    <option value="自然">
+                    <option value="社會">
+                    </datalist>
+                </div>
+                <div class="search">
+                    <label for="exampleDataList" class="form-label">年度：</label>
+                    <input class="form-control" list="datalistOptions1" id="exampleDataList1">
+                    <datalist id="datalistOptions1">
+                    <option value="108">
+                    <option value="109">
+                    <option value="110">
+                    <option value="111">
+                    <option value="112">
+                    </datalist>
+                </div>
                 <button class="add">新增課程</button>
             </div>            
             <div class="body-class">
