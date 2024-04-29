@@ -123,14 +123,14 @@ body{
 
 :root {
     --primary-color: #695CFE;
-    --primary-color-light: #F6F5FF;
-    --text-color: #707070;
-    --sidebar-color: #d9d9d9;
-}
+    --primary-color-light: #034A8c	;
+    --text-color: #034A8C;
+    --sidebar-color:white ;
+  }
 
 .sidebar .text {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 1000;
     columns: var(--text-color);
     transition: var(--tran-03);
     white-space: nowrap;

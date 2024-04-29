@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/changequestion.css">
+    <link rel="stylesheet" href="../css/editLesson.css">
     <title>小專</title>
 </head>
 <body style="background-color:#ededed">
@@ -80,93 +80,79 @@
             </div>
         </div>
         <div class="body-content">
-            <div class="add-button">
-                <button id="addBtn" onclick="openDialog()">新增</label>
-            </div>
-            <div class="test">
-                <div class="test-block">
-                    <div class="block-left">
-                        <h2>1.考試題目</h2>
+            <div class="content-up">
+                <div class="content-left">
+                    <div class="up-topic">
+                        新增課程
                     </div>
-                    <div class="block-right">
-                        <button class="modi" onclick="openDialog()">修改</button>
-                        <button class="dele">刪除</button>
-                    </div>
-                </div>
-                <div class="test-block">
-                    <div class="block-left">
-                        <h2>2.考試題目</h2>
-                    </div>
-                    <div class="block-right">
-                        <button class="modi" onclick="openDialog()">修改</button>
-                        <button class="dele">刪除</button>
-                    </div>
-                </div>
-                <div class="test-block">
-                    <div class="block-left">
-                        <h2>3.考試題目</h2>
-                    </div>
-                    <div class="block-right">
-                        <button class="modi" onclick="openDialog()">修改</button>
-                        <button class="dele">刪除</button>
-                    </div>
-                </div>
-                <div class="test-block">
-                    <div class="block-left">
-                        <h2>4.考試題目</h2>
-                    </div>
-                    <div class="block-right">
-                        <button class="modi" onclick="openDialog()">修改</button>
-                        <button class="dele">刪除</button>
-                    </div>
-                </div>
-            </div>
-            <dialog>
-                <form action="" name="change">
-                    <div class="dialog-block">
-                        <h3>題目：</h3>
-                        <textarea name="" id="">1. 下列文句何者有語病？</textarea>
-                    </div>
-                    <div class="dialog-block">
-                        <h3>選項A：</h3>
-                        <textarea name="" id="">他不但才華出眾，而且和藹可親</textarea>
-                    </div>
-                    <div class="dialog-block">
-                        <h3>選項B：</h3>
-                        <textarea name="" id="">幸虧你事先做好準備，否則災情慘重</textarea>
-                    </div>
-                    <div class="dialog-block">
-                        <h3>選項C：</h3>
-                        <textarea name="" id="">原來他有難言之隱，難怪總是愁眉不展</textarea>
-                    </div>
-                    <div class="dialog-block">
-                        <h3>選項D：</h3>
-                        <textarea name="" id="">與其讓你在事後落淚，難道讓你犯錯懊悔</textarea>
-                    </div>
-                    <div class="dialog-block">
-                        <h3>解答：</h3>
-                        <div class="radio">
-                            <label for="A">A</label>
-                            <input type="radio" name="Ans" id="A">
-                            <label for="B">B</label>
-                            <input type="radio" name="Ans" id="B">
-                            <label for="C">C</label>
-                            <input type="radio" name="Ans" id="C">
-                            <label for="D">D</label>
-                            <input type="radio" name="Ans" id="D">
+                    <div class="down-body">
+                        <div class="down-body1">
+                            選擇科目
+                        </div>
+                        <div class="down-body2">
+                            <select name="" id="select">
+                                <option>請選擇</option>
+                                <option>國文</option>
+                                <option>英文</option>
+                                <option>數學</option>
+                                <option>自然</option>
+                                <option>社會</option>
+                            </select>
                         </div>
                     </div>
-                </form>
-                <div class="button">
-                    <button onclick="closeDialog()">儲存</button>
-                    <button onclick="closeDialog()">取消</button>
+                    <div class="down-body">
+                        <div class="down-body1">
+                            課程名稱
+                        </div>
+                        <div class="down-body2">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="down-body">
+                        <div class="down-body1">
+                            課程價格
+                        </div>
+                        <div class="down-body2">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="down-body">
+                        <div class="down-body1">
+                            課程介紹
+                        </div>
+                        <div class="down-body3">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="down-body">
+                        <div class="down-body1">
+                            影片連結
+                        </div>
+                        <div class="down-body2">
+                            <input type="text">
+                        </div>
+                    </div>
                 </div>
-            </dialog>
+                <div class="content-right">
+                   <a href="https://www.youtube.com/watch?v=TnfO1zGe8Rw">
+                    <div class="right1">
+                        <iframe width="300px" height="250px" src="https://www.youtube.com/embed/TnfO1zGe8Rw?si=eGroS0dMagS4n4NF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    </a>
+                    <div class="right2">
+                        影片預覽
+                    </div>
+                </div>
+            </div>
+            <div class="up-button">
+                <div class="button1" type="button">
+                    <button>完成</button>
+                </div>
+            </div>
         </div>
-    </div>
+    </div>    
     <div class="footer">
         <footer>&copy; Copyright 2024 HTML.am</footer>
     </div>
-    <script src="../js/changequestion.js"></script>
 </body>
 </html>

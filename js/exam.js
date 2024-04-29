@@ -122,6 +122,20 @@ function checkstar(){
   };
 }
 
+function sendStar(){
+  var starArray = [];
+  for(var i = 1; i < quizs.length+1; i++){
+    if(document.getElementById("s"+i).style.display == "flex"){
+      starArray.push("Y");
+    }
+    else{
+      starArray.push("N");
+    }
+  }
+  console.log(starArray);
+  localStorage.setItem("starArray",starArray);
+}
+
 function checkSelected(){
   temp = document.getElementById("o"+(currentQuiz+1)).innerText;
   answerEl.forEach((answerEl) => {
@@ -164,6 +178,7 @@ nextBtn.addEventListener("click", () => {
     localStorage.setItem("correctans",JSON.stringify(correctans));
     localStorage.setItem("testans",anstemp);
     window.location.href = "../html/result.html";
+    sendStar();
   };
   if (currentQuiz == quizs.length - 1){
     document.getElementById("next").innerHTML="交卷"
@@ -216,26 +231,6 @@ Cbutton.addEventListener("click", () =>{
 Dbutton.addEventListener("click", () =>{
   getSelected();
 })
-
-// nextBtn.addEventListener("click", () => {
-//   let answer = getSelected(); //找出被使用者選中的那個選項
-//   let i = testans.length;
-
-//   if (answer) {
-//     if (answer === quizs[currentQuiz].correct) {
-//       score++;
-//     }
-
-//     currentQuiz++; //答對了進到下一題
-
-//     if (currentQuiz < quizs.length) {
-//       loadQuiz();
-//     } else {
-//       container.innerHTML = `<h2>恭喜你完成此份測驗，共答對:${score} / ${quizs.length} 題</h2>`;
-//     }
-//     document.getElementById("o"+currentQuiz).innerHTML=testans[i-1];
-//   }
-// });
 
 function changepage(elementId){
   var numberPart = elementId.slice(1);

@@ -97,29 +97,65 @@ let quizs = [
 
 const testans = localStorage.getItem("testans");
 const correctans = localStorage.getItem("correctans");
-console.log(correctans);
 var aa = correctans.split('","');
 aa[0] = aa[0].slice(2);
 aa[quizs.length-1] = aa[quizs.length-1].slice(0,1);
 console.log(aa);
-
-console.log(testans);
 var bb = testans.split('","');
-// bb[0] = bb[0].slice(2);
-// bb[quizs.length-1] = bb[quizs.length-1].slice(0,1);
+bb[0] = bb[0].slice(2);
+bb[quizs.length-1] = bb[quizs.length-1].slice(0,1);
 console.log(bb);
 
-
+countscore();
 function countscore(){
     var score = 0;
-    console.log(testans);
   for(var i = 0 ; i < quizs.length;i++)
   {
-    if(testans[i] == correctans[i]){
-      score+1;
+    if(aa[i] == bb[i]){
+      score++;
     }
   }
-  console.log(score);
+  document.getElementById("score").innerHTML=`分數：${score} / ${quizs.length} 題`
+}
+
+showStuAns();
+function showStuAns(){
+  for(var i = 0; i < quizs.length; i++){
+    document.getElementById("o"+(i+1)).innerHTML=bb[i]
+  }
+}
+
+TrueOrFalse();
+function TrueOrFalse(){
+  for(var i = 0; i < quizs.length; i++){
+    if(aa[i] == bb[i]){
+      document.getElementById("w"+(i+1)).src = yes;
+    }
+    else{
+      document.getElementById("w"+(i+1)).src = wrong;
+    }
+  }
+  
+}
+
+showstar();
+function showstar(){
+  const starArray = localStorage.getItem("starArray")
+  var cc = starArray.split(',');
+  console.log(cc)
+  for(var i = 0; i < quizs.length; i++){
+    if(cc[i] == "Y"){
+      document.getElementById("s"+(i+1)).style.display = "flex"
+    }
+    else{
+      document.getElementById("s"+(i+1)).style.display = ""
+    }
+  }
+}
+
+loadstuans();
+function loadstuans(){
+  document.getElementById("studentans").innerHTML=bb[currentQuiz]
 }
 
 loadnum();
@@ -138,6 +174,7 @@ function loadQuiz() {
   c_text.innerText = currentQuizData.C;
   d_text.innerText = currentQuizData.D;
   correct.innerText = currentQuizData.correct;
+  document.getElementById("studentans").innerHTML=bb[currentQuiz]
 }
 
 function checkstar(){
@@ -213,6 +250,8 @@ function getquizById(ans) {
   b_text.innerText = currentQuizData.B;
   c_text.innerText = currentQuizData.C;
   d_text.innerText = currentQuizData.D;
+  correct.innerText = currentQuizData.correct;
+  document.getElementById("studentans").innerHTML=bb[currentQuiz]
   if(currentQuiz >= quizs.length - 1){
     document.getElementById("next").innerHTML="交卷"
   }
@@ -220,16 +259,6 @@ function getquizById(ans) {
     document.getElementById("next").innerHTML="下一題"
   };
 };
-
-function countscore(){
-  var score = 0;
-for(var i = 0 ; i < quizs.length;i++)
-{
-  if(testans[i] == correctans[i]){
-    score+=1;
-  }
-}
-}
 
 document.addEventListener('DOMContentLoaded',function(){
   var token = localStorage.getItem('JwtToken');

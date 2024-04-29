@@ -5,6 +5,7 @@
 
 body{
     overflow-x: hidden;
+    height: 100%;
 }
 
 .header{
@@ -87,7 +88,9 @@ body{
 .body{
     display: flex;
     flex-direction: column;
-    justify-content: center;  
+    justify-content: center;
+    min-height: 100vh;
+    margin-bottom: -40px;
 }
 
 .body-sidebar{
@@ -123,14 +126,14 @@ body{
 
 :root {
     --primary-color: #695CFE;
-    --primary-color-light: #F6F5FF;
-    --text-color: #707070;
-    --sidebar-color: #d9d9d9;
-}
+    --primary-color-light: #034A8c	;
+    --text-color: #034A8C;
+    --sidebar-color:white ;
+  }
 
 .sidebar .text {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 1000;
     columns: var(--text-color);
     transition: var(--tran-03);
     white-space: nowrap;
@@ -214,13 +217,33 @@ body{
     align-items: center;
     width: 100vw;
     margin-top: 60px;
+    padding-bottom: 80px;
 }
 
-.add-button{
+.body-top{
     width: 1300px;
     display: flex;
-    justify-content: end;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 20px;
+}
+
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+.search label{
+    font-size: 24px;
+}
+
+.search input{
+    margin-top: 5px;
+    height: 32px;
+    width: 200px;
 }
 
 button.add{
@@ -307,7 +330,6 @@ button.add{
     align-items: center;
     justify-content: center;
     color: white;
-    margin-top: 100px;
 }
 #userid{
     display: flex; /* 讓 span 元素變成 inline-block 類型，可以應用 width */
