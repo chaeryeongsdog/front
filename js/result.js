@@ -194,11 +194,11 @@ nextBtn.addEventListener("click", () => {
     loadQuiz();
   }
   else if(currentQuiz >= quizs.length -1){
-    correctans123();
     countscore();
+    window.location.href = "../html/index.html";
   };
   if (currentQuiz >= quizs.length - 1){
-    document.getElementById("next").innerHTML="交卷"
+    document.getElementById("next").innerHTML="回首頁"
   }
   else{
     document.getElementById("next").innerHTML="下一題"
@@ -253,7 +253,7 @@ function getquizById(ans) {
   correct.innerText = currentQuizData.correct;
   document.getElementById("studentans").innerHTML=bb[currentQuiz]
   if(currentQuiz >= quizs.length - 1){
-    document.getElementById("next").innerHTML="交卷"
+    document.getElementById("next").innerHTML="回首頁"
   }
   else{
     document.getElementById("next").innerHTML="下一題"

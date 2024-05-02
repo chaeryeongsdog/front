@@ -30,7 +30,8 @@ function sendData() {
     };
     console.log(memberData);
     if(Password != confirmPass){
-        return document.getElementById("result").innerHTML="確認密碼輸入不正確";
+        // return document.getElementById("result").innerHTML="確認密碼輸入不正確";
+        window.alert("確認密碼輸入不正確");
     }
     else
     {
@@ -46,12 +47,14 @@ function sendData() {
     })
     .then(response => {
         if (!response.ok) {
+            window.alert("註冊失敗")
             throw new Error('Network response was not ok');
         }
         return response.text();
     })
     .then(data => {
         console.log('Response from server:', data);
+        window.alert("請到信箱收取驗證信");
         window.location.href = '../html/login.html';
     })
     .catch(error => {

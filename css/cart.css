@@ -228,7 +228,7 @@ body{
     display: flex;
     background-color: white;
     padding: 4px 0 3px;
-    margin-top: 20px;
+    margin-top: -240px;
 }
 
 .main-header-left{
@@ -312,6 +312,7 @@ body{
     justify-content: space-between;
     align-items: center;
     margin-top: 30px;
+    font-size: 20px;
 }
 
 .checkout-btn{
@@ -329,6 +330,8 @@ body{
     align-items: center;
     text-decoration: none;
     border-radius: 12px;
+    border: none;
+    cursor: pointer;
 }
 
 .checkout .main .main-title{
