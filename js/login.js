@@ -39,5 +39,6 @@ function sendData() {
         document.getElementById("error").innerHTML = error.message;
     });
     
-    }
+}
+
     
