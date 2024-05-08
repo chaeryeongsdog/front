@@ -300,17 +300,9 @@ body{
     justify-content: center;
 }
 
-.button1 button{
-    width:200px;
-    font-size: 25px;
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    border: none;
-    border-radius: 10px;
-}
 
-.button1 button{
+
+.submit{
     width:200px;
     height: 50px;
     font-size: 25px;
@@ -323,9 +315,10 @@ body{
     border-radius: 10px;
     color: white;
     text-shadow: 1px 1px 1px #000;
+    cursor: pointer;
 }
 
-.button1 button:hover{
+.submit :hover{
     background-color: #cceeff;
 }
 
@@ -359,4 +352,14 @@ body{
     align-items: center;
     justify-content: center;
     color: white;
+}
+
+#userid{
+    display: flex; /* 讓 span 元素變成 inline-block 類型，可以應用 width */
+    height: 60px; /* 設置 span 元素的寬度為 100px */
+    justify-content: center;
+    align-items: center;
+    font-size: 16px; /* 調整文字大小 */
+    color:white;
+    padding: 0 12px;
 }

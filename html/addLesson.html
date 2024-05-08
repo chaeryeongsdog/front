@@ -38,19 +38,19 @@
                             </li>
                             <ul class = "menu-links">
                                 <li class = "nav-link">
-                                    <a href = "../html/index.html"> 
+                                    <a href = "../html/tea-index.html"> 
                                         <i class='bx bx-home-alt icon' ></i>
                                         <span class ="text nav-text">首頁</span>
                                     </a>
                                 </li>
                                 <li class = "nav-link">
-                                    <a href = "../html/stu-class.html"> 
+                                    <a href = "../html/tea-class.html"> 
                                         <i class='bx bx-book-open icon' ></i>
                                         <span class ="text nav-text">課程</span>
                                     </a>
                                 </li>
                                 <li class = "nav-link">
-                                    <a href = "../html/stu-paper.html"> 
+                                    <a href = "../html/tea-paper.html"> 
                                         <i class='bx bx-calculator icon'></i>
                                         <span class ="text nav-text">試卷</span>
                                     </a>
@@ -79,7 +79,7 @@
                 </nav>
             </div>
         </div>
-        <div class="body-content">
+        <form class="body-content">
             <div class="content-up">
                 <div class="content-left">
                     <div class="up-topic">
@@ -92,36 +92,37 @@
                         <div class="down-body2">
                             <select name="" id="select">
                                 <option>請選擇</option>
-                                <option>國文</option>
-                                <option>英文</option>
-                                <option>數學</option>
-                                <option>自然</option>
-                                <option>社會</option>
+                                <option id="1" class="chose">國文</option>
+                                <option id="2" class="chose">英文</option>
+                                <option id="3" class="chose">數學</option>
+                                <option id="4" class="chose">自然</option>
+                                <option id="5" class="chose">社會</option>
                             </select>
                         </div>
                     </div>
-                    <div class="down-body">
-                        <div class="down-body1">
-                            課程名稱
-                        </div>
-                        <div class="down-body2">
-                            <input type="text">
-                        </div>
-                    </div>
+                    
                     <div class="down-body">
                         <div class="down-body1">
                             課程價格
                         </div>
                         <div class="down-body2">
-                            <input type="text">
+                            <input type="text" id="lessonPrice" required placeholder="請輸入內容">
                         </div>
                     </div>
                     <div class="down-body">
                         <div class="down-body1">
                             課程介紹
                         </div>
-                        <div class="down-body3">
-                            <input type="text">
+                        <div class="down-body2">
+                            <input type="text" id="lessonContent" required  placeholder="請輸入內容"> 
+                        </div>
+                    </div>
+                    <div class="down-body">
+                        <div class="down-body1">
+                            課程年分
+                        </div>
+                        <div class="down-body2">
+                            <input type="text" id="lessonYear" required  placeholder="請輸入內容">
                         </div>
                     </div>
                     <div class="down-body">
@@ -129,7 +130,7 @@
                             影片連結
                         </div>
                         <div class="down-body2">
-                            <input type="text">
+                            <input type="text" id="lessonVideo" required  placeholder="請輸入內容">
                         </div>
                     </div>
                 </div>
@@ -146,13 +147,16 @@
             </div>
             <div class="up-button">
                 <div class="button1" type="button">
-                    <button>新增</button>
+                    <!-- <button onclick="create()" style="cursor: pointer;">新增</button> -->
+                    <input type="button" value="新增" class="submit" onclick="create()">
                 </div>
             </div>
-        </div>
+        </form>
     </div>    
     <div class="footer">
         <footer>&copy; Copyright 2024 HTML.am</footer>
     </div>
+
+    <script src="../js/addLesson.js"></script>
 </body>
 </html>

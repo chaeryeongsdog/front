@@ -112,7 +112,7 @@ function logout(){
     fetch("http://localhost:5062/api/member/logout",{
         method:'POST',
         headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('JwtToken')
+            'Authorization': `Bearer ${localStorage.getItem('JwtToken')}`
         },
     })
     .then(response => {

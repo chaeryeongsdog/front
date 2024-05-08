@@ -48,4 +48,60 @@ function logout(){
             // localStorage.removeItem('JwtToken');
         }
     
+        fetch('http://localhost:5062/api/lesson/GetLesson',{
+            method:'POST',
+            headers:{
+                'Content-Type': 'application/json',
+                'Authorization':`Bearer ${token}`
+            }
+        })
+        .then(res => {
+            if (!res.ok)
+            {
+                throw new  Error('Failed to fetch lesson');
+            }
+            return res.json();
+        })
+        .then(data => {
+            console.log("有拿到拉幹");
+            const container = document.getElementById("AAAA");
+            if (!container) {
+                console.error('Could not find element with id "body-class".');
+                return;}
+            console.log(data);
+            data.forEach(DD => {
+                const divtemp = document.createElement('div');
+                function takeName(){
+                if(DD.type == 1)
+                return  '國文';
+                else if(DD.type == 2)
+                return '英文';
+                else if (DD.type == 3)
+                return '數學';
+                else if (DD.type == 4)
+                return '自然';
+                else if (DD.type == 5)
+                return '社會';
+                }
+                divtemp.innerHTML = `
+                <div class="body-block">
+                        <div class="block-content" id="${DD.lessonID}" account=${DD.account} data-name="英文課程" onclick="send('${takeName()}',this)">
+                            <img data-src="../image/class.jpg" src="../image/class.jpg" alt="">                        
+                            <div class="block-title">
+                                <h2>${takeName()}</h2>
+                                <h3 class='Content' name='課程內容'>${DD.content}</h3>
+                                <h3 class="price" data-price="3000" >NT${DD.price}</h3>
+                            </div> 
+                            <div class="block-button">
+                            <a href="" style="background-color: #006BCE;">修改</a>
+                            <a href="" style="background-color: #CB1D1D;">刪除</a>
+                        </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(divtemp);
+            });
+        })
+    
+    
     });

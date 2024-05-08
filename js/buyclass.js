@@ -24,9 +24,9 @@ function send(){
     
     localStorage.setItem('aa', JSON.stringify(aa));
     const max = 5;
-    if(aa.length >5){
-        localStorage.removeItem('aa');
-    }
+    // if(aa.length >5){
+    //     localStorage.removeItem('aa');
+    // }
     var jsondata = JSON.stringify(abc);
     var token = localStorage.getItem('JwtToken');
     var book =localStorage.getItem('book');
@@ -40,7 +40,7 @@ function send(){
     })
     .then(res => {
         if(!res.ok){
-            return (res);
+            // return (res);
             return Promise.reject(new Error('沒有傳入到後端'))
         }
         return res.text();
@@ -51,8 +51,36 @@ function send(){
     .catch(error => {
         console.error('Problem:',error);
     })
-    window.location.href="cart.html";
+    
 
+    // getallcartItem()
+    // function getallcartItem(){
+    //     var token = localStorage.getItem('JwtToken');
+    // fetch('http://localhost:5062/api/Book/GetCart',{
+    //     method:'POST',
+    //     headers:{
+    //     'Content-Type' : 'application/json',
+    //     'Authorization' : `Bearer ${token}`
+    //     }
+    // })
+    // .then(res => {
+    //     if(!res.ok){
+    //         throw new Error('失敗');
+    //     }
+        
+    //     return res.json();
+            
+    // })
+    // .then(data => {
+    //     console.log(data);
+    // })
+    // .catch(error => {
+    //     console.error('Problem:',error);
+    // })
+
+
+
+   window.location.href="cart.html";
 }
 
 
