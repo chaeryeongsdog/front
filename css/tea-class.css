@@ -247,7 +247,7 @@ body{
     width: 200px;
 }
 
-a.add{
+.add{
     width: 120px;
     height: 60px;
     border-radius: 10px;
@@ -322,6 +322,20 @@ a.add{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.block-input{
+    background-color: #006BCE;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 10px;
+    width: 80px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-width: 0px;
+    cursor: pointer;
 }
 
 .footer{

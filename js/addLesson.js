@@ -91,6 +91,7 @@ function logout(){
         .then(data => {
             console.log(data);
             window.alert("新增成功");
+            window.location.href = '../html/tea-class.html';
         })
 
     }

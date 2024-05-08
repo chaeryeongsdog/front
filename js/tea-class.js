@@ -32,6 +32,7 @@ function logout(){
         console.error('登出操作中发生错误:', error);
     });
     }
+
     document.addEventListener('DOMContentLoaded',function(){
         var token = localStorage.getItem('JwtToken');
         var userInfo = localStorage.getItem('userInfo');
@@ -63,7 +64,6 @@ function logout(){
             return res.json();
         })
         .then(data => {
-            console.log("有拿到拉幹");
             const container = document.getElementById("AAAA");
             if (!container) {
                 console.error('Could not find element with id "body-class".');
@@ -85,7 +85,7 @@ function logout(){
                 }
                 divtemp.innerHTML = `
                 <div class="body-block">
-                        <div class="block-content" id="${DD.lessonID}" account=${DD.account} data-name="英文課程" onclick="send('${takeName()}',this)">
+                        <div class="block-content" id="${DD.lessonID}" account=${DD.account} data-name="英文課程">
                             <img data-src="../image/class.jpg" src="../image/class.jpg" alt="">                        
                             <div class="block-title">
                                 <h2>${takeName()}</h2>
@@ -93,9 +93,9 @@ function logout(){
                                 <h3 class="price" data-price="3000" >NT${DD.price}</h3>
                             </div> 
                             <div class="block-button">
-                            <a href="" style="background-color: #006BCE;">修改</a>
-                            <a href="" style="background-color: #CB1D1D;">刪除</a>
-                        </div>
+                                <a href="" style="background-color: #006BCE;">修改</a>
+                                <input type="button" value="刪除" class="block-input" onclick="deletee(${DD.lessonID})">
+                            </div>
                         </div>
                     </div>
                 `;
@@ -105,3 +105,34 @@ function logout(){
     
     
     });
+
+    function deletee(ID){
+        var lessonID= ID;
+        var data ={
+            lessonID
+        }
+        var jsondata = JSON.stringify(data);
+        var token = localStorage.getItem('JwtToken');
+        console.log(data);
+        fetch('http://localhost:5062/api/lesson/delete',{
+            method:'POST',
+            headers:{
+                'Content-Type' : 'application/json',
+                'Authorization':`Bearer ${token}`
+            },
+            body:jsondata
+        })
+        .then(res => {
+            if(!res.ok)
+            {
+                throw new  Error('Failed to fetch lesson');
+            }
+            
+            return res.text();
+        })
+        .then(data =>{
+            window.alert("刪除成功");
+            console.log(data);
+            window.location.href = '../html/tea-class.html';
+        })
+    }
