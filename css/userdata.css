@@ -112,6 +112,7 @@ body{
   z-index: 99;
   transform: translateX(-100%);
   transition: 0.5s;
+  background-color: #c0c0c0;
 }
 
 #sidebar-active {

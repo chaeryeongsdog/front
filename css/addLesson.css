@@ -17,7 +17,7 @@ body{
     position: fixed;
     z-index: 100;
 }
-
+/* 13123312 */
 .header-left{
     display: flex;
     align-items: center;
@@ -112,6 +112,7 @@ body{
     z-index: 99;
     transform: translateX(-100%);
     transition: 0.5s;
+    background-color: #c0c0c0;
 }
 
 #sidebar-active {
@@ -264,7 +265,7 @@ body{
 }
 
 .down-body2 #select{
-    width: 200px;
+    width: 210px;
     height: 50px;
     border: none;
     border-radius: 10px;
@@ -272,6 +273,7 @@ body{
     font-size: 15px;
     background-color:#D8E1EA;
     font-weight: bold;
+    padding-left: 10px;
 }
 
 .down-body2 input{
@@ -282,16 +284,7 @@ body{
     margin-left: 40px;
     font-size: 15px;
     background-color:#D8E1EA;
-}
-
-.down-body3 input{
-    background-color:#D8E1EA;
-    width: 200px;
-    height: 50px;
-    border: none;
-    border-radius: 10px;
-    margin-left: 40px;
-    font-size: 15px;
+    padding-left: 10px;
 }
 
 .up-button{
@@ -316,10 +309,13 @@ body{
     color: white;
     text-shadow: 1px 1px 1px #000;
     cursor: pointer;
+<<<<<<< HEAD
 }
 
 .submit :hover{
     background-color: #cceeff;
+=======
+>>>>>>> 6ede5053ee98165926d17dfb021a593d0470b60a
 }
 
 .content-right{
