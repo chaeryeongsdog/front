@@ -306,9 +306,10 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    
 }
 
-.button1 button{
+/* .button1 button{
     width:200px;
     font-size: 25px;
     margin-top: 30px;
@@ -317,9 +318,9 @@ body{
     background-color: #777777;
     border: none;
     border-radius: 10px;
-}
+} */
 
-.button1 button{
+.block-input{
     width:200px;
     height: 50px;
     font-size: 25px;
@@ -327,15 +328,16 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #777777;
+    background-color: #006BCE;
     border: none;
     border-radius: 10px;
     color: white;
     text-shadow: 1px 1px 1px #000;
+    cursor: pointer;
 }
 
-.button1 button:hover{
-    background-color: #cceeff;
+.block-input:hover{
+    background-color: #777777;
 }
 
 .content-right{
@@ -343,7 +345,6 @@ body{
     height: 350px;
     margin: 80px 100px 30px 100px;
     background-color: #D8E1EA;
-
 }
 
 .right1{
@@ -369,3 +370,13 @@ body{
     justify-content: center;
     color: white;
 }
+
+#userid{
+    display: flex; /* 讓 span 元素變成 inline-block 類型，可以應用 width */
+    height: 60px; /* 設置 span 元素的寬度為 100px */
+    justify-content: center;
+    align-items: center;
+    font-size: 16px; /* 調整文字大小 */
+    color:white;
+    padding: 0 12px;
+  }
