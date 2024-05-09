@@ -125,6 +125,7 @@ function logout(){
                 <div class="up-button">
                     <div class="button1" type="button">
                         <input type="button" value="更新" class="block-input" onclick="edit(${id})">
+                        <input type="button" value="上一頁" class="block-input" onclick="goback()">
                     </div>
                 </div>
                     `;
@@ -140,7 +141,10 @@ function logout(){
                         var temp = localStorage.setItem('type',selectedId);
                     });
     });
-    
+    function goback()
+{
+    window.location.href="../html/tea-class.html";    
+}    
 function edit(id){
     var price = document.getElementById('price').value;
     var content = document.getElementById('content').value;

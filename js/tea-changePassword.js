@@ -21,7 +21,7 @@ function send(){
     })  
     .then(response => {
         if (!response.ok) {
-            window.alert("輸入錯誤");
+            window.alert("輸入錯誤!");
             return Promise.reject(new Error('帳號或信箱輸入錯誤'));
         }
         return response.text();
@@ -29,7 +29,7 @@ function send(){
     .then(data => {
         console.log(data);
         window.alert(data);
-        window.location.href = '../html/index.html';
+        window.location.href = '../html/tea-index.html';
     })
     .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
