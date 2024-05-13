@@ -93,6 +93,7 @@ society.addEventListener("click",function(){
     society.style.backgroundColor="#034A8C";
     society.style.color="white";
 });
+
 document.addEventListener('DOMContentLoaded',function(){
     var token = localStorage.getItem('JwtToken');
     var userInfo = localStorage.getItem('userInfo');

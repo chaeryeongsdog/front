@@ -255,10 +255,6 @@ body{
   align-items: center;
 }
 
-.content-left-down a {
-  text-decoration: none;
-}
-
 .down-block {
   width: 150px;
   height: 40px;
@@ -269,9 +265,7 @@ body{
   align-items: center;
   border-radius: 10px;
   margin: 20px 0;
-}
-
-.down-block p {
+  text-decoration: none;
   font-size: 20px;
   font-weight: bold;
   color: #000;
