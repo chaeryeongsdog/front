@@ -28,15 +28,24 @@
 
 
     //第一個畫面
+    
     getallcartItem()
     function getallcartItem(){
+    var nowPage = 1;
+    var itemNum = 5;
+    var dataA ={
+        nowPage,
+        itemNum
+    }
+    var jsondataA = JSON.stringify(dataA);
         var token = localStorage.getItem('JwtToken');
-    fetch('http://localhost:5062/api/Book/GetCart?NowPage=1&ItemNum=6',{
+    fetch('http://localhost:5062/api/Book/GetCart',{
         method:'POST',
         headers:{
         'Content-Type' : 'application/json',
         'Authorization' : `Bearer ${token}`
-        }
+        },
+        body:jsondataA
     })
     .then(res => {
         if(!res.ok){
@@ -152,19 +161,165 @@
 }
     
 
-
-//往左換頁
-function gotoleft(page){
+//往右換頁
+function gotoright(nowPage){
     var token = localStorage.getItem('JwtToken');
-    const urll= `http://localhost:5062/api/Book/GetCart?NowPage=${page}&ItemNum=6`
-
-
+    var itemNum = 5;
+    var data ={
+        nowPage,
+        itemNum
+    }
+    var jsondata = JSON.stringify(data);
+    console.log(jsondata);
+    const urll= `http://localhost:5062/api/Book/GetCart`
     fetch(urll,{
         method:'POST',
         headers:{
         'Content-Type' : 'application/json',
         'Authorization' : `Bearer ${token}`
+        },
+        body:jsondata
+    })
+    .then(res => {
+        if(!res.ok){
+            throw new Error('失敗');
         }
+        
+        return res.json();
+            
+    })
+    .then(cart => {
+        fetch('http://localhost:5062/api/lesson/GetAllLessons',{
+            method:'POST',
+            headers:{
+                'Content-Type': 'application/json',
+                'Authorization':`Bearer ${token}`
+            },
+        })
+        .then(res => {
+            if (!res.ok)
+            {
+                throw new  Error('Failed to fetch lesson');
+            }
+            return res.json();
+        })
+        .then(lesson => {
+            console.log("lesson:",lesson);
+            console.log("cart:",cart);
+            var cartt = cart.cartItems;
+            const cartContainer = document.getElementById('main-container');
+            var totalPrice = 0;
+            cartContainer.innerHTML = '';
+            cartt.forEach(cartt => {
+                lesson.forEach(les =>{
+                    if(cartt.lessonID == les.lessonID)
+                    {   
+                        
+                        const productDiv = document.createElement('div');
+                        totalPrice+=parseInt(les.price);  
+                        productDiv.innerHTML = `
+                            <li class="main-content" id="bookk">
+                            <div class="main-content-left" style="border-bottom: 2px solid black;" >
+                                <div class="item">
+                                    <div class="item-pic">
+                                        <img src="../image/class.jpg" alt="">
+                                    </div>
+                                    <div class="item-txt">
+                                        <h2><b>${les.content}</b></h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="main-content-right">
+                                <span class="item-price">
+                                    <b class="priceee">NT$ ${les.price}</b>
+                                </span>
+                                
+                            </div>
+                            <div>
+                            <a class="checkout-btn" bookId="${cartt.bookID}" lessonID="${cartt.lessonID}"style ="margin-top:85px;" onclick="deletee(this)">刪除</a><br>
+                            </div>
+                        </li>
+                        `;
+                        cartContainer.appendChild(productDiv);
+                    }
+                })
+                
+            })
+            document.querySelector('#price').innerHTML = 'NT' + totalPrice;
+        })
+        const forpaging = document.getElementById('paging');
+        const pagingDiv = document.createElement('div');
+        const leftcondition = cart.paginationInfo.nowPage > 1 ? true : false;
+        const rightcondition = cart.paginationInfo.nowPage < cart.paginationInfo.totalPages ? true : false;
+        let leftinnerHtmll;
+        let rightinnerHtmll;
+        
+        if(leftcondition){
+            leftinnerHtmll = `
+                            <   
+                        `;
+                        
+        }
+        else {
+            leftinnerHtmll =` `;
+        }
+        if(rightcondition){
+            rightinnerHtmll= `
+                    >
+            `;
+        }
+        else {
+            rightinnerHtmll =` `;
+        }
+        var temp = document.getElementById('paging');
+        temp.innerHTML=`
+        <table id="ChPaging">
+            <tr>
+                <td style="padding-right:30px" onclick="gotoleft(${cart.paginationInfo.nowPage-1})">
+                    ${leftinnerHtmll}
+                </td>
+                    
+                <td>    
+                    ${cart.paginationInfo.nowPage}  
+                </td>
+
+                <td style="padding-left:30px" onclick="gotoright(${cart.paginationInfo.nowPage+1})">
+                    ${rightinnerHtmll}
+                </td>
+            </tr>
+        </table>
+        `;
+    })
+    .catch(error => {
+        console.error('Problem:',error);
+    })
+}
+
+
+
+
+
+
+
+
+
+//往左換頁
+function gotoleft(nowPage){
+    var token = localStorage.getItem('JwtToken');
+    const urll= `http://localhost:5062/api/Book/GetCart`
+    var itemNum = 5;
+    var data ={
+        nowPage,
+        itemNum
+    }
+    var jsondata = JSON.stringify(data);
+    fetch(urll,{
+        method:'POST',
+        headers:{
+        'Content-Type' : 'application/json',
+        'Authorization' : `Bearer ${token}`
+        },
+        body:jsondata
     })
     .then(res => {
         if(!res.ok){
@@ -283,131 +438,7 @@ function gotoleft(page){
 
 
 
-//往右換頁
-function gotoright(page){
-    var token = localStorage.getItem('JwtToken');
-    const urll= `http://localhost:5062/api/Book/GetCart?NowPage=${page}&ItemNum=6`
-    fetch(urll,{
-        method:'POST',
-        headers:{
-        'Content-Type' : 'application/json',
-        'Authorization' : `Bearer ${token}`
-        }
-    })
-    .then(res => {
-        if(!res.ok){
-            throw new Error('失敗');
-        }
-        
-        return res.json();
-            
-    })
-    .then(cart => {
-        fetch('http://localhost:5062/api/lesson/GetAllLessons',{
-            method:'POST',
-            headers:{
-                'Content-Type': 'application/json',
-                'Authorization':`Bearer ${token}`
-            },
-        })
-        .then(res => {
-            if (!res.ok)
-            {
-                throw new  Error('Failed to fetch lesson');
-            }
-            return res.json();
-        })
-        .then(lesson => {
-            console.log("lesson:",lesson);
-            console.log("cart:",cart);
-            var cartt = cart.cartItems;
-            const cartContainer = document.getElementById('main-container');
-            var totalPrice = 0;
-            cartContainer.innerHTML = '';
-            cartt.forEach(cartt => {
-                lesson.forEach(les =>{
-                    if(cartt.lessonID == les.lessonID)
-                    {   
-                        
-                        const productDiv = document.createElement('div');
-                        totalPrice+=parseInt(les.price);  
-                        productDiv.innerHTML = `
-                            <li class="main-content" id="bookk">
-                            <div class="main-content-left" style="border-bottom: 2px solid black;" >
-                                <div class="item">
-                                    <div class="item-pic">
-                                        <img src="../image/class.jpg" alt="">
-                                    </div>
-                                    <div class="item-txt">
-                                        <h2><b>${les.content}</b></h2>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="main-content-right">
-                                <span class="item-price">
-                                    <b class="priceee">NT$ ${les.price}</b>
-                                </span>
-                                
-                            </div>
-                            <div>
-                            <a class="checkout-btn" bookId="${cartt.bookID}" lessonID="${cartt.lessonID}"style ="margin-top:85px;" onclick="deletee(this)">刪除</a><br>
-                            </div>
-                        </li>
-                        `;
-                        cartContainer.appendChild(productDiv);
-                    }
-                })
-                
-            })
-            document.querySelector('#price').innerHTML = 'NT' + totalPrice;
-        })
-        const forpaging = document.getElementById('paging');
-        const pagingDiv = document.createElement('div');
-        const leftcondition = cart.paginationInfo.nowPage > 1 ? true : false;
-        const rightcondition = cart.paginationInfo.nowPage < cart.paginationInfo.totalPages ? true : false;
-        let leftinnerHtmll;
-        let rightinnerHtmll;
-        
-        if(leftcondition){
-            leftinnerHtmll = `
-                            <   
-                        `;
-                        
-        }
-        else {
-            leftinnerHtmll =` `;
-        }
-        if(rightcondition){
-            rightinnerHtmll= `
-                    >
-            `;
-        }
-        else {
-            rightinnerHtmll =` `;
-        }
-        var temp = document.getElementById('paging');
-        temp.innerHTML=`
-        <table id="ChPaging">
-            <tr>
-                <td style="padding-right:30px" onclick="gotoleft(${cart.paginationInfo.nowPage-1})">
-                    ${leftinnerHtmll}
-                </td>
-                    
-                <td>    
-                    ${cart.paginationInfo.nowPage}  
-                </td>
 
-                <td style="padding-left:30px" onclick="gotoright(${cart.paginationInfo.nowPage+1})">
-                    ${rightinnerHtmll}
-                </td>
-            </tr>
-        </table>
-        `;
-    })
-    .catch(error => {
-        console.error('Problem:',error);
-    })
-}
 
 
 
