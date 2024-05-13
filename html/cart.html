@@ -93,7 +93,7 @@
                         <p>總計:</p>
                         <span id="price">NT$ 0</span>
                     </div>
-                    <button class="checkout-btn" onclick="alert('購買完成');"> 立即結帳 </button><br>
+                    <button class="checkout-btn"  onclick="openDialog()"> 立即結帳 </button><br>
                     <a class="checkout-back" href="stu-class.html">繼續購買</a>
                 </div>
             </div>
@@ -102,6 +102,28 @@
     <div id="paging">
 
     </div>
+    <dialog>
+        <h2>選擇付款方式：</h2>
+        <form>
+            <div class="pay-block">
+                <input type="radio" name="pay" value="applepay">
+                <img src="../image/ApplePay.png" alt="">
+            </div>
+            <div class="pay-block">
+                <input type="radio" name="pay" value="linepay">
+                <img src="../image/LinePay.png" alt="">
+            </div>
+            <div class="pay-block">
+                <input type="radio" name="pay" value="visa">
+                <img src="../image/Visa.png" alt="">
+            </div>
+            <div class="pay-block">
+                <input type="radio" name="pay" value="ATM">
+                <img src="../image/ATM.png" alt="">
+            </div>
+        </form>
+        <button onclick="closeDialog(); alert('結帳完成')">結帳</button>
+    </dialog>
     <div class="footer">
         <footer>&copy; Copyright 2024 HTML.am</footer>
     </div>
