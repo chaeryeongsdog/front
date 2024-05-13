@@ -85,6 +85,10 @@ body{
     height: 20px;
 }
 
+span#userid{
+    font-size: 20px;
+}
+
 .body{
     display: flex;
     flex-direction: column;
@@ -309,13 +313,10 @@ body{
     color: white;
     text-shadow: 1px 1px 1px #000;
     cursor: pointer;
-<<<<<<< HEAD
 }
 
 .submit :hover{
     background-color: #cceeff;
-=======
->>>>>>> 6ede5053ee98165926d17dfb021a593d0470b60a
 }
 
 .content-right{

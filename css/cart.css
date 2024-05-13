@@ -85,6 +85,10 @@ body{
     height: 20px;
 }
 
+span#userid{
+    font-size: 20px;
+}
+
 .body{
     display: flex;
     flex-direction: column;
@@ -227,20 +231,21 @@ body{
 
 .main-header{
     display: flex;
-    
     background-color: white;
     padding: 4px 0 3px;
-    margin-top: -240px;
+    margin-top: 40px;
 }
 
 .main-header-left{
-    margin-left: 250px;
+    margin-left: 180px;
     width: 100px;
+    font-size: 20px;
 }
 
 .main-header-right{
     width: 100px;
-    margin-left: 250px;
+    margin-left: 170px;
+    font-size: 20px;
 }
 
 .main-content{
@@ -272,6 +277,7 @@ body{
 .item-price{
     display: flex;
     align-items: center;
+    font-size: 20px;
 }
 
 .item{
@@ -319,7 +325,6 @@ body{
     justify-content: space-between;
     align-items: center;
     margin-top: 30px;
-    font-size: 20px;
 }
 
 .checkout-btn{
@@ -339,6 +344,7 @@ body{
     border-radius: 12px;
     border: none;
     cursor: pointer;
+    font-size: 20px;
 }
 
 .checkout .main .main-title{
@@ -442,8 +448,9 @@ dialog input{
     align-items: center;
     justify-content: center;
     color: white;
-    margin-top: 300px;
+    margin-top: 60px;
 }
+
 #userid{
     display: flex; /* 讓 span 元素變成 inline-block 類型，可以應用 width */
     height: 60px; /* 設置 span 元素的寬度為 100px */
