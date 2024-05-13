@@ -262,9 +262,9 @@ body{
     background-color: #034A8C;
     color: white;
     font-size: 24px;
-    width: 150px;  
+    width: 150px;
     height: 60px;
-    margin-top: 60px;
+    margin-top: 40px;
     justify-content: center;
     border: none;
     float: center;
@@ -280,4 +280,9 @@ body{
 #signup{
     text-decoration: none;
     color: #808080
+}
+
+.body-login-form span{
+    height: 20px;
+    margin-top: 10px;
 }
