@@ -95,7 +95,7 @@ function logout(){
                             </div> 
                             <div class="block-button">
                                 <input type="button" value="修改" class="block-input"  EditId="${DD.lessonID}"  Editaccount=${DD.account} EditContent="${DD.content}"  EditPrice="${DD.price}" EditYear="${DD.year}" onclick="edit(this)">
-                                <input type="button" value="刪除" class="block-input" style="background-color: #CB1D1D; onclick="deletee(${DD.lessonID})">
+                                <input type="button" value="刪除" class="block-input" style="background-color: #CB1D1D;" onclick="deletee(${DD.lessonID})">
                             </div>
                         </div>
                     </div>
@@ -106,6 +106,8 @@ function logout(){
     
     
     });
+
+    
     function edit(element){
         var id = element.getAttribute('EditId');
         var account = element.getAttribute('Editaccount');
@@ -134,7 +136,7 @@ function logout(){
         }
         var jsondata = JSON.stringify(data);
         var token = localStorage.getItem('JwtToken');
-        console.log(data);
+        console.log(jsondata);
         fetch('http://localhost:5062/api/lesson/delete',{
             method:'POST',
             headers:{
@@ -148,7 +150,6 @@ function logout(){
             {
                 throw new  Error('Failed to fetch lesson');
             }
-            
             return res.text();
         })
         .then(data =>{
