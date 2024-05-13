@@ -1,9 +1,3 @@
-function enterSubmit(event) {
-    if (event.keyCode == 13) {
-        $("#login").click();
-    }
-}
-
 function sendData() {
     var Account = document.getElementById("username").value;
     var Password = document.getElementById("password").value;
