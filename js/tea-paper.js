@@ -423,3 +423,100 @@ function ChangePage(element){
     localStorage.setItem('questions',JSON.stringify(data));
     window.location.href="../html/changequestion.html";
 }
+
+function uploadFile() {
+    // Select the file input element by its ID 'addpaper'
+    const fileInput = document.getElementById('addpaper');
+    
+    // Programmatically open the file selection dialog
+    fileInput.click();
+
+    // Define an event handler for when a file is selected
+    fileInput.onchange = async function() {
+        // Get the first file selected by the user
+        const file = fileInput.files[0];
+
+        // If no file is selected, alert the user and exit the function
+        if (!file) {
+            alert("請選擇一個文件");
+            return;
+        }
+
+        // Create a new FormData object to hold the file data
+        const formData = new FormData();
+        // Append the selected file to the FormData object with the key 'file'
+        formData.append('file', file);
+
+        // Use a try-catch block to handle any errors during the fetch request
+        try {
+            // Make a POST request to the server to upload the file
+            const response = await fetch('http://localhost:5062/api/lesson/upload', {
+                method: 'POST',
+                headers: {
+                    // Include the JWT token in the Authorization header
+                    'Authorization': `Bearer ${token}`
+                },
+                // Set the body of the request to the FormData object
+                body: formData
+            });
+
+            // Check if the response status is not ok (e.g., not 200-299)
+            if (!response.ok) {
+                // If the response is not ok, throw an error
+                throw new Error('文件上傳失敗');
+            }
+
+            // Parse the response text (assuming the server returns text)
+            const result = await response.text();
+            // Alert the user that the upload was successful
+            alert('文件上傳成功');
+            // Log the result to the console for debugging
+            console.log(result);
+        } catch (error) {
+            // Catch any errors that occurred during the fetch request
+            console.error('Error:', error);
+            // Alert the user that the upload failed
+            alert('文件上傳失敗');
+        }
+    };
+}
+
+function uploadFile() {
+    // Select the file input element by its ID 'addpaper'
+    const fileInput = document.getElementById('addpaper');
+
+    // Define an event handler for when a file is selected
+    fileInput.onchange = async function() {
+        // Get the first file selected by the user
+        const file = fileInput.files[0];
+
+        // If no file is selected, alert the user and exit the function
+        if (!file) {
+            alert("請選擇一個文件");
+            return;
+        }
+
+        // Create a new FormData object to hold the file data
+        const formData = new FormData();
+        // Append the selected file to the FormData object with the key 'file'
+        formData.append('file', file);
+
+        fetch ('http://localhost:5062/api/question/import',{
+            method:'POST',
+            headers:{
+                'Authorization': `Bearer ${token}`
+            },
+            body: formData
+        })
+        .then(res => {
+            if(!res.ok){
+                throw new error('上船失敗')
+            }
+            return res.text()
+        })
+        .then(data => {
+            alert('文件上傳成功');
+            console.log(data);
+        })
+    };
+}
