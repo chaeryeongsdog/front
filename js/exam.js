@@ -172,13 +172,18 @@ nextBtn.addEventListener("click", () => {
     loadQuiz();
   }
   else if(currentQuiz == quizs.length){
-    correctans123();
+    if(quizs.length == correctans.length){
+      correctans123();
     console.log(correctans);
     var anstemp = JSON.stringify(testans);
     localStorage.setItem("correctans",JSON.stringify(correctans));
     localStorage.setItem("testans",anstemp);
     window.location.href = "../html/result.html";
     sendStar();
+    }
+    else{
+      alert('未作答完畢')
+    }
   };
   if (currentQuiz == quizs.length - 1){
     document.getElementById("next").innerHTML="交卷"

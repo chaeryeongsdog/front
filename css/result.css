@@ -82,6 +82,10 @@ body{
   height: 20px;
 }
 
+span#userid{
+  font-size: 20px;
+}
+
 .body{
   display: flex;
 }
@@ -196,11 +200,12 @@ span.wrong{
 
   .question ul{
     list-style: none;
+    margin-top: 40px;
   }
   
   .question li{
     margin: 20px 0 0 20px;
-    line-height: 32px;
+    font-size: 24px;
   }
   
   .question input[type=radio]{

@@ -543,7 +543,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
         if(login) login.style.display = 'none';
         if(register) register.style.display ='none';
-        document.getElementById('userid').innerHTML=("歡迎:")+user.account;
+        document.getElementById('userid').innerHTML=("歡迎：")+user.account;
         // localStorage.removeItem('userInfo');
         // localStorage.removeItem('JwtToken');
     }
