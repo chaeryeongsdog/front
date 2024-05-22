@@ -94,6 +94,7 @@ var jsondata = JSON.stringify(aa);
                       `
                       <div class="test-block">
                             <div class="block-left">
+                                <h3>題號：${DD.questionNum}</h3>
                                 <h2>${DD.content}</h2>
                             </div>
                             <div class="block-right">
