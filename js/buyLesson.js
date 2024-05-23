@@ -83,25 +83,21 @@
                         const productDiv = document.createElement('div');
                         totalPrice+=parseInt(les.price);  
                         productDiv.innerHTML = `
-                            <li class="main-content" id="bookk">
-                            <div class="main-content-left" style="border-bottom: 2px solid black;" >
-                                <div class="item">
-                                    <div class="item-pic">
-                                        <img src="../image/class.jpg" alt="">
-                                    </div>
-                                    <div class="item-txt">
-                                        <h2><b>${les.content}</b></h2>
-                                    </div>
-                                </div>
+                        <li class="main-content" id="bookk">
+                            <div class="checkbox">
+                                <input type="checkbox">
                             </div>
-                            <div class="main-content-right">
-                                <span class="item-price">
-                                    <b class="priceee">NT$ ${les.price}</b>
-                                </span>
-                                
+                            <div class="item-pic">
+                                <img src="../image/class.jpg" alt="">
                             </div>
-                            <div>
-                            <a class="checkout-btn" bookId="${cartt.bookID}" lessonID="${cartt.lessonID}" style ="margin-top:85px;" onclick="deletee(this)">刪除</a><br>
+                            <div class="item-txt">
+                                <h2><b>${les.content}</b></h2>
+                            </div>
+                            <span class="item-price">
+                                <b class="priceee">NT$ ${les.price}</b>
+                            </span>
+                            <div class="checkout-btn">
+                                <button bookId="${cartt.bookID}" lessonID="${cartt.lessonID} onclick="deletee(this)">刪除</button><br>
                             </div>
                         </li>
                         `;
@@ -140,15 +136,15 @@
         temp.innerHTML=`
         <table id="ChPaging">
             <tr>
-                <td style="padding-right:30px" onclick="gotoleft(${cart.paginationInfo.nowPage-1})">
+                <td style="cursor:pointer;" onclick="gotoleft(${cart.paginationInfo.nowPage-1})">
                     ${leftinnerHtmll}
                 </td>
                     
-                <td>    
+                <td style="padding: 0 20px;">    
                     ${cart.paginationInfo.nowPage}  
                 </td>
 
-                <td style="padding-left:30px" onclick="gotoright(${cart.paginationInfo.nowPage+1})">
+                <td style="cursor:pointer;" onclick="gotoright(${cart.paginationInfo.nowPage+1})">
                     ${rightinnerHtmll}
                 </td>
             </tr>
@@ -218,25 +214,21 @@ function gotoright(nowPage){
                         const productDiv = document.createElement('div');
                         totalPrice+=parseInt(les.price);  
                         productDiv.innerHTML = `
-                            <li class="main-content" id="bookk">
-                            <div class="main-content-left" style="border-bottom: 2px solid black;" >
-                                <div class="item">
-                                    <div class="item-pic">
-                                        <img src="../image/class.jpg" alt="">
-                                    </div>
-                                    <div class="item-txt">
-                                        <h2><b>${les.content}</b></h2>
-                                    </div>
-                                </div>
+                        <li class="main-content" id="bookk">
+                            <div class="checkbox">
+                                <input type="checkbox">
                             </div>
-                            <div class="main-content-right">
-                                <span class="item-price">
-                                    <b class="priceee">NT$ ${les.price}</b>
-                                </span>
-                                
+                            <div class="item-pic">
+                                <img src="../image/class.jpg" alt="">
                             </div>
-                            <div>
-                            <a class="checkout-btn" bookId="${cartt.bookID}" lessonID="${cartt.lessonID}"style ="margin-top:85px;" onclick="deletee(this)">刪除</a><br>
+                            <div class="item-txt">
+                                <h2><b>${les.content}</b></h2>
+                            </div>
+                            <span class="item-price">
+                                <b class="priceee">NT$ ${les.price}</b>
+                            </span>
+                            <div class="checkout-btn">
+                                <button bookId="${cartt.bookID}" lessonID="${cartt.lessonID} onclick="deletee(this)">刪除</button><br>
                             </div>
                         </li>
                         `;
@@ -275,15 +267,15 @@ function gotoright(nowPage){
         temp.innerHTML=`
         <table id="ChPaging">
             <tr>
-                <td style="padding-right:30px" onclick="gotoleft(${cart.paginationInfo.nowPage-1})">
+                <td style="cursor: pointer;" onclick="gotoleft(${cart.paginationInfo.nowPage-1})">
                     ${leftinnerHtmll}
                 </td>
                     
-                <td>    
+                <td style="padding: 0 20px;">    
                     ${cart.paginationInfo.nowPage}  
                 </td>
 
-                <td style="padding-left:30px" onclick="gotoright(${cart.paginationInfo.nowPage+1})">
+                <td style="cursor: pointer;" onclick="gotoright(${cart.paginationInfo.nowPage+1})">
                     ${rightinnerHtmll}
                 </td>
             </tr>
@@ -358,25 +350,21 @@ function gotoleft(nowPage){
                         const productDiv = document.createElement('div');
                         totalPrice+=parseInt(les.price);  
                         productDiv.innerHTML = `
-                            <li class="main-content" id="bookk">
-                            <div class="main-content-left" style="border-bottom: 2px solid black;" >
-                                <div class="item">
-                                    <div class="item-pic">
-                                        <img src="../image/class.jpg" alt="">
-                                    </div>
-                                    <div class="item-txt">
-                                        <h2><b>${les.content}</b></h2>
-                                    </div>
-                                </div>
+                        <li class="main-content" id="bookk">
+                            <div class="checkbox">
+                                <input type="checkbox">
                             </div>
-                            <div class="main-content-right">
-                                <span class="item-price">
-                                    <b class="priceee">NT$ ${les.price}</b>
-                                </span>
-                                
+                            <div class="item-pic">
+                                <img src="../image/class.jpg" alt="">
                             </div>
-                            <div>
-                            <a class="checkout-btn" bookId="${cartt.bookID}" lessonID="${cartt.lessonID}" style ="margin-top:85px;" onclick="deletee(this)">刪除</a><br>
+                            <div class="item-txt">
+                                <h2><b>${les.content}</b></h2>
+                            </div>
+                            <span class="item-price">
+                                <b class="priceee">NT$ ${les.price}</b>
+                            </span>
+                            <div class="checkout-btn">
+                                <button bookId="${cartt.bookID}" lessonID="${cartt.lessonID} onclick="deletee(this)">刪除</button><br>
                             </div>
                         </li>
                         `;
@@ -415,15 +403,15 @@ function gotoleft(nowPage){
         temp.innerHTML=`
         <table id="ChPaging">
             <tr>
-                <td class="pagingg" style="padding-right:30px" onclick="gotoleft(${cart.paginationInfo.nowPage-1})">
+                <td style="cursor:pointer;" onclick="gotoleft(${cart.paginationInfo.nowPage-1})">
                     ${leftinnerHtmll}
                 </td>
                     
-                <td>    
+                <td style="padding: 0 20px;">    
                     ${cart.paginationInfo.nowPage}  
                 </td>
 
-                <td class="pagingg" style="padding-left:30px" onclick="gotoright(${cart.paginationInfo.nowPage+1})">
+                <td style="cursor:pointer;" onclick="gotoright(${cart.paginationInfo.nowPage+1})">
                     ${rightinnerHtmll}
                 </td>
             </tr>

@@ -82,7 +82,8 @@
         <div class="main">
             <div class="main-main">
                 <div class="main-header">
-                    <div class="main-header-left">課程名稱</div>
+                    <div class="main-header-left">選擇欲購買課程</div>
+                    <div class="main-header-middle">課程名稱</div>
                     <div class="main-header-right">價格</div>
                 </div>
                 <ul id="main-container">
@@ -122,7 +123,10 @@
                 <img src="../image/ATM.png" alt="">
             </div>
         </form>
-        <button onclick="closeDialog(); alert('結帳完成')">結帳</button>
+        <div class="dialog-button">
+            <button onclick="closeDialog()">取消</button>
+            <button onclick="closeDialog(); alert('結帳完成')">結帳</button>
+        </div>
     </dialog>
     <div class="footer">
         <footer>&copy; Copyright 2024 HTML.am</footer>
