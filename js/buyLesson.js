@@ -227,8 +227,8 @@ function gotoright(nowPage){
                             <span class="item-price">
                                 <b class="priceee">NT$ ${les.price}</b>
                             </span>
-                            <div>
-                                <a class="checkout-btn" bookId="${cartt.bookID}" lessonID="${cartt.lessonID}"style ="margin-top:85px;" onclick="deletee(this)">刪除</a><br>
+                            <div class="checkout-btn">
+                                <button bookId="${cartt.bookID}" lessonID="${cartt.lessonID} onclick="deletee(this)">刪除</button><br>
                             </div>
                         </li>
                         `;
@@ -363,8 +363,8 @@ function gotoleft(nowPage){
                             <span class="item-price">
                                 <b class="priceee">NT$ ${les.price}</b>
                             </span>
-                            <div>
-                                <a class="checkout-btn" bookId="${cartt.bookID}" lessonID="${cartt.lessonID}"style ="margin-top:85px;" onclick="deletee(this)">刪除</a><br>
+                            <div class="checkout-btn">
+                                <button bookId="${cartt.bookID}" lessonID="${cartt.lessonID} onclick="deletee(this)">刪除</button><br>
                             </div>
                         </li>
                         `;
