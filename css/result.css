@@ -173,7 +173,7 @@ span.wrong{
     background-color: white;
     margin-top: 20px;
     width: 1100px;
-    height: 320px;
+    min-height: 320px;
     border-radius: 30px;
     font-size: 20px;
     display: flex;
@@ -187,7 +187,6 @@ span.wrong{
   
   .stu-ans{
     display: flex;
-    align-items: center;
   }
 
   .stu-ans h3{
@@ -200,12 +199,14 @@ span.wrong{
 
   .question ul{
     list-style: none;
-    margin-top: 40px;
+    margin: 20px 0;
+    margin-left: 40px;
   }
   
   .question li{
-    margin: 20px 0 0 20px;
+    margin-top: 10px;
     font-size: 24px;
+    text-align: justify;
   }
   
   .question input[type=radio]{
@@ -230,7 +231,7 @@ span.wrong{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 300px;
+    margin-bottom: 20px;
     width: 200px;
   }
 
@@ -318,7 +319,7 @@ span.wrong{
   }
   
   .body-next{
-    margin-top: 30px;
+    margin: 30px 0;
     width: 1100px;
     display: flex;
     justify-content: space-between;

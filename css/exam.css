@@ -287,7 +287,7 @@ h3#question{
 }
 
 .body-next{
-  margin-top: 60px;
+  margin: 60px 0 30px 0;
   width: 1100px;
   display: flex;
   justify-content: space-between;
