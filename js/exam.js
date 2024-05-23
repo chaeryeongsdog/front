@@ -39,7 +39,6 @@ for (var i=0 ; i<quizs.length;i++){
   sideBarContainer.appendChild(productDiv);
 }
 
-
 // let quizs = [
 //   {
 //     question: "1. 下列文句何者有語病？",
@@ -142,8 +141,9 @@ function loadQuiz() {
 }
 
 function checkstar(){
-  var temp = document.getElementById("s"+(currentQuiz+1));
-  if (temp.style.display == ""){
+  var aab = document.getElementById("s"+(currentQuiz));
+  console.log(aab);
+  if (aab.style.display === ""){
     star.checked = false;
   }
   else{
@@ -166,7 +166,8 @@ function sendStar(){
 }
 
 function checkSelected(){
-  temp = document.getElementById("o"+(currentQuiz+1)).innerText;
+  temp = document.getElementById("o"+(currentQuiz)).innerText;
+  console.log(temp);
   answerEl.forEach((answerEl) => {
     if(temp == answerEl.id){
       answerEl.checked = true;
@@ -192,6 +193,18 @@ function getSelected() {
   return answer;
 }
 
+var correctans = [];
+
+function correctans123() {
+  for(var i = 0; i < quizs.length; i++){
+    currentQuiz = i;
+    let currentQuizData = quizs[currentQuiz];
+    correctans.push(currentQuizData.correct);
+  }
+  if(correctans.length > quizs.length){
+    correctans.length = quizs.length;
+  }
+};
 nextBtn.addEventListener("click", () => {
   currentQuiz++;
   checkstar();
@@ -201,8 +214,9 @@ nextBtn.addEventListener("click", () => {
     loadQuiz();
   }
   else if(currentQuiz == quizs.length){
-    if(quizs.length == correctans.length){
     correctans123();
+    if(quizs.length == correctans.length){
+      
     console.log(correctans);
     var anstemp = JSON.stringify(testans);
     localStorage.setItem("correctans",JSON.stringify(correctans));
@@ -241,12 +255,12 @@ star.addEventListener("click", () => {
   }
 })
 
-setblock();
-function setblock(){
-  for(var i = 1; i < quizs.length+1; i++){
-    document.getElementById("n"+i).style.height="50px";
-  }
-}
+// setblock();
+// function setblock(){
+//   for(var i = 1; i < quizs.length+1; i++){
+//     document.getElementById("n"+i).style.height="50px";
+//   }
+// }
 
 const Abutton = document.getElementById("A");
 const Bbutton = document.getElementById("B");
@@ -291,18 +305,7 @@ function getquizById(ans) {
   };
 };
 
-var correctans = [];
 
-function correctans123() {
-  for(var i = 0; i < quizs.length; i++){
-    currentQuiz = i;
-    let currentQuizData = quizs[currentQuiz];
-    correctans.push(currentQuizData.correct);
-  }
-  if(correctans.length > quizs.length){
-    correctans.length = quizs.length;
-  }
-};
 
 document.addEventListener('DOMContentLoaded',function(){
   var token = localStorage.getItem('JwtToken');

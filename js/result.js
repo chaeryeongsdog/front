@@ -12,88 +12,119 @@ const star = document.getElementById("star");
 var yes = '../image/Done_round.png';
 var wrong = '../image/Close_round.png';
 let currentQuiz = 0; //當前測驗
-let quizs = [
-  {
-    question: "1. 下列文句何者有語病？",
-    A: "(A) 他不但才華出眾，而且和藹可親",
-    B: "(B) 幸虧你事先做好準備，否則災情慘重",
-    C: "(C) 原來他有難言之隱，難怪總是愁眉不展",
-    D: "(D) 與其讓你在事後落淚，難道讓你犯錯懊悔",
-    correct: "D",
-  },
-  {
-    question: "2. 正方形是有角的圖形，這個圖形沒有角，所以，",
-    A: "(A) 這個圖形是個圓。",
-    B: "(B) 這個圖形是橢圓。",
-    C: "(C) 這個圖形不是正方形。",
-    D: "(D) 無確切的結論。",
-    correct: "C",
-  },
-  {
-    question: "3. 下列文句何者有語病？",
-    A: "(A) 他不但才華出眾，而且和藹可親",
-    B: "(B) 幸虧你事先做好準備，否則災情慘重",
-    C: "(C) 原來他有難言之隱，難怪總是愁眉不展",
-    D: "(D) 與其讓你在事後落淚，難道讓你犯錯懊悔",
-    correct: "D",
-  },
-  {
-    question: "4. 正方形是有角的圖形，這個圖形沒有角，所以，",
-    A: "(A) 這個圖形是個圓。",
-    B: "(B) 這個圖形是橢圓。",
-    C: "(C) 這個圖形不是正方形。",
-    D: "(D) 無確切的結論。",
-    correct: "C",
-  },
-  {
-    question: "5. 下列文句何者有語病？",
-    A: "(A) 他不但才華出眾，而且和藹可親",
-    B: "(B) 幸虧你事先做好準備，否則災情慘重",
-    C: "(C) 原來他有難言之隱，難怪總是愁眉不展",
-    D: "(D) 與其讓你在事後落淚，難道讓你犯錯懊悔",
-    correct: "D",
-  },
-  {
-    question: "6. 正方形是有角的圖形，這個圖形沒有角，所以，",
-    A: "(A) 這個圖形是個圓。",
-    B: "(B) 這個圖形是橢圓。",
-    C: "(C) 這個圖形不是正方形。",
-    D: "(D) 無確切的結論。",
-    correct: "C",
-  },
-  {
-    question: "7. 下列文句何者有語病？",
-    A: "(A) 他不但才華出眾，而且和藹可親",
-    B: "(B) 幸虧你事先做好準備，否則災情慘重",
-    C: "(C) 原來他有難言之隱，難怪總是愁眉不展",
-    D: "(D) 與其讓你在事後落淚，難道讓你犯錯懊悔",
-    correct: "D",
-  },
-  {
-    question: "8. 正方形是有角的圖形，這個圖形沒有角，所以，",
-    A: "(A) 這個圖形是個圓。",
-    B: "(B) 這個圖形是橢圓。",
-    C: "(C) 這個圖形不是正方形。",
-    D: "(D) 無確切的結論。",
-    correct: "C",
-  },
-  {
-    question: "9. 下列文句何者有語病？",
-    A: "(A) 他不但才華出眾，而且和藹可親",
-    B: "(B) 幸虧你事先做好準備，否則災情慘重",
-    C: "(C) 原來他有難言之隱，難怪總是愁眉不展",
-    D: "(D) 與其讓你在事後落淚，難道讓你犯錯懊悔",
-    correct: "D",
-  },
-  {
-    question: "10. 正方形是有角的圖形，這個圖形沒有角，所以，",
-    A: "(A) 這個圖形是個圓。",
-    B: "(B) 這個圖形是橢圓。",
-    C: "(C) 這個圖形不是正方形。",
-    D: "(D) 無確切的結論。",
-    correct: "C",
-  },
-];
+
+var quizData =JSON.parse(localStorage.getItem('QUIZ'));
+var quizs=[];
+for(var i=0 ; i<quizData.length; i++){
+    var aa =quizData[i].content.split('%');
+    var a = {
+      question:aa[0],
+      A:aa[1],
+      B:aa[2],
+      C:aa[3],
+      D:aa[4],
+      correct:quizData[i].answer
+    }
+    quizs.push(a);
+}
+// testans.length = quizs.length;
+var sideBarContainer = document.getElementById('SideBarContainer');
+for (var i=0 ; i<quizs.length;i++){
+  var productDiv = document.createElement('div');
+  productDiv.innerHTML=`
+  <div class="block">
+  <span class="num" id="n${i+1}" onclick="changepage('n${i+1}')"></span>
+  <span class="opt" id="o${i+1}"></span>
+  <span class="wrong">
+      <img src="" alt="" id="w${i+1}" width="40px">
+  </span>
+  <img src="../image/Star_fill.png" alt="" id="s${i+1}">
+</div>
+  `
+  sideBarContainer.appendChild(productDiv);
+}
+// let quizs = [
+//   {
+//     question: "1. 下列文句何者有語病？",
+//     A: "(A) 他不但才華出眾，而且和藹可親",
+//     B: "(B) 幸虧你事先做好準備，否則災情慘重",
+//     C: "(C) 原來他有難言之隱，難怪總是愁眉不展",
+//     D: "(D) 與其讓你在事後落淚，難道讓你犯錯懊悔",
+//     correct: "D",
+//   },
+//   {
+//     question: "2. 正方形是有角的圖形，這個圖形沒有角，所以，",
+//     A: "(A) 這個圖形是個圓。",
+//     B: "(B) 這個圖形是橢圓。",
+//     C: "(C) 這個圖形不是正方形。",
+//     D: "(D) 無確切的結論。",
+//     correct: "C",
+//   },
+//   {
+//     question: "3. 下列文句何者有語病？",
+//     A: "(A) 他不但才華出眾，而且和藹可親",
+//     B: "(B) 幸虧你事先做好準備，否則災情慘重",
+//     C: "(C) 原來他有難言之隱，難怪總是愁眉不展",
+//     D: "(D) 與其讓你在事後落淚，難道讓你犯錯懊悔",
+//     correct: "D",
+//   },
+//   {
+//     question: "4. 正方形是有角的圖形，這個圖形沒有角，所以，",
+//     A: "(A) 這個圖形是個圓。",
+//     B: "(B) 這個圖形是橢圓。",
+//     C: "(C) 這個圖形不是正方形。",
+//     D: "(D) 無確切的結論。",
+//     correct: "C",
+//   },
+//   {
+//     question: "5. 下列文句何者有語病？",
+//     A: "(A) 他不但才華出眾，而且和藹可親",
+//     B: "(B) 幸虧你事先做好準備，否則災情慘重",
+//     C: "(C) 原來他有難言之隱，難怪總是愁眉不展",
+//     D: "(D) 與其讓你在事後落淚，難道讓你犯錯懊悔",
+//     correct: "D",
+//   },
+//   {
+//     question: "6. 正方形是有角的圖形，這個圖形沒有角，所以，",
+//     A: "(A) 這個圖形是個圓。",
+//     B: "(B) 這個圖形是橢圓。",
+//     C: "(C) 這個圖形不是正方形。",
+//     D: "(D) 無確切的結論。",
+//     correct: "C",
+//   },
+//   {
+//     question: "7. 下列文句何者有語病？",
+//     A: "(A) 他不但才華出眾，而且和藹可親",
+//     B: "(B) 幸虧你事先做好準備，否則災情慘重",
+//     C: "(C) 原來他有難言之隱，難怪總是愁眉不展",
+//     D: "(D) 與其讓你在事後落淚，難道讓你犯錯懊悔",
+//     correct: "D",
+//   },
+//   {
+//     question: "8. 正方形是有角的圖形，這個圖形沒有角，所以，",
+//     A: "(A) 這個圖形是個圓。",
+//     B: "(B) 這個圖形是橢圓。",
+//     C: "(C) 這個圖形不是正方形。",
+//     D: "(D) 無確切的結論。",
+//     correct: "C",
+//   },
+//   {
+//     question: "9. 下列文句何者有語病？",
+//     A: "(A) 他不但才華出眾，而且和藹可親",
+//     B: "(B) 幸虧你事先做好準備，否則災情慘重",
+//     C: "(C) 原來他有難言之隱，難怪總是愁眉不展",
+//     D: "(D) 與其讓你在事後落淚，難道讓你犯錯懊悔",
+//     correct: "D",
+//   },
+//   {
+//     question: "10. 正方形是有角的圖形，這個圖形沒有角，所以，",
+//     A: "(A) 這個圖形是個圓。",
+//     B: "(B) 這個圖形是橢圓。",
+//     C: "(C) 這個圖形不是正方形。",
+//     D: "(D) 無確切的結論。",
+//     correct: "C",
+//   },
+// ];
 
 const testans = localStorage.getItem("testans");
 const correctans = localStorage.getItem("correctans");
