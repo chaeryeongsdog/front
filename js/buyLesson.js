@@ -597,3 +597,37 @@ function closeDialog() {
   dialog.close();
   dialog.style.display="none"
 }
+function bought(){
+    var checkbox = document.querySelectorAll('input[name="options"]:checked');
+    var selectedValues = [];
+
+    checkbox.forEach(A =>{
+        selectedValues.push(checkbox.values);
+    })
+    for(var i =0 ; i<selectedValues.length;i++){
+        var bookID = selectedValues[i];
+        var data ={
+            bookID
+        }
+        var jsondata = JSON.parse(data);
+        fetch('http://localhost:5062/api/Book/Order',{
+        method:'POST',
+        headers:{
+            'Content-Type' : 'application/json',
+            'Authorization' : `Bearer ${token}`
+        },
+        body:jsondata
+    })
+    .then(res => {
+        if(!res.ok){
+            throw new Error("錯誤拉")
+        }
+        return res.text()
+    })
+    .then(data => {
+        console.log(data);
+        alert(data);
+    })
+    }
+
+}
