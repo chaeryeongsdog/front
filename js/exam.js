@@ -48,78 +48,6 @@ for (var i=0 ; i<quizs.length;i++){
 //     D: "(D) 與其讓你在事後落淚，難道讓你犯錯懊悔",
 //     correct: "D",
 //   },
-//   {
-//     question: "2. 正方形是有角的圖形，這個圖形沒有角，所以，",
-//     A: "(A) 這個圖形是個圓。",
-//     B: "(B) 這個圖形是橢圓。",
-//     C: "(C) 這個圖形不是正方形。",
-//     D: "(D) 無確切的結論。",
-//     correct: "C",
-//   },
-//   {
-//     question: "3. 下列文句何者有語病？",
-//     A: "(A) 他不但才華出眾，而且和藹可親",
-//     B: "(B) 幸虧你事先做好準備，否則災情慘重",
-//     C: "(C) 原來他有難言之隱，難怪總是愁眉不展",
-//     D: "(D) 與其讓你在事後落淚，難道讓你犯錯懊悔",
-//     correct: "D",
-//   },
-//   {
-//     question: "4. 正方形是有角的圖形，這個圖形沒有角，所以，",
-//     A: "(A) 這個圖形是個圓。",
-//     B: "(B) 這個圖形是橢圓。",
-//     C: "(C) 這個圖形不是正方形。",
-//     D: "(D) 無確切的結論。",
-//     correct: "C",
-//   },
-//   {
-//     question: "5. 下列文句何者有語病？",
-//     A: "(A) 他不但才華出眾，而且和藹可親",
-//     B: "(B) 幸虧你事先做好準備，否則災情慘重",
-//     C: "(C) 原來他有難言之隱，難怪總是愁眉不展",
-//     D: "(D) 與其讓你在事後落淚，難道讓你犯錯懊悔",
-//     correct: "D",
-//   },
-//   {
-//     question: "6. 正方形是有角的圖形，這個圖形沒有角，所以，",
-//     A: "(A) 這個圖形是個圓。",
-//     B: "(B) 這個圖形是橢圓。",
-//     C: "(C) 這個圖形不是正方形。",
-//     D: "(D) 無確切的結論。",
-//     correct: "C",
-//   },
-//   {
-//     question: "7. 下列文句何者有語病？",
-//     A: "(A) 他不但才華出眾，而且和藹可親",
-//     B: "(B) 幸虧你事先做好準備，否則災情慘重",
-//     C: "(C) 原來他有難言之隱，難怪總是愁眉不展",
-//     D: "(D) 與其讓你在事後落淚，難道讓你犯錯懊悔",
-//     correct: "D",
-//   },
-//   {
-//     question: "8. 正方形是有角的圖形，這個圖形沒有角，所以，",
-//     A: "(A) 這個圖形是個圓。",
-//     B: "(B) 這個圖形是橢圓。",
-//     C: "(C) 這個圖形不是正方形。",
-//     D: "(D) 無確切的結論。",
-//     correct: "C",
-//   },
-//   {
-//     question: "9. 下列文句何者有語病？",
-//     A: "(A) 他不但才華出眾，而且和藹可親",
-//     B: "(B) 幸虧你事先做好準備，否則災情慘重",
-//     C: "(C) 原來他有難言之隱，難怪總是愁眉不展",
-//     D: "(D) 與其讓你在事後落淚，難道讓你犯錯懊悔",
-//     correct: "D",
-//   },
-//   {
-//     question: "10. 正方形是有角的圖形，這個圖形沒有角，所以，",
-//     A: "(A) 這個圖形是個圓。",
-//     B: "(B) 這個圖形是橢圓。",
-//     C: "(C) 這個圖形不是正方形。",
-//     D: "(D) 無確切的結論。",
-//     correct: "C",
-//   }
 // ];
 
 loadnum();
@@ -141,13 +69,12 @@ function loadQuiz() {
 }
 
 function checkstar(){
-  var aab = document.getElementById("s"+(currentQuiz));
-  console.log(aab);
-  if (aab.style.display === ""){
-    star.checked = false;
+  var aab = document.getElementById("s"+(currentQuiz+1));
+  if (aab.style.display === "flex"){
+    star.checked = true;
   }
   else{
-    star.checked = true;
+    star.checked = false;
   };
 }
 
@@ -166,7 +93,7 @@ function sendStar(){
 }
 
 function checkSelected(){
-  temp = document.getElementById("o"+(currentQuiz)).innerText;
+  temp = document.getElementById("o"+(currentQuiz+1)).innerText;
   console.log(temp);
   answerEl.forEach((answerEl) => {
     if(temp == answerEl.id){
@@ -205,18 +132,18 @@ function correctans123() {
     correctans.length = quizs.length;
   }
 };
+
 nextBtn.addEventListener("click", () => {
   currentQuiz++;
+  if(currentQuiz <= quizs.length - 1){
+  loadQuiz();
   checkstar();
   deselectAnswer();
   checkSelected();
-  if(currentQuiz <= quizs.length - 1){
-    loadQuiz();
   }
   else if(currentQuiz == quizs.length){
     correctans123();
-    if(quizs.length == correctans.length){
-      
+    if(quizs.length == correctans.length){    
     console.log(correctans);
     var anstemp = JSON.stringify(testans);
     localStorage.setItem("correctans",JSON.stringify(correctans));
@@ -251,7 +178,7 @@ star.addEventListener("click", () => {
     document.getElementById("s"+(currentQuiz+1)).style.display="flex";
   }
   else{
-    document.getElementById("s"+(currentQuiz+1)).style.display="";
+    document.getElementById("s"+(currentQuiz+1)).style.display="none";
   }
 })
 
