@@ -150,26 +150,42 @@ span#userid{
   background-color: white;
   margin-top: 40px;
   width: 1100px;
-  height: 360px;
   border-radius: 30px;
   font-size: 20px;
   display: flex;
   flex-direction: row;
+  min-height: 320px;
 }
 
 .body-exam-que{
-  width: 1200px;
-  padding: 30px;
+  width: 960px;
+  padding: 20px 0 0 20px;
+}
+
+.questionNum{
+  display: flex;
+  width: 100%;
+}
+
+h3#questionNum{
+  margin-right: 20px;
+}
+
+h3#question{
+  text-align: justify;
+  width: 900px;
 }
 
 .question ul{
   list-style: none;
-  margin-top: 40px;
+  margin: 20px 0;
+  margin-left: 40px;
 }
 
 .question li{
-  margin: 20px 0 0 20px;
+  margin-top: 10px;
   font-size: 24px;
+  text-align: justify;
 }
 
 .question input[type=radio]{
@@ -181,9 +197,10 @@ span#userid{
   -moz-appearance: none;
   appearance: none;
   background: url(../image/Star.png);
-  width: 100px;
+  width: 80px;
   height: 60px;
-  margin: 10px 12px;
+  margin-top: 10px;
+  margin-left: 20px;
 }
 
 .body-exam #star:checked{

@@ -14,13 +14,19 @@ let currentQuiz = 0; //當前測驗
 var quizData =JSON.parse(localStorage.getItem('QUIZ'));
 var quizs=[];
 for(var i=0 ; i<quizData.length; i++){
-    var aa =quizData[i].content.split('%');
+    var aa = quizData[i].content.split('%');
+    var cleanQuestion = aa[0].replace(/\r\n/g,'').replace(/\n/g,'').replace(/\r/g,"");
+    var cleanQuestionA = ((aa[1].replace(/\r\n/g,'')).replace(/\n/g,'')).replace(/\r/g,"");
+    var cleanQuestionB = ((aa[2].replace(/\r\n/g,'')).replace(/\n/g,'')).replace(/\r/g,"");
+    var cleanQuestionC = ((aa[3].replace(/\r\n/g,'')).replace(/\n/g,'')).replace(/\r/g,"");
+    var cleanQuestionD = ((aa[4].replace(/\r\n/g,'')).replace(/\n/g,'')).replace(/\r/g,"");
     var a = {
-      question:aa[0],
-      A:aa[1],
-      B:aa[2],
-      C:aa[3],
-      D:aa[4],
+      questionNum:quizData[i].questionNum,
+      question:cleanQuestion,
+      A:cleanQuestionA,
+      B:cleanQuestionB,
+      C:cleanQuestionC,
+      D:cleanQuestionD,
       correct:quizData[i].answer
     }
     quizs.push(a);
@@ -59,8 +65,8 @@ function loadnum() {
 
 loadQuiz();
 function loadQuiz() {
-
   let currentQuizData = quizs[currentQuiz];
+  document.getElementById("questionNum").innerText = (currentQuiz+1) + ".";
   questionEl.innerText = currentQuizData.question;
   a_text.innerText = currentQuizData.A;
   b_text.innerText = currentQuizData.B;
@@ -94,7 +100,6 @@ function sendStar(){
 
 function checkSelected(){
   temp = document.getElementById("o"+(currentQuiz+1)).innerText;
-  console.log(temp);
   answerEl.forEach((answerEl) => {
     if(temp == answerEl.id){
       answerEl.checked = true;
@@ -165,6 +170,7 @@ nextBtn.addEventListener("click", () => {
 
 backBtn.addEventListener("click", () => {
   currentQuiz--;
+  loadQuiz();
   checkstar();
   deselectAnswer();
   checkSelected();
@@ -219,6 +225,7 @@ function changepage(elementId){
 function getquizById(ans) {
   currentQuiz = ans-1;
   let currentQuizData = quizs[currentQuiz];
+  document.getElementById("questionNum").innerText = (currentQuiz+1) + ".";
   questionEl.innerText = currentQuizData.question;
   a_text.innerText = currentQuizData.A;
   b_text.innerText = currentQuizData.B;
