@@ -171,7 +171,7 @@ function gotoright(nowPage){
     }
     var jsondata = JSON.stringify(data);
     console.log(jsondata);
-    const urll= `http://localhost:5062/api/Book/GetCart`
+    const urll= `http://localhost:5062/api/Book/GetCart?NowPage=${nowPage}`
     fetch(urll,{
         method:'POST',
         headers:{
@@ -306,7 +306,7 @@ function gotoright(nowPage){
 //往左換頁
 function gotoleft(nowPage){
     var token = localStorage.getItem('JwtToken');
-    const urll= `http://localhost:5062/api/Book/GetCart`
+    const urll= `http://localhost:5062/api/Book/GetCart?NowPage=${nowPage}`
     var itemNum = 5;
     var data ={
         nowPage,
@@ -355,7 +355,6 @@ function gotoleft(nowPage){
                 lesson.forEach(les =>{
                     if(cartt.lessonID == les.lessonID)
                     {   
-                        
                         const productDiv = document.createElement('div');
                         totalPrice+=parseInt(les.price);  
                         productDiv.innerHTML = `
@@ -481,12 +480,12 @@ function gotoleft(nowPage){
 function deletee(aa){
     var token = localStorage.getItem('JwtToken');
     const BookID = aa.getAttribute('bookID');
-    const lessonID = aa.getAttribute('lessonID');
+    const LessonID = aa.getAttribute('lessonID');
     const data={
         BookID
     }
     var jsondata = JSON.stringify(data);
-    console.log(data);
+    console.log(jsondata);
 fetch('http://localhost:5062/api/Book/RemoveFromCart',{
     method:'POST',
       headers:{
@@ -497,37 +496,41 @@ fetch('http://localhost:5062/api/Book/RemoveFromCart',{
     })
     .then(res => res.text())
     .then(data => {
-        window.alert("刪除成功！");
-        
-        // fetch('http://localhost:5062/api/Book/GetCart?NowPage=1&ItemNum=6',{
-        // method:'POST',
-        // headers:{
-        // 'Content-Type' : 'application/json',
-        // 'Authorization' : `Bearer ${token}`
-        // }
-        // })
-        // .then(res => {
-        //     if(!res.ok){
-        //         throw new Error('失敗');
-        //     }
+        if(data == "已從購物車中移除課程"){
+            console.log(data);
+            alert("刪除成功!");
+            fetch('http://localhost:5062/api/Book/GetCart?NowPage=1',{
+                method:'POST',
+                headers:{
+                'Content-Type' : 'application/json',
+                'Authorization' : `Bearer ${token}`
+                }
+                })
+                .then(res => {
+                    if(!res.ok){
+                        throw new Error('失敗');
+                    }
+                    
+                    return res.json();
+                        
+                })
+                .then(cart => {
+                    if(cart.cartItems == null)
+                    {
+                        window.alert("購物車沒東西囉！");
+                        window.location.href = '../html/stu-class.html';
+                    }
+                    else{
+                        window.location.href="../html/cart.html";
+                    }
+                })
             
-        //     return res.json();
-                
-        // })
-        // .then(cart => {
-        //     if(cart.cartItems != null)
-        //     {
-                
-        //         console.log(cart.cartItems);
-        //         console.log("幹");
-        //         window.alert("購物車沒東西囉！");
-        //         window.location.href = '../html/stu-class.html';
-        //     }
-        // })
+        }
+        else{
+            alert("移除失敗");
+        }
+ 
 
-
-        window.location.href = '../html/cart.html';
-        console.log(data);
     })
 }
 

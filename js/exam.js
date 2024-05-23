@@ -141,7 +141,7 @@ function loadQuiz() {
 }
 
 function checkstar(){
-  var aab = document.getElementById("s"+(currentQuiz));
+  var aab = document.getElementById("s"+(currentQuiz+1));
   console.log(aab);
   if (aab.style.display === ""){
     star.checked = false;
@@ -166,7 +166,7 @@ function sendStar(){
 }
 
 function checkSelected(){
-  temp = document.getElementById("o"+(currentQuiz)).innerText;
+  temp = document.getElementById("o"+(currentQuiz+1)).innerText;
   console.log(temp);
   answerEl.forEach((answerEl) => {
     if(temp == answerEl.id){
