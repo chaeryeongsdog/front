@@ -1,3 +1,9 @@
+function keyLogin(event) {
+    if (event.keyCode == 13) {
+        document.getElementById("loginBtn").click();
+    }
+}
+
 function sendData() {
     var Account = document.getElementById("username").value;
     var Password = document.getElementById("password").value;

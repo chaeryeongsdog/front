@@ -97,7 +97,7 @@
                                 <b class="priceee">NT$ ${les.price}</b>
                             </span>
                             <div class="checkout-btn">
-                                <button bookId="${cartt.bookID}" lessonID="${cartt.lessonID} onclick="deletee(this)">刪除</button><br>
+                                <button bookId="${cartt.bookID}" lessonID="${cartt.lessonID}" onclick="deletee(this)">刪除</button><br>
                             </div>
                         </li>
                         `;
@@ -228,7 +228,7 @@ function gotoright(nowPage){
                                 <b class="priceee">NT$ ${les.price}</b>
                             </span>
                             <div class="checkout-btn">
-                                <button bookId="${cartt.bookID}" lessonID="${cartt.lessonID} onclick="deletee(this)">刪除</button><br>
+                                <button bookId="${cartt.bookID}" lessonID="${cartt.lessonID}" onclick="deletee(this)">刪除</button><br>
                             </div>
                         </li>
                         `;
@@ -364,7 +364,7 @@ function gotoleft(nowPage){
                                 <b class="priceee">NT$ ${les.price}</b>
                             </span>
                             <div class="checkout-btn">
-                                <button bookId="${cartt.bookID}" lessonID="${cartt.lessonID} onclick="deletee(this)">刪除</button><br>
+                                <button bookId="${cartt.bookID}" lessonID="${cartt.lessonID}" onclick="deletee(this)">刪除</button><br>
                             </div>
                         </li>
                         `;

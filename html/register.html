@@ -9,9 +9,6 @@
 <body style="background-color:#ededed">
     <div class="header">
         <div class="header-left">
-            <label for="sidebar-active" style="cursor: pointer;">
-                <img src="../image/sidebar-button.png">
-            </label>
             <h1>會考會考</h1>
         </div>
         <div class="header-user">            
@@ -76,7 +73,7 @@
                 </nav>
             </div>
         </div>
-        <div class="body-content">
+        <div class="body-content"  onkeydown="keyRegister(event);">
             <div class="body-signup">
                 <div class="body-signup-title">
                     <h1 style="font-size: 40px;">註冊</h1>
@@ -96,7 +93,7 @@
                         <input type="email" id="gmail" name="gmail" placeholder="信箱" required>
                         <input type="password" id="password" name="password" placeholder="密碼" required>
                         <input type="password" id="comfirm_password" name="comfirm_password" placeholder="確認密碼">
-                        <input type="button" value="註冊" class="submit" onclick="sendData()">
+                        <input type="button" id="registerBtn" value="註冊" class="submit" onclick="sendData()">
                     </form>
                 </div>
             </div>
