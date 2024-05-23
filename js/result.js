@@ -16,13 +16,19 @@ let currentQuiz = 0; //當前測驗
 var quizData =JSON.parse(localStorage.getItem('QUIZ'));
 var quizs=[];
 for(var i=0 ; i<quizData.length; i++){
-    var aa =quizData[i].content.split('%');
+    var aa = quizData[i].content.split('%');
+    var cleanQuestion = aa[0].replace(/\r\n/g,'').replace(/\n/g,'').replace(/\r/g,"");
+    var cleanQuestionA = ((aa[1].replace(/\r\n/g,'')).replace(/\n/g,'')).replace(/\r/g,"");
+    var cleanQuestionB = ((aa[2].replace(/\r\n/g,'')).replace(/\n/g,'')).replace(/\r/g,"");
+    var cleanQuestionC = ((aa[3].replace(/\r\n/g,'')).replace(/\n/g,'')).replace(/\r/g,"");
+    var cleanQuestionD = ((aa[4].replace(/\r\n/g,'')).replace(/\n/g,'')).replace(/\r/g,"");
     var a = {
-      question:aa[0],
-      A:aa[1],
-      B:aa[2],
-      C:aa[3],
-      D:aa[4],
+      questionNum:quizData[i].questionNum,
+      question:cleanQuestion,
+      A:cleanQuestionA,
+      B:cleanQuestionB,
+      C:cleanQuestionC,
+      D:cleanQuestionD,
       correct:quizData[i].answer
     }
     quizs.push(a);
@@ -51,78 +57,6 @@ for (var i=0 ; i<quizs.length;i++){
 //     C: "(C) 原來他有難言之隱，難怪總是愁眉不展",
 //     D: "(D) 與其讓你在事後落淚，難道讓你犯錯懊悔",
 //     correct: "D",
-//   },
-//   {
-//     question: "2. 正方形是有角的圖形，這個圖形沒有角，所以，",
-//     A: "(A) 這個圖形是個圓。",
-//     B: "(B) 這個圖形是橢圓。",
-//     C: "(C) 這個圖形不是正方形。",
-//     D: "(D) 無確切的結論。",
-//     correct: "C",
-//   },
-//   {
-//     question: "3. 下列文句何者有語病？",
-//     A: "(A) 他不但才華出眾，而且和藹可親",
-//     B: "(B) 幸虧你事先做好準備，否則災情慘重",
-//     C: "(C) 原來他有難言之隱，難怪總是愁眉不展",
-//     D: "(D) 與其讓你在事後落淚，難道讓你犯錯懊悔",
-//     correct: "D",
-//   },
-//   {
-//     question: "4. 正方形是有角的圖形，這個圖形沒有角，所以，",
-//     A: "(A) 這個圖形是個圓。",
-//     B: "(B) 這個圖形是橢圓。",
-//     C: "(C) 這個圖形不是正方形。",
-//     D: "(D) 無確切的結論。",
-//     correct: "C",
-//   },
-//   {
-//     question: "5. 下列文句何者有語病？",
-//     A: "(A) 他不但才華出眾，而且和藹可親",
-//     B: "(B) 幸虧你事先做好準備，否則災情慘重",
-//     C: "(C) 原來他有難言之隱，難怪總是愁眉不展",
-//     D: "(D) 與其讓你在事後落淚，難道讓你犯錯懊悔",
-//     correct: "D",
-//   },
-//   {
-//     question: "6. 正方形是有角的圖形，這個圖形沒有角，所以，",
-//     A: "(A) 這個圖形是個圓。",
-//     B: "(B) 這個圖形是橢圓。",
-//     C: "(C) 這個圖形不是正方形。",
-//     D: "(D) 無確切的結論。",
-//     correct: "C",
-//   },
-//   {
-//     question: "7. 下列文句何者有語病？",
-//     A: "(A) 他不但才華出眾，而且和藹可親",
-//     B: "(B) 幸虧你事先做好準備，否則災情慘重",
-//     C: "(C) 原來他有難言之隱，難怪總是愁眉不展",
-//     D: "(D) 與其讓你在事後落淚，難道讓你犯錯懊悔",
-//     correct: "D",
-//   },
-//   {
-//     question: "8. 正方形是有角的圖形，這個圖形沒有角，所以，",
-//     A: "(A) 這個圖形是個圓。",
-//     B: "(B) 這個圖形是橢圓。",
-//     C: "(C) 這個圖形不是正方形。",
-//     D: "(D) 無確切的結論。",
-//     correct: "C",
-//   },
-//   {
-//     question: "9. 下列文句何者有語病？",
-//     A: "(A) 他不但才華出眾，而且和藹可親",
-//     B: "(B) 幸虧你事先做好準備，否則災情慘重",
-//     C: "(C) 原來他有難言之隱，難怪總是愁眉不展",
-//     D: "(D) 與其讓你在事後落淚，難道讓你犯錯懊悔",
-//     correct: "D",
-//   },
-//   {
-//     question: "10. 正方形是有角的圖形，這個圖形沒有角，所以，",
-//     A: "(A) 這個圖形是個圓。",
-//     B: "(B) 這個圖形是橢圓。",
-//     C: "(C) 這個圖形不是正方形。",
-//     D: "(D) 無確切的結論。",
-//     correct: "C",
 //   },
 // ];
 
@@ -198,7 +132,8 @@ function loadnum() {
 
 loadQuiz();
 function loadQuiz() {
-  let currentQuizData = quizs[currentQuiz];
+  let currentQuizData = quizs[currentQuiz];  
+  document.getElementById("questionNum").innerText = (currentQuiz+1) + ".";
   questionEl.innerText = currentQuizData.question;
   a_text.innerText = currentQuizData.A;
   b_text.innerText = currentQuizData.B;
@@ -208,6 +143,7 @@ function loadQuiz() {
   document.getElementById("studentans").innerHTML=bb[currentQuiz]
 }
 
+checkstar();
 function checkstar(){
   var temp = document.getElementById("s"+(currentQuiz+1));
   if (temp.style.display == ""){
@@ -220,11 +156,11 @@ function checkstar(){
 
 nextBtn.addEventListener("click", () => {
   currentQuiz++;
-  checkstar();
   if(currentQuiz <= quizs.length - 1){
     loadQuiz();
+    checkstar();  
   }
-  else if(currentQuiz >= quizs.length -1){
+  else if(currentQuiz == quizs.length){
     countscore();
     window.location.href = "../html/index.html";
   };
@@ -276,6 +212,7 @@ function changepage(elementId){
 function getquizById(ans) {
   currentQuiz = ans-1;
   let currentQuizData = quizs[currentQuiz];
+  document.getElementById("questionNum").innerText = (currentQuiz+1) + ".";
   questionEl.innerText = currentQuizData.question;
   a_text.innerText = currentQuizData.A;
   b_text.innerText = currentQuizData.B;
