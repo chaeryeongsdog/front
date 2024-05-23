@@ -76,14 +76,8 @@ function loadQuiz() {
 
 function checkstar(){
   var aab = document.getElementById("s"+(currentQuiz+1));
-<<<<<<< HEAD
-  console.log(aab);
-  if (aab.style.display === ""){
-    star.checked = false;
-=======
   if (aab.style.display === "flex"){
     star.checked = true;
->>>>>>> 8a34e5e9d10777298be58eff3b13832e38f1576d
   }
   else{
     star.checked = false;
@@ -106,10 +100,6 @@ function sendStar(){
 
 function checkSelected(){
   temp = document.getElementById("o"+(currentQuiz+1)).innerText;
-<<<<<<< HEAD
-  console.log(temp);
-=======
->>>>>>> 8a34e5e9d10777298be58eff3b13832e38f1576d
   answerEl.forEach((answerEl) => {
     if(temp == answerEl.id){
       answerEl.checked = true;
