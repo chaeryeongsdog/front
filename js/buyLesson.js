@@ -31,14 +31,13 @@
     
     getallcartItem()
     function getallcartItem(){
+    var token = localStorage.getItem('JwtToken');
     var nowPage = 1;
     var itemNum = 5;
-    var dataA ={
-        nowPage,
-        itemNum
-    }
+    var dataA = { nowPage, itemNum };
     var jsondataA = JSON.stringify(dataA);
-        var token = localStorage.getItem('JwtToken');
+
+    console.log('Requesting cart items with data:', jsondataA);
     fetch('http://localhost:5062/api/Book/GetCart',{
         method:'POST',
         headers:{
@@ -56,7 +55,9 @@
             
     })
     .then(cart => {
-        fetch('http://localhost:5062/api/lesson/GetAllLessons',{
+        console.log("cart.cartItems:",cart.cartItems);
+        if(cart.cartItems.length != 0){
+            fetch('http://localhost:5062/api/lesson/GetAllLessons',{
             method:'POST',
             headers:{
                 'Content-Type': 'application/json',
@@ -71,8 +72,6 @@
             return res.json();
         })
         .then(lesson => {
-            console.log("lesson:",lesson);
-            console.log("cart:",cart);
             var cartt = cart.cartItems;
             const cartContainer = document.getElementById('main-container');
             var totalPrice = 0;
@@ -85,7 +84,7 @@
                         productDiv.innerHTML = `
                         <li class="main-content" id="bookk">
                             <div class="checkbox">
-                                <input type="checkbox">
+                            <input type="checkbox" name="options" value="${cartt.bookID}">
                             </div>
                             <div class="item-pic">
                                 <img src="../image/class.jpg" alt="">
@@ -97,7 +96,7 @@
                                 <b class="priceee">NT$ ${les.price}</b>
                             </span>
                             <div class="checkout-btn">
-                                <button bookId="${cartt.bookID}" lessonID="${cartt.lessonID} onclick="deletee(this)">刪除</button><br>
+                                <button bookId="${cartt.bookID}" lessonID="${cartt.lessonID}" onclick="deletee(this)">刪除</button><br>
                             </div>
                         </li>
                         `;
@@ -150,6 +149,12 @@
             </tr>
         </table>
         `;
+        }
+        else{
+            alert("購物車沒東西囉!");
+            window.location.href="../html/stu-class.html";
+        }
+
     })
     .catch(error => {
         console.error('Problem:',error);
@@ -216,7 +221,7 @@ function gotoright(nowPage){
                         productDiv.innerHTML = `
                         <li class="main-content" id="bookk">
                             <div class="checkbox">
-                                <input type="checkbox">
+                            <input type="checkbox" name="options" value="${cartt.bookID}">
                             </div>
                             <div class="item-pic">
                                 <img src="../image/class.jpg" alt="">
@@ -228,7 +233,7 @@ function gotoright(nowPage){
                                 <b class="priceee">NT$ ${les.price}</b>
                             </span>
                             <div class="checkout-btn">
-                                <button bookId="${cartt.bookID}" lessonID="${cartt.lessonID} onclick="deletee(this)">刪除</button><br>
+                                <button bookId="${cartt.bookID}" lessonID="${cartt.lessonID}" onclick="deletee(this)">刪除</button><br>
                             </div>
                         </li>
                         `;
@@ -352,7 +357,7 @@ function gotoleft(nowPage){
                         productDiv.innerHTML = `
                         <li class="main-content" id="bookk">
                             <div class="checkbox">
-                                <input type="checkbox">
+                                <input type="checkbox" name="options" value="${cartt.bookID}">
                             </div>
                             <div class="item-pic">
                                 <img src="../image/class.jpg" alt="">
@@ -364,7 +369,7 @@ function gotoleft(nowPage){
                                 <b class="priceee">NT$ ${les.price}</b>
                             </span>
                             <div class="checkout-btn">
-                                <button bookId="${cartt.bookID}" lessonID="${cartt.lessonID} onclick="deletee(this)">刪除</button><br>
+                                <button bookId="${cartt.bookID}" lessonID="${cartt.lessonID}" onclick="deletee(this)">刪除</button><br>
                             </div>
                         </li>
                         `;
@@ -466,9 +471,11 @@ function gotoleft(nowPage){
 
 
 function deletee(aa){
+    console.log(aa);
     var token = localStorage.getItem('JwtToken');
     const BookID = aa.getAttribute('bookID');
     const LessonID = aa.getAttribute('lessonID');
+    
     const data={
         BookID
     }
@@ -585,37 +592,96 @@ function closeDialog() {
   dialog.close();
   dialog.style.display="none"
 }
+
+
 function bought(){
     var checkbox = document.querySelectorAll('input[name="options"]:checked');
     var selectedValues = [];
-
+    var token = localStorage.getItem('JwtToken');
     checkbox.forEach(A =>{
-        selectedValues.push(checkbox.values);
-    })
-    for(var i =0 ; i<selectedValues.length;i++){
-        var bookID = selectedValues[i];
-        var data ={
+        selectedValues.push(A.value);
+    });
+    selectedValues.forEach((bookID,index) => {
+        var data = {
             bookID
         }
-        var jsondata = JSON.parse(data);
-        fetch('http://localhost:5062/api/Book/Order',{
-        method:'POST',
-        headers:{
-            'Content-Type' : 'application/json',
-            'Authorization' : `Bearer ${token}`
-        },
-        body:jsondata
+        var jsondata = JSON.stringify(data);
+        console.log("Request Count:", index + 1);
+        console.log("Request data:",jsondata);
+        fetch('http://localhost:5062/api/Book/Order', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body:jsondata
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            } else {
+                throw new Error('Failed to place order');
+            }
+        })
+        .then(data => {
+            console.log("Response Count:", index + 1);
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+        
     })
-    .then(res => {
-        if(!res.ok){
-            throw new Error("錯誤拉")
-        }
-        return res.text()
-    })
-    .then(data => {
-        console.log(data);
-        alert(data);
-    })
-    }
+    // var requests = selectedValues.map(bookID => {
+    //     var data = { bookID };
+    //     var jsondata = JSON.stringify(data);
+
+    //     return fetch('http://localhost:5062/api/Book/Order', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Authorization': `Bearer ${token}`
+    //         },
+    //         body: jsondata
+    //     })
+    //     .then(res => {
+    //         if (!res.ok) {
+    //             return res.text().then(text => {
+    //                 throw new Error(`Error: ${text}`);
+    //             })
+                
+    //         }
+    //         return res.text();
+    //     });
+    // });
+
+    // Promise.all(requests)
+    //     .then(responses => {
+    //         console.log('All requests succeeded:', responses);
+    //         alert("購買完成");
+    //         window.location.href = "../html/cart.html";
+    //     })
+    //     .catch(error => {
+    //         console.error('One or more requests failed:', error);
+    //         alert('有些訂單處理失敗，請重試');
+    //     });
 
 }
+// function boughT(data){
+//     var token = localStorage.getItem('JwtToken');
+//     var jsondata = JSON.stringify(data);
+//     fetch('http://localhost:5062/api/Book/Order',{
+//         method:'POST',
+//         headers:{
+//             'Content-Type' : 'application/json',
+//             'Authorization' : `Bearer ${token}`
+//         },
+//         body:jsondata
+//         })
+//         .then(res => {
+//             if(!res.ok){
+//                 throw new Error("錯誤拉")
+//             }
+//             return res.text();
+//         });
+// }

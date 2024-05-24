@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded',function(){
         headers:{
             'Content-Type': 'application/json',
             'Authorization':`Bearer ${token}`
-        },
+        }
     })
     .then(res => {
         if (!res.ok)
@@ -104,6 +104,9 @@ document.addEventListener('DOMContentLoaded',function(){
             container.appendChild(divtemp);
         });
     })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 
 
 });
