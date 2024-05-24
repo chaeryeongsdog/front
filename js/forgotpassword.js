@@ -1,3 +1,9 @@
+function keyForgot(event) {
+    if (event.keyCode == 13) {
+        document.getElementById("forgotBtn").click();
+    }
+}
+
 function senddd(){
     var Account = document.getElementById('username').value;
     var Email = document.getElementById('email').value;
@@ -25,6 +31,7 @@ function senddd(){
     })
     .then(data => {
         document.getElementById('TT').innerHTML=data;
+        alert("請至信箱收取信件")
     })
     .catch(error => {
         console.error('There was a problem with the fetch operation:', error);

@@ -88,9 +88,8 @@ function logout(){
                         <div class="block-content" id="${DD.lessonID}" account=${DD.account}>
                             <img data-src="../image/class.jpg" src="../image/class.jpg" alt="">                        
                             <div class="block-title">
-                                <h2>${takeName()} </h2>
+                                <h2 class="LessonType">${takeName()} </h2>
                                 <h3 class='Content' name='年份'>${DD.year} 年</h3>
-                                <h3 class='Content' name='課程內容'>${DD.content}</h3>
                                 <h3 class="price" data-price="3000" >NT$${DD.price}</h3>
                             </div> 
                             <div class="block-button">
@@ -103,10 +102,7 @@ function logout(){
                 container.appendChild(divtemp);
             });
         })
-    
-    
     });
-
     
     function edit(element){
         var id = element.getAttribute('EditId');
@@ -125,9 +121,6 @@ function logout(){
         localStorage.setItem('data',data);
         window.location.href="../html/editLesson.html";
     }
-
-
-
 
     function deletee(ID){
         var lessonID= ID;
@@ -158,3 +151,36 @@ function logout(){
             window.location.href = '../html/tea-class.html';
         })
     }
+
+var blocks = document.getElementsByClassName("body-block");
+var LessonType = document.getElementsByClassName("LessonType");
+var lessonYear = document.getElementsByClassName("Content");
+var searchLesson = document.getElementById("exampleDataList");
+var searchYear = document.getElementById("exampleDataList1");
+function search() {
+    console.log(searchLesson.value == "")
+    console.log(lessonYear[0].innerHTML == searchYear.value + " 年")
+    for (var i = 0; i < blocks.length; i++){
+        blocks[i].style.display = "none"
+    };
+    for (var i = 0; i < blocks.length; i++){
+        if(searchLesson.value == ""){
+            if (searchYear.value == ""){
+                blocks[i].style.display = "flex"
+            }
+            else if(lessonYear[i].innerHTML == searchYear.value + " 年"){
+                blocks[0].style.display = "flex"
+            }
+        }
+        else if(searchYear.value == ""){
+            if(LessonType[i].innerHTML.trim() == searchLesson.value){
+                blocks[i].style.display = "flex"
+            }
+        }
+        else if(LessonType[i].innerHTML.trim() == searchLesson.value){
+            if(lessonYear[i].innerHTML == searchYear.value + " 年"){
+                blocks[i].style.display = "flex"
+            }
+        }
+    }
+};

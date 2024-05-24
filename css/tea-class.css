@@ -221,7 +221,7 @@ span#userid{
     align-items: center;
     width: 100vw;
     margin-top: 60px;
-    padding-bottom: 80px;
+    padding-bottom: 70px;
 }
 
 .body-top{
@@ -250,6 +250,24 @@ span#userid{
     width: 200px;
 }
 
+.form-control{
+    font-size: 20px;
+}
+
+#search{
+    width: 120px;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1FA84C;
+    font-size: 24px; 
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
 .add{
     width: 120px;
     height: 60px;
@@ -276,7 +294,7 @@ span#userid{
     background-color: #d9d9d9;
     box-shadow: 1px 1px 20px -2px;
     width: 300px;
-    height: 360px;
+    height: 400px;
     border-radius: 15px;
     margin: 20px 25px;
     display: flex;
@@ -285,7 +303,7 @@ span#userid{
 }
 
 .block-content{
-    height: 300px;
+    height: 340px;
     background-color: white;
     border-radius: 14px;
     display: flex;
@@ -304,7 +322,8 @@ span#userid{
 
 .body-class img{
     width: 240px;
-    height: 180px;
+    height: 170px;
+    margin-bottom: 10px;
     border-radius: 14px 14px 0 0;
 }
 
@@ -326,6 +345,7 @@ span#userid{
     justify-content: center;
     align-items: center;
 }
+
 .block-input{
     background-color: #006BCE;
     text-decoration: none;
@@ -350,6 +370,7 @@ span#userid{
     justify-content: center;
     color: white;
 }
+
 #userid{
     display: flex; /* 讓 span 元素變成 inline-block 類型，可以應用 width */
     height: 60px; /* 設置 span 元素的寬度為 100px */

@@ -9,9 +9,6 @@
 <body style="background-color:#ededed">
     <div class="header">
         <div class="header-left">
-            <label for="sidebar-active" style="cursor: pointer;">
-                <img src="../image/sidebar-button.png">
-            </label>
             <h1>會考會考</h1>
         </div>
         <div class="header-user">            
@@ -76,7 +73,7 @@
                 </nav>
             </div>
         </div>
-        <div class="body-content">
+        <div class="body-content" onkeydown="keyLogin(event);">
             <div class="body-login">
                 <div class="body-login-title">
                     <h1 style="font-size: 40px;">登入</h1>
@@ -87,7 +84,7 @@
                         <input type="password" id="password" name="password" placeholder="密碼" required>
                         <a href="forgotpassword.html" id="forgot">忘記密碼</a>
                         <span id="error"></span>
-                        <input type="button" value="登入" class="submit" onclick="sendData()">
+                        <input type="button" id="loginBtn" value="登入" class="submit" onclick="sendData()">
                         <a href="register.html" id="signup">前往註冊</a>
                     </form>
                 </div>
