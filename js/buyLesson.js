@@ -84,7 +84,7 @@
                         productDiv.innerHTML = `
                         <li class="main-content" id="bookk">
                             <div class="checkbox">
-                            <input type="checkbox" name="options" value="${cartt.bookID}">
+                            <input type="radio" name="options" value="${cartt.bookID}">
                             </div>
                             <div class="item-pic">
                                 <img src="../image/class.jpg" alt="">
@@ -221,7 +221,7 @@ function gotoright(nowPage){
                         productDiv.innerHTML = `
                         <li class="main-content" id="bookk">
                             <div class="checkbox">
-                            <input type="checkbox" name="options" value="${cartt.bookID}">
+                            <input type="radio" name="options" value="${cartt.bookID}">
                             </div>
                             <div class="item-pic">
                                 <img src="../image/class.jpg" alt="">
@@ -357,7 +357,7 @@ function gotoleft(nowPage){
                         productDiv.innerHTML = `
                         <li class="main-content" id="bookk">
                             <div class="checkbox">
-                                <input type="checkbox" name="options" value="${cartt.bookID}">
+                                <input type="radio" name="options" value="${cartt.bookID}">
                             </div>
                             <div class="item-pic">
                                 <img src="../image/class.jpg" alt="">
@@ -601,73 +601,224 @@ function bought(){
     checkbox.forEach(A =>{
         selectedValues.push(A.value);
     });
-    selectedValues.forEach((bookID,index) => {
-        var data = {
+    var total = selectedValues.length;
+    if(total < 5){
+        if(total == 1){
+        console.log("近來成功1")
+        var bookID = selectedValues[0];
+        var data ={
             bookID
         }
+        boughtFunctions["BB1"](data);
+        alert("購買成功!請到已訂閱課程考試/學習!!");
+        window.location.href="../html/bought.html";
+        }
+        else if (total == 2){
+            console.log("近來成功2")
+            var bookID1 = selectedValues[0];
+            var data1 ={
+                bookID1
+            }
+            var bookID2 = selectedValues[1];
+            var data2 ={
+                bookID2
+            }
+
+            boughtFunctions["BB1"](data1);
+            boughtFunctions["BB2"](data2);
+            alert("購買成功!請到已訂閱課程考試/學習!!");
+            window.location.href="../html/bought.html";
+        }
+        else if (total == 3){
+            console.log("近來成功3")
+            var bookID1 = selectedValues[0];
+            var data1 ={
+                bookID1
+            }
+            var bookID2 = selectedValues[1];
+            var data2 ={
+                bookID2
+            }
+            var bookID3 = selectedValues[2];
+            var data3={
+                bookID3
+            }
+            boughtFunctions["BB1"](data1);
+            boughtFunctions["BB2"](data2);
+            boughtFunctions["BB3"](data3);
+            // bought1(data1)
+            // bought2(data2)
+            // bought3(data3)
+            alert("購買成功!請到已訂閱課程考試/學習!!");
+            window.location.href="../html/bought.html";
+        }
+        else if (total == 4){
+            console.log("近來成功4")
+            var bookID1 = selectedValues[0];
+            var data1 ={
+                bookID1
+            }
+            var bookID2 = selectedValues[1];
+            var data2 ={
+                bookID2
+            }
+            var bookID3 = selectedValues[2];
+            var data3 ={
+                bookID3
+            }
+            var bookID4 = selectedValues[3];
+            var data4 ={
+                bookID4
+            }
+            boughtFunctions["BB1"](data1);
+            boughtFunctions["BB2"](data2);
+            boughtFunctions["BB3"](data3);
+            boughtFunctions["BB4"](data4);
+            // bought1(data1)
+            // bought2(data2)
+            // bought3(data3)
+            // bought4(data4)
+            alert("購買成功!請到已訂閱課程考試/學習!!");
+            window.location.href="../html/bought.html";
+        }
+        else if (total == 5){
+            console.log("近來成功5")
+            var bookID1 = selectedValues[0];
+            var data1 ={
+                bookID1
+            }
+            var bookID2 = selectedValues[1];
+            var data2 ={
+                bookID2
+            }
+            var bookID3 = selectedValues[2];
+            var data3 ={
+                bookID3
+            }
+            var bookID4 = selectedValues[3];
+            var data4 ={
+                bookID4
+            }
+            var bookID5 = selectedValues[4];
+            var data5 ={
+                bookID5
+            }
+            boughtFunctions["BB1"](data1);
+            boughtFunctions["BB2"](data2);
+            boughtFunctions["BB3"](data3);
+            boughtFunctions["BB4"](data4);
+            boughtFunctions["BB5"](data5);
+            // bought1(data1)
+            // bought2(data2)
+            // bought3(data3)
+            // bought4(data4)
+            // bought5(data5)
+            alert("購買成功!請到已訂閱課程考試/學習!!");
+            window.location.href="../html/bought.html";
+        }
+    }
+    else{
+        alert("最多購買5個!")
+    }
+    
+}
+//#region 購買多個
+
+var boughtFunctions = {
+    BB1:function(data){
+        var token = localStorage.getItem('JwtToken');
         var jsondata = JSON.stringify(data);
-        console.log("Request Count:", index + 1);
-        console.log("Request data:",jsondata);
-        fetch('http://localhost:5062/api/Book/Order', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+        fetch('http://localhost:5062/api/Book/Order',{
+            method:'POST',
+            headers:{
+                'Content-Type' : 'application/json',
+                'Authorization' : `Bearer ${token}`
             },
             body:jsondata
-        })
-        .then(response => {
-            if (response.ok) {
-                return response.text();
-            } else {
-                throw new Error('Failed to place order');
-            }
-        })
-        .then(data => {
-            console.log("Response Count:", index + 1);
-            console.log(data);
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-        
-    })
-    // var requests = selectedValues.map(bookID => {
-    //     var data = { bookID };
-    //     var jsondata = JSON.stringify(data);
+            })
+            .then(res => {
+                if(!res.ok){
+                    throw new Error("錯誤拉")
+                }
+                return res.text();
+            });
+    },
+    BB2:function(data){
+        var token = localStorage.getItem('JwtToken');
+        var jsondata = JSON.stringify(data);
+        fetch('http://localhost:5062/api/Book/Order',{
+            method:'POST',
+            headers:{
+                'Content-Type' : 'application/json',
+                'Authorization' : `Bearer ${token}`
+            },
+            body:jsondata
+            })
+            .then(res => {
+                if(!res.ok){
+                    throw new Error("錯誤拉")
+                }
+                return res.text();
+            });
+    },
+    BB3:function(data){
+        var token = localStorage.getItem('JwtToken');
+        var jsondata = JSON.stringify(data);
+        fetch('http://localhost:5062/api/Book/Order',{
+            method:'POST',
+            headers:{
+                'Content-Type' : 'application/json',
+                'Authorization' : `Bearer ${token}`
+            },
+            body:jsondata
+            })
+            .then(res => {
+                if(!res.ok){
+                    throw new Error("錯誤拉")
+                }
+                return res.text();
+            });
+    },
+    BB4:function(data){
+        var token = localStorage.getItem('JwtToken');
+        var jsondata = JSON.stringify(data);
+        fetch('http://localhost:5062/api/Book/Order',{
+            method:'POST',
+            headers:{
+                'Content-Type' : 'application/json',
+                'Authorization' : `Bearer ${token}`
+            },
+            body:jsondata
+            })
+            .then(res => {
+                if(!res.ok){
+                    throw new Error("錯誤拉")
+                }
+                return res.text();
+            });
+    },
+    BB5:function(data){
+        var token = localStorage.getItem('JwtToken');
+        var jsondata = JSON.stringify(data);
+        fetch('http://localhost:5062/api/Book/Order',{
+            method:'POST',
+            headers:{
+                'Content-Type' : 'application/json',
+                'Authorization' : `Bearer ${token}`
+            },
+            body:jsondata
+            })
+            .then(res => {
+                if(!res.ok){
+                    throw new Error("錯誤拉")
+                }
+                return res.text();
+            });
+    },
+    
+};
 
-    //     return fetch('http://localhost:5062/api/Book/Order', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'Authorization': `Bearer ${token}`
-    //         },
-    //         body: jsondata
-    //     })
-    //     .then(res => {
-    //         if (!res.ok) {
-    //             return res.text().then(text => {
-    //                 throw new Error(`Error: ${text}`);
-    //             })
-                
-    //         }
-    //         return res.text();
-    //     });
-    // });
-
-    // Promise.all(requests)
-    //     .then(responses => {
-    //         console.log('All requests succeeded:', responses);
-    //         alert("購買完成");
-    //         window.location.href = "../html/cart.html";
-    //     })
-    //     .catch(error => {
-    //         console.error('One or more requests failed:', error);
-    //         alert('有些訂單處理失敗，請重試');
-    //     });
-
-}
-// function boughT(data){
+// function BB1(data){
 //     var token = localStorage.getItem('JwtToken');
 //     var jsondata = JSON.stringify(data);
 //     fetch('http://localhost:5062/api/Book/Order',{
@@ -685,3 +836,77 @@ function bought(){
 //             return res.text();
 //         });
 // }
+// function BB2(data){
+//     var token = localStorage.getItem('JwtToken');
+//     var jsondata = JSON.stringify(data);
+//     fetch('http://localhost:5062/api/Book/Order',{
+//         method:'POST',
+//         headers:{
+//             'Content-Type' : 'application/json',
+//             'Authorization' : `Bearer ${token}`
+//         },
+//         body:jsondata
+//         })
+//         .then(res => {
+//             if(!res.ok){
+//                 throw new Error("錯誤拉")
+//             }
+//             return res.text();
+//         });
+// }
+// function BB3(data){
+//     var token = localStorage.getItem('JwtToken');
+//     var jsondata = JSON.stringify(data);
+//     fetch('http://localhost:5062/api/Book/Order',{
+//         method:'POST',
+//         headers:{
+//             'Content-Type' : 'application/json',
+//             'Authorization' : `Bearer ${token}`
+//         },
+//         body:jsondata
+//         })
+//         .then(res => {
+//             if(!res.ok){
+//                 throw new Error("錯誤拉")
+//             }
+//             return res.text();
+//         });
+// }
+// function BB4(data){
+//     var token = localStorage.getItem('JwtToken');
+//     var jsondata = JSON.stringify(data);
+//     fetch('http://localhost:5062/api/Book/Order',{
+//         method:'POST',
+//         headers:{
+//             'Content-Type' : 'application/json',
+//             'Authorization' : `Bearer ${token}`
+//         },
+//         body:jsondata
+//         })
+//         .then(res => {
+//             if(!res.ok){
+//                 throw new Error("錯誤拉")
+//             }
+//             return res.text();
+//         });
+// }
+// function BB5(data){
+//     var token = localStorage.getItem('JwtToken');
+//     var jsondata = JSON.stringify(data);
+//     fetch('http://localhost:5062/api/Book/Order',{
+//         method:'POST',
+//         headers:{
+//             'Content-Type' : 'application/json',
+//             'Authorization' : `Bearer ${token}`
+//         },
+//         body:jsondata
+//         })
+//         .then(res => {
+//             if(!res.ok){
+//                 throw new Error("錯誤拉")
+//             }
+//             return res.text();
+//         });
+// }
+
+//#endregion
