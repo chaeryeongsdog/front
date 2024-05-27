@@ -171,6 +171,11 @@ h3#questionNum{
   margin-right: 20px;
 }
 
+.quizImg{
+  display: none;
+  background-color: #034A8C;
+}
+
 h3#question{
   text-align: justify;
   width: 900px;

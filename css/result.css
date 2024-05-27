@@ -180,6 +180,11 @@ span.wrong{
     flex-direction: row;
   }
   
+.quizImg{
+  display: none;
+  background-color: #034A8C;
+}
+  
   .body-exam-que{
     width: 1200px;
     padding: 30px;

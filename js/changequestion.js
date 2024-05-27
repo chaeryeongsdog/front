@@ -90,12 +90,13 @@ var jsondata = JSON.stringify(aa);
                 data.forEach(DD => {
                     if(DD.type == que.type && DD.year == que.year){
                       var productDiv = document.createElement('div');
+                      var questionQuiz = DD.content.split('%');
                       productDiv.innerHTML=
                       `
                       <div class="test-block">
                             <div class="block-left">
-                                <h3>題號：${DD.questionNum}</h3>
-                                <h2>${DD.content}</h2>
+                                <h2>${DD.questionNum}.</h2><br>
+                                <h3>${questionQuiz[0]}</h3>
                             </div>
                             <div class="block-right">
                                 <button class="modi" content="${DD.content}" id="${DD.questionID}" onclick="openDialog(this)">修改</button>
@@ -122,13 +123,40 @@ function openDialog(element) {
     var cartContainer = document.getElementById('BBBB');
     cartContainer.innerHTML='';
     var content = element.getAttribute('content');
+    var img = element.getAttribute('image');
     var productDiv = document.createElement('div');
+    var splitContent = content.split('%');
+    var topic = splitContent[0].replace(/\r\n/g,'').replace(/\n/g,'').replace(/\r/g,"");
+    var QuizA = splitContent[1].replace(/\r\n/g,'').replace(/\n/g,'').replace(/\r/g,"");
+    var QuizB = splitContent[2].replace(/\r\n/g,'').replace(/\n/g,'').replace(/\r/g,"");
+    var QuizC = splitContent[3].replace(/\r\n/g,'').replace(/\n/g,'').replace(/\r/g,"");
+    var QuizD = splitContent[4].replace(/\r\n/g,'').replace(/\n/g,'').replace(/\r/g,"");
                 productDiv.innerHTML=
                 `
                 <form action="" name="change">
                     <div class="dialog-block">
                         <h3>題目：</h3>
-                        <textarea name="" id="contenT" DataidValue="${element.id}">${content}</textarea>
+                        <textarea name="" id="contenT" DataidValue="${element.id}">${topic}</textarea>
+                    </div>
+                    <div class="dialog-block">
+                        <h3>A：</h3>
+                        <textarea name="" id="contenT" DataidValue="${element.id}">${QuizA}</textarea>
+                    </div>
+                    <div class="dialog-block">
+                        <h3>B：</h3>
+                        <textarea name="" id="contenT" DataidValue="${element.id}">${QuizB}</textarea>
+                    </div>
+                    <div class="dialog-block">
+                        <h3>C：</h3>
+                        <textarea name="" id="contenT" DataidValue="${element.id}">${QuizC}</textarea>
+                    </div>
+                    <div class="dialog-block">
+                        <h3>D：</h3>
+                        <textarea name="" id="contenT" DataidValue="${element.id}">${QuizD}</textarea>
+                    </div>
+                    <div class="dialog-block">
+                        <h3>圖片：</h3>
+                        <textarea name="" id="contenT" DataidValue="${element.id}">${img}</textarea>
                     </div>
                     <div class="dialog-block">
                         <h3>解答：</h3>
@@ -145,8 +173,8 @@ function openDialog(element) {
                     </div>
                 </form>
                 <div class="button">
-                    <button onclick="saveDialog()">儲存</button>
-                    <button onclick="closeDialog()">取消</button>
+                    <button id="save" onclick="saveDialog()">儲存</button>
+                    <button id="cancel" onclick="closeDialog()">取消</button>
                 </div>
                 `
                   cartContainer.appendChild(productDiv);

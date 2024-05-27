@@ -96,7 +96,6 @@ document.addEventListener('DOMContentLoaded',function(){
                         <div class="block-title">
                             <h2>${takeName()}</h2>
                             <h3 class='Content' name='年份'>${DD.year}年</h3>
-                            <h3 class="price" data-price="3000" >NT${DD.price}</h3>
                         </div> 
                     </div>
                 </div>

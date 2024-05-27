@@ -98,7 +98,7 @@ function logout(){
                             <div class="down-body1">
                                 課程年份
                             </div>
-                            <div class="down-body3">
+                            <div class="down-body2">
                                 <input type="text" placeholder="${year}" id="year">
                             </div>
                         </div>
@@ -112,20 +112,16 @@ function logout(){
                         </div>
                     </div>
                     <div class="content-right">
-                    <a href="">
-                        <div class="right1">
-                            <iframe width="300px" height="250px" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        </div>
-                        </a>
+                        <iframe src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         <div class="right2">
                             影片預覽
                         </div>
-                    </div>
+                    </div>    
                 </div>
                 <div class="up-button">
                     <div class="button1" type="button">
+                    <input type="button" value="上一頁" class="block-input" onclick="goback()">
                         <input type="button" value="更新" class="block-input" onclick="edit(${id})">
-                        <input type="button" value="上一頁" class="block-input" onclick="goback()">
                     </div>
                 </div>
                     `;

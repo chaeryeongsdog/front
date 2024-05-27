@@ -5,6 +5,7 @@ const a_text = document.getElementById("a-text");//選項內容
 const b_text = document.getElementById("b-text");
 const c_text = document.getElementById("c-text");
 const d_text = document.getElementById("d-text");
+const quizImg = document.getElementById("quizImg");
 const backBtn = document.getElementById("back");
 const nextBtn = document.getElementById("next");
 const testans = [];
@@ -72,6 +73,19 @@ function loadQuiz() {
   b_text.innerText = currentQuizData.B;
   c_text.innerText = currentQuizData.C;
   d_text.innerText = currentQuizData.D;
+  loadImg();
+}
+
+function loadImg(){
+  if (quizData[currentQuiz].image != "") {
+    quizImg.style.display = "flex";
+    quizImg.style.height = "200px";
+    quizImg.style.margin = "20px 0 20px 20px";
+    quizImg.src = quizData[currentQuiz].image;
+  }
+  else{
+    quizImg.style.display = "none";
+  }
 }
 
 function checkstar(){
@@ -231,6 +245,7 @@ function getquizById(ans) {
   b_text.innerText = currentQuizData.B;
   c_text.innerText = currentQuizData.C;
   d_text.innerText = currentQuizData.D;
+  loadImg();
   if(currentQuiz >= quizs.length - 1){
     document.getElementById("next").innerHTML="交卷"
   }

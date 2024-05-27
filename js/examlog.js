@@ -24,6 +24,7 @@ var jsondata = JSON.stringify(aa);
         return res.json();
     })
     .then(data => {
+        console.log(data);
         localStorage.setItem('quiz',JSON.stringify(data));
     })
     .catch(error => {
@@ -73,7 +74,7 @@ chinese.addEventListener("click",function(){
                                 <div class="test-quan">40題</div>
                             </div>
                             <div class="block-right">
-                                <div class="exam" year="${DD}" type="1" onclick="gotoExam(this)">測驗</div>
+                                <div class="exam" year="${DD}" type="1" onclick="gotoExam(this)">查看結果</div>
                             </div>
                         </div>`
                         cartContainer.appendChild(productDiv);
@@ -125,7 +126,7 @@ math.addEventListener("click",function(){
                                 <div class="test-quan">40題</div>
                             </div>
                             <div class="block-right">
-                                <div class="exam" year="${DD}" type="3" onclick="gotoExam(this)">測驗</div>
+                                <div class="exam" year="${DD}" type="3" onclick="gotoExam(this)">查看結果</div>
                             
                         </div>
                         </div>`
@@ -178,7 +179,7 @@ english.addEventListener("click",function(){
                                 <div class="test-quan">40題</div>
                             </div>
                             <div class="block-right">
-                                <div class="exam" year="${DD}" type="2" onclick="gotoExam(this)">測驗</div>
+                                <div class="exam" year="${DD}" type="2" onclick="gotoExam(this)">查看結果</div>
                             
                         </div>
                         </div>`
@@ -231,7 +232,7 @@ natural.addEventListener("click",function(){
                                 <div class="test-quan">40題</div>
                             </div>
                             <div class="block-right">
-                                <div class="exam" year="${DD}" type="4" onclick="gotoExam(this)">測驗</div>
+                                <div class="exam" year="${DD}" type="4" onclick="gotoExam(this)">查看結果</div>
                             
                         </div>
                         </div>`
@@ -284,7 +285,7 @@ society.addEventListener("click",function(){
                                 <div class="test-quan">40題</div>
                             </div>
                             <div class="block-right">
-                                <div class="exam" year="${DD}" type="5" onclick="gotoExam(this)">測驗</div>
+                                <div class="exam" year="${DD}" type="5" onclick="gotoExam(this)">查看結果</div>
                             
                         </div>
                         </div>`
@@ -393,7 +394,7 @@ document.addEventListener('DOMContentLoaded',function(){
                                 <div class="test-quan">40題</div>
                             </div>
                             <div class="block-right">
-                                <div class="exam" year="${DD}" type="1" onclick="gotoExam(this)">測驗</div>
+                                <div class="exam" year="${DD}" type="1" onclick="gotoExam(this)">查看結果</div>
                             
                         </div>
                         </div>`
@@ -418,6 +419,7 @@ function gotoExam(element){
     var year = element.getAttribute('year');
     var type = element.getAttribute("type");
     var isdelete = false;
+    console.log(element);
     var data ={
         year,
         type,

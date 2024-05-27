@@ -92,6 +92,7 @@ span#userid{
 .body{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     min-height: 100vh;
     margin-bottom: -40px;
 }
@@ -224,190 +225,65 @@ span#userid{
     padding-bottom: 80px;
 }
 
-.body-content{
+.body-class{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 60px;
-    padding-bottom: 80px;
+    flex-wrap: wrap;
+    margin: 40px 0;
+    width: 1400px;
 }
 
-.add-button{
-    margin-top: 20px;
-    width: 1200px;
-    display: flex;
-    justify-content: end;
-}
-
-#downloadpaper{
-    width: 100px;
-    height: 50px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1FA84C;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-    margin: 0 20px 10px 0;
-    border: none;
-    cursor: pointer;
-}
-
-#addBtn{
-    width: 100px;
-    height: 50px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1FA84C;
-    font-size: 20px;
-    font-weight: bold;   
-    color: white;
-    margin: 0 30px 10px 0;
-    border: none;
-    cursor: pointer;
-}
-
-#addpaper{
-    display: none;
-}
-
-.test-block{
-    width: 1200px;
-    min-height: 100px;
+.body-block{
     background-color: #d9d9d9;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: solid white 10px;
-    margin: 20px 0;
-    padding: 10px 0;
-}
-
-.block-left{
-    margin: 0 20px;
-    width: 800px;
-}
-
-.block-right{
+    box-shadow: 1px 1px 20px -2px;
+    width: 300px;
+    height: 360px;
+    border-radius: 15px;
+    margin: 20px 25px;
     display: flex;
     align-items: center;
-    margin-right: 20px;
-}
-
-.modi{
-    width: 100px;
-    height: 50px;
-    border-radius: 10px;
-    display: flex;
     justify-content: center;
-    align-items: center;
-    background-color: #006BCE;
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    margin: 0 10px;
-    border: none;
-    cursor: pointer;
 }
 
-.dele{
-    width: 100px;
-    height: 50px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #CB1D1D;
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    margin: 0 10px;
-    border: none;
-    cursor: pointer;
-}
-
-dialog{
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    width: 40vw;
-    height: 80vh;
-    margin-left: -20vw;
-    margin-top: -40vh;
-    border: none;
-    padding: 20px;
-    border-radius: 20px;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: scroll;
-}
-
-dialog form{
+.block-content{
+    height: 300px;
+    background-color: white;
+    border-radius: 14px;
     display: flex;
     flex-direction: column;
-}
-
-.dialog-block{
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-    width: 36vw;
-    height: 10vh;
-}
-
-.dialog-block h3{
-    width: 5vw;
-    margin-right: 1vw;
-}
-
-.dialog-block textarea{
-    width: 30vw;
-    height: 10vh;
-    font-size: 16px;
-}
-
-.dialog-block:nth-of-type(7){
-    height: 5vh;
-    margin-bottom: 3vh;
-    display: flex;
-}
-
-.dialog-block .radio{
-    margin-left: 5vw;
-    display: flex;
-    align-items: center;
-}
-
-.dialog-block label{
-    font-size: 24px;
-}
-
-.dialog-block input{
-    height: 3vh;
-    margin: 0 2vw 0 1vw;
-}
-
-dialog button{
-    width: 6vw;
-    height: 6vh;
-    margin: 0 2vw;
-    border: none;
-    border-radius: 10px;
-    background-color: #034A8C;
-    color: white;
-    font-size: 18px;
+    text-decoration: none;
     cursor: pointer;
 }
+.block-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 240px;
+    margin-top: 8px;
+}
 
-#save{
-    margin-left: 10vw;
+.body-block a{
+    text-decoration: none;
+    color: black;
+}
+
+.body-block h2{
+    border-bottom: solid #FF8F27 5px;
+    width: 140px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+}
+
+.body-block h3{
+    color: #808080;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.body-class img{
+    width: 240px;
+    height: 180px;
+    border-radius: 14px 14px 0 0;
 }
 
 .footer{
@@ -419,7 +295,6 @@ dialog button{
     justify-content: center;
     color: white;
 }
-
 #userid{
     display: flex; /* 讓 span 元素變成 inline-block 類型，可以應用 width */
     height: 60px; /* 設置 span 元素的寬度為 100px */

@@ -140,7 +140,20 @@ function loadQuiz() {
   c_text.innerText = currentQuizData.C;
   d_text.innerText = currentQuizData.D;
   correct.innerText = currentQuizData.correct;
-  document.getElementById("studentans").innerHTML=bb[currentQuiz]
+  document.getElementById("studentans").innerHTML=bb[currentQuiz];
+  loadImg();
+}
+
+function loadImg(){
+  if (quizData[currentQuiz].image != "") {
+    quizImg.style.display = "flex";
+    quizImg.style.height = "200px";
+    quizImg.style.margin = "20px 0 20px 20px";
+    quizImg.src = quizData[currentQuiz].image;
+  }
+  else{
+    quizImg.style.display = "none";
+  }
 }
 
 checkstar();
@@ -219,7 +232,8 @@ function getquizById(ans) {
   c_text.innerText = currentQuizData.C;
   d_text.innerText = currentQuizData.D;
   correct.innerText = currentQuizData.correct;
-  document.getElementById("studentans").innerHTML=bb[currentQuiz]
+  document.getElementById("studentans").innerHTML=bb[currentQuiz];
+  loadImg()
   if(currentQuiz >= quizs.length - 1){
     document.getElementById("next").innerHTML="回首頁"
   }
