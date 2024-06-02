@@ -1,46 +1,5 @@
-function send(ItemName,element){
-    var name = ItemName;
-    var tempprice = element.querySelector('.price');
-    var lessonID = element.getAttribute('id');
-    var price = tempprice.textContent.slice(2);
-    var url ='../image/class.jpg';
-    var time = new Date();
-    var dueDate = new Date(time);
-    var content = element.querySelector('.Content').innerText;
-    dueDate.setFullYear(time.getFullYear()+1);
-    var time = dueDate.toLocaleDateString();
-    var product = {
-        name,
-        price,
-        url,
-        time,
-        content};
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    var aa = new Date();
-    var temptime = new Date(aa);
-    temptime.setFullYear(aa.getFullYear()+1);
-    var endTime = temptime.toLocaleDateString();
-    var startTime = aa.toLocaleDateString();
-    var account = element.getAttribute('account');
-    console.log("account:",account);
-    var temp ={
-        lessonID
-    }
-    localStorage.setItem('book',JSON.stringify(temp));
-    cart.push(product);
-    console.log(product);
-    console.log(temp);
-    localStorage.setItem('product', JSON.stringify(product));
-    const max = 5;
-    if(cart.length >5){
-        localStorage.removeItem('cart');
-    }
-    window.location.href="../html/buyclass.html";
-}
-
-
 document.addEventListener('DOMContentLoaded',function(){
-    var token = localStorage.getItem('JwtToken');
+    
     var userInfo = localStorage.getItem('userInfo');
     const login = document.getElementById("login");
     const register = document.getElementById("register");
@@ -54,15 +13,21 @@ document.addEventListener('DOMContentLoaded',function(){
         // localStorage.removeItem('userInfo');
         // localStorage.removeItem('JwtToken');
     }
+    var token = localStorage.getItem('JwtToken');
+    var jsondata ={
 
-    fetch('http://localhost:5062/api/lesson/GetAllLessons',{
+    }
+    var data = JSON.stringify(jsondata);
+    fetch('http://localhost:5062/api/Book/GetBooks',{
         method:'POST',
         headers:{
             'Content-Type': 'application/json',
             'Authorization':`Bearer ${token}`
         },
+        body:data
     })
     .then(res => {
+        console.log("res:",res);
         if (!res.ok)
         {
             throw new  Error('Failed to fetch lesson');
@@ -70,11 +35,11 @@ document.addEventListener('DOMContentLoaded',function(){
         return res.json();
     })
     .then(data => {
+
         const container = document.getElementById("AAAA");
         if (!container) {
             console.error('Could not find element with id "body-class".');
             return;}
-        console.log(data);
         data.forEach(DD => {
             const divtemp = document.createElement('div');
             function takeName(){
@@ -91,11 +56,12 @@ document.addEventListener('DOMContentLoaded',function(){
             }
             divtemp.innerHTML = `
             <div class="body-block">
-                    <div class="block-content" id="${DD.lessonID}" account=${DD.account} data-name="英文課程" onclick="send('${takeName()}',this)">
+                    <div class="block-content" id="${DD.lessonID}" account=${DD.account} onclick="send('${takeName()}',this)">
                         <img data-src="../image/class.jpg" src="../image/class.jpg" alt="">                        
                         <div class="block-title">
                             <h2>${takeName()}</h2>
                             <h3 class='Content' name='年份'>${DD.year}年</h3>
+                            <h3 class='Content' name='年份'>${DD.content}</h3>
                         </div> 
                     </div>
                 </div>
