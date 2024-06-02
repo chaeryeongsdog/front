@@ -42,7 +42,7 @@ function sendData() {
     else
     {
     console.log(memberData);
-    var jsondata= JSON.stringify(memberData);
+    var jsondata = JSON.stringify(memberData);
 
     fetch("http://localhost:5062/api/member/Register", {
         method: 'POST',
