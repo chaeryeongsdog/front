@@ -452,7 +452,7 @@ function uploadFile() {
         })
         .then(res => {
             if(!res.ok){
-                throw new error('上船失敗')
+                throw new error('上傳失敗')
             }
             return res.text()
         })
