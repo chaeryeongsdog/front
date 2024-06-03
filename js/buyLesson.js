@@ -243,6 +243,7 @@ function gotoright(nowPage){
                 
             })
             document.querySelector('#price').innerHTML = 'NT' + totalPrice;
+            
         })
         const forpaging = document.getElementById('paging');
         const pagingDiv = document.createElement('div');

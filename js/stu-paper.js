@@ -39,6 +39,72 @@ quiz.forEach(DD => {
 var years = [...temp];
 var types = [...temp1];
 var quizLen = quiz.length;
+console.log("quiz:",quiz);
+var quizCount=[];
+for(var i =0; i<years.length;i++){
+    var count =0
+    for(var j=0; j<quiz.length ;j++){
+        if(quiz[j].type == 1){
+            if(quiz[j].year == years[i]){
+            count++;
+        }
+        }
+    }
+    quizCount.push(count);
+}
+document.getElementById("tab-chinese").style.display="flex";
+    document.getElementById("tab-math").style.display="none";
+    document.getElementById("tab-english").style.display="none";
+    document.getElementById("tab-natural").style.display="none";
+    document.getElementById("tab-society").style.display="none";
+    chinese.style.backgroundColor="#034A8C";
+    chinese.style.color="white";
+    math.style.backgroundColor="#d9d9d9";
+    math.style.color="black"
+    english.style.backgroundColor="#d9d9d9";
+    english.style.color="black"
+    natural.style.backgroundColor="#d9d9d9";
+    natural.style.color="black"
+    society.style.backgroundColor="#d9d9d9";
+    society.style.color="black"
+    
+
+        var cartContainer = document.getElementById('tab-chinese');
+        cartContainer.innerHTML='';
+        var AA=0;
+        types.forEach(types => {
+            if(types == 1){
+                years.forEach(DD => {
+                    var count = 0;
+                    for(var i=0 ; i<quizLen ; i++){
+                        if(count == 0){
+                            if(quiz[i].type == 1 && quiz[i].year == DD){
+                            count++;
+                            var productDiv = document.createElement('div');
+                            productDiv.innerHTML=`
+                        <div class="test-block">
+                            <div class="block-left">
+                                <h2>${DD}年歷屆試題</h2>
+                                <div class="test-quan">${quizCount[AA]}題</div>
+                            </div>
+                            <div class="block-right">
+                                <div class="exam" year="${DD}" type="1" onclick="gotoExam(this)">測驗</div>
+                            
+                        </div>
+                        </div>`
+                            cartContainer.appendChild(productDiv);
+                            }
+                        }
+                        else{
+                            break;
+                        }
+                        
+                    }
+                    AA++;
+                })
+            } 
+        })
+
 chinese.addEventListener("click",function(){
     document.getElementById("tab-chinese").style.display="flex";
     document.getElementById("tab-math").style.display="none";
@@ -56,6 +122,20 @@ chinese.addEventListener("click",function(){
     society.style.backgroundColor="#d9d9d9";
     society.style.color="black"
     var cartContainer = document.getElementById('tab-chinese');
+
+    var quizCount=[];
+    for(var i =0; i<years.length;i++){
+        var count =0
+        for(var j=0; j<quiz.length ;j++){
+            if(quiz[j].type == 1){
+                if(quiz[j].year == years[i]){
+                count++;
+            }
+            }
+        }
+        quizCount.push(count);
+    }
+    var AA=0;
     cartContainer.innerHTML='';
     types.forEach(types => {
         if(types == 1){
@@ -70,7 +150,7 @@ chinese.addEventListener("click",function(){
                         <div class="test-block">
                             <div class="block-left">
                                 <h2>${DD}年歷屆試題</h2>
-                                <div class="test-quan">40題</div>
+                                <div class="test-quan">${quizCount[AA]}題</div>
                             </div>
                             <div class="block-right">
                                 <div class="exam" year="${DD}" type="1" onclick="gotoExam(this)">測驗</div>
@@ -84,7 +164,7 @@ chinese.addEventListener("click",function(){
                     }
                     
                 }
-                
+                AA++;
             })
         } 
     })
@@ -108,6 +188,20 @@ math.addEventListener("click",function(){
     society.style.color="black"
 
     var cartContainer = document.getElementById('tab-math');
+
+    var quizCount=[];
+        for(var i =0; i<years.length;i++){
+            var count =0
+            for(var j=0; j<quiz.length ;j++){
+                if(quiz[j].type == 3){
+                    if(quiz[j].year == years[i]){
+                    count++;
+                }
+                }
+            }
+            quizCount.push(count);
+        }
+        var AA=0;
     cartContainer.innerHTML='';
     types.forEach(types => {
         if(types == 3){
@@ -122,7 +216,7 @@ math.addEventListener("click",function(){
                         <div class="test-block">
                             <div class="block-left">
                                 <h2>${DD}年歷屆試題</h2>
-                                <div class="test-quan">40題</div>
+                                <div class="test-quan">${quizCount[AA]}題</div>
                             </div>
                             <div class="block-right">
                                 <div class="exam" year="${DD}" type="3" onclick="gotoExam(this)">測驗</div>
@@ -137,7 +231,7 @@ math.addEventListener("click",function(){
                     }
                     
                 }
-                
+                AA++;
             })
         } 
     })
@@ -161,7 +255,22 @@ english.addEventListener("click",function(){
     society.style.color="black"
 
     var cartContainer = document.getElementById('tab-english');
+
+    var quizCount=[];
+    for(var i =0; i<years.length;i++){
+        var count =0
+        for(var j=0; j<quiz.length ;j++){
+            if(quiz[j].type == 2){
+                if(quiz[j].year == years[i]){
+                count++;
+            }
+            }
+        }
+        quizCount.push(count);
+    }
+
     cartContainer.innerHTML='';
+    var AA=0;
     types.forEach(types => {
         if(types == 2){
             years.forEach(DD => {
@@ -175,7 +284,7 @@ english.addEventListener("click",function(){
                         <div class="test-block">
                             <div class="block-left">
                                 <h2>${DD}年歷屆試題</h2>
-                                <div class="test-quan">40題</div>
+                                <div class="test-quan">${quizCount[AA]}題</div>
                             </div>
                             <div class="block-right">
                                 <div class="exam" year="${DD}" type="2" onclick="gotoExam(this)">測驗</div>
@@ -190,7 +299,7 @@ english.addEventListener("click",function(){
                     }
                     
                 }
-                
+                AA++;
             })
         } 
     })
@@ -214,7 +323,23 @@ natural.addEventListener("click",function(){
     society.style.color="black"
 
     var cartContainer = document.getElementById('tab-natural');
+
+    var quizCount=[];
+    for(var i =0; i<years.length;i++){
+        var count =0
+        for(var j=0; j<quiz.length ;j++){
+            if(quiz[j].type == 4){
+                if(quiz[j].year == years[i]){
+                count++;
+            }
+            }
+        }
+        quizCount.push(count);
+    }
+    
+
     cartContainer.innerHTML='';
+    var AA=0;
     types.forEach(types => {
         if(types == 4){
             years.forEach(DD => {
@@ -228,7 +353,7 @@ natural.addEventListener("click",function(){
                         <div class="test-block">
                             <div class="block-left">
                                 <h2>${DD}年歷屆試題</h2>
-                                <div class="test-quan">40題</div>
+                                <div class="test-quan">${quizCount[AA]}題</div>
                             </div>
                             <div class="block-right">
                                 <div class="exam" year="${DD}" type="4" onclick="gotoExam(this)">測驗</div>
@@ -243,7 +368,7 @@ natural.addEventListener("click",function(){
                     }
                     
                 }
-                
+                AA++;
             })
         } 
     })
@@ -267,7 +392,23 @@ society.addEventListener("click",function(){
     society.style.color="white";
 
     var cartContainer = document.getElementById('tab-society');
+
+    var quizCount=[];
+    for(var i =0; i<years.length;i++){
+        var count =0
+        for(var j=0; j<quiz.length ;j++){
+            if(quiz[j].type == 5){
+                if(quiz[j].year == years[i]){
+                count++;
+            }
+            }
+        }
+        quizCount.push(count);
+    }
+    
+
     cartContainer.innerHTML='';
+    var AA=0;
     types.forEach(types => {
         if(types == 5){
             years.forEach(DD => {
@@ -281,7 +422,7 @@ society.addEventListener("click",function(){
                         <div class="test-block">
                             <div class="block-left">
                                 <h2>${DD}年歷屆試題</h2>
-                                <div class="test-quan">40題</div>
+                                <div class="test-quan">${quizCount[AA]}題</div>
                             </div>
                             <div class="block-right">
                                 <div class="exam" year="${DD}" type="5" onclick="gotoExam(this)">測驗</div>
@@ -296,7 +437,7 @@ society.addEventListener("click",function(){
                     }
                     
                 }
-                
+                AA++;
             })
         } 
     })
@@ -357,58 +498,7 @@ document.addEventListener('DOMContentLoaded',function(){
             // localStorage.removeItem('JwtToken');
         }
 
-    document.getElementById("tab-chinese").style.display="flex";
-    document.getElementById("tab-math").style.display="none";
-    document.getElementById("tab-english").style.display="none";
-    document.getElementById("tab-natural").style.display="none";
-    document.getElementById("tab-society").style.display="none";
-    chinese.style.backgroundColor="#034A8C";
-    chinese.style.color="white";
-    math.style.backgroundColor="#d9d9d9";
-    math.style.color="black"
-    english.style.backgroundColor="#d9d9d9";
-    english.style.color="black"
-    natural.style.backgroundColor="#d9d9d9";
-    natural.style.color="black"
-    society.style.backgroundColor="#d9d9d9";
-    society.style.color="black"
     
-
-        var cartContainer = document.getElementById('tab-chinese');
-        cartContainer.innerHTML='';
-
-        types.forEach(types => {
-            if(types == 1){
-                years.forEach(DD => {
-                    var count = 0;
-                    for(var i=0 ; i<quizLen ; i++){
-                        if(count == 0){
-                            if(quiz[i].type == 1 && quiz[i].year == DD){
-                            count++;
-                            var productDiv = document.createElement('div');
-                            productDiv.innerHTML=`
-                        <div class="test-block">
-                            <div class="block-left">
-                                <h2>${DD}年歷屆試題</h2>
-                                <div class="test-quan">40題</div>
-                            </div>
-                            <div class="block-right">
-                                <div class="exam" year="${DD}" type="1" onclick="gotoExam(this)">測驗</div>
-                            
-                        </div>
-                        </div>`
-                            cartContainer.appendChild(productDiv);
-                            }
-                        }
-                        else{
-                            break;
-                        }
-                        
-                    }
-                    
-                })
-            } 
-        })
     
 });
 
