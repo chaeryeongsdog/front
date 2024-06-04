@@ -423,15 +423,13 @@ function ChangePage(element){
     localStorage.setItem('questions',JSON.stringify(data));
     window.location.href="../html/changequestion.html";
 }
-function uploadFile() {
+function uploadFile() {     
     // Select the file input element by its ID 'addpaper'
     const fileInput = document.getElementById('addpaper');
-
     // Define an event handler for when a file is selected
     fileInput.onchange = async function() {
         // Get the first file selected by the user
         const file = fileInput.files[0];
-
         // If no file is selected, alert the user and exit the function
         if (!file) {
             alert("請選擇一個文件");
@@ -452,7 +450,7 @@ function uploadFile() {
         })
         .then(res => {
             if(!res.ok){
-                throw new error('上傳失敗')
+                throw new Error('上傳失敗')
             }
             return res.text()
         })
@@ -460,5 +458,10 @@ function uploadFile() {
             alert('文件上傳成功');
             console.log(data);
         })
+        .catch(error =>{
+            console.error("Error:",error);
+            alert("上傳失敗");
+        })
     };
+    fileInput.click();
 }

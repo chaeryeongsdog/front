@@ -14,6 +14,7 @@ let currentQuiz = 0; //當前測驗
 
 var quizData =JSON.parse(localStorage.getItem('QUIZ'));
 var quizs=[];
+console.log(quizData);
 for(var i=0 ; i<quizData.length; i++){
     var aa = quizData[i].content.split('%');
     var cleanQuestion = aa[0].replace(/\r\n/g,'').replace(/\n/g,'').replace(/\r/g,"");
@@ -166,8 +167,9 @@ nextBtn.addEventListener("click", () => {
     var anstemp = JSON.stringify(testans);
     localStorage.setItem("correctans",JSON.stringify(correctans));
     localStorage.setItem("testans",anstemp);
-    // window.location.href = "../html/result.html";
-    sendUserAns()
+    window.location.href = "../html/result.html";
+    // sendUserAns()
+
     sendStar();
     }
     else{
@@ -274,44 +276,44 @@ document.addEventListener('DOMContentLoaded',function(){
 
 });
 
-function sendUserAns() {
-  var token = localStorage.getItem('JwtToken');
-  var QuestionID = [];
-  for (var i = 0; i < quizs.length; i++){    
-    QuestionID.push(quizData[i].questionID);
-  };
-  var UserAnswer = testans;
-  var TrueorFlase = "True";
-  var ansdata ={
-    // UserAnsID,
-    QuestionID,
-    // Account,
-    UserAnswer,
-    TrueorFlase,
-  };
-  var jsondata = JSON.stringify(ansdata);
-  console.log(ansdata);
+// function sendUserAns() {
+//   var token = localStorage.getItem('JwtToken');
+//   var QuestionID = [];
+//   for (var i = 0; i < quizs.length; i++){    
+//     QuestionID.push(quizData[i].questionID);
+//   };
+//   var UserAnswer = testans;
+//   var TrueorFlase = "True";
+//   var ansdata ={
+//     // UserAnsID,
+//     QuestionID,
+//     // Account,
+//     UserAnswer,
+//     TrueorFlase,
+//   };
+//   var jsondata = JSON.stringify(ansdata);
+//   console.log(ansdata);
 
 
-  fetch("http://localhost:5062/api/userans/GetAns", {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization':`Bearer ${token}`
-        },
-        body: jsondata
-    })
-    .then(response => {
-      if (!response.ok) {
-        window.alert("失敗")
-        throw new Error('Network response was not ok');
-      }
-      return response.text();
-    })
-    .then(data => {
-      console.log('Response from server:', data);
-    })
-    .catch(error => {
-      console.error('There was a problem with the fetch operation:', error);
-    });
-}
+//   fetch("http://localhost:5062/api/userans/GetAns", {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Authorization':`Bearer ${token}`
+//         },
+//         body: jsondata
+//     })
+//     .then(response => {
+//       if (!response.ok) {
+//         window.alert("失敗")
+//         throw new Error('Network response was not ok');
+//       }
+//       return response.text();
+//     })
+//     .then(data => {
+//       console.log('Response from server:', data);
+//     })
+//     .catch(error => {
+//       console.error('There was a problem with the fetch operation:', error);
+//     });
+// }

@@ -96,7 +96,7 @@ function logout(){
                         </div>
                         <div class="down-body">
                             <div class="down-body1">
-                                課程年份
+                                考題年份
                             </div>
                             <div class="down-body2">
                                 <input type="text" placeholder="${year}" id="year">

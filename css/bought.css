@@ -236,7 +236,7 @@ span#userid{
     background-color: #d9d9d9;
     box-shadow: 1px 1px 20px -2px;
     width: 300px;
-    height: 360px;
+    height: 420px;
     border-radius: 15px;
     margin: 20px 25px;
     display: flex;
@@ -245,7 +245,7 @@ span#userid{
 }
 
 .block-content{
-    height: 300px;
+    height: 360px;
     background-color: white;
     border-radius: 14px;
     display: flex;
