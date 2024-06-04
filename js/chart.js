@@ -55,23 +55,31 @@ fetch("http://localhost:5062/api/member/logout",{
 const chartElement = document.getElementById("myChart")
 
 new Chart(chartElement, {
-    type: 'bar',
-    data:{
-        labels: ['第一個', '第二個', '第三個'],
-                datasets: [{
-                    label: '我是種類',
-                    data: [1, 10, 5],
-                }]
-    }
-});
-
-new Chart(chartElement, {
-    type: 'bar',
+    type: 'bar', //pie, line, 
     data: {
         labels: ['第一個', '第二個', '第三個'],
         datasets: [{
+            type: 'bar',
             label: '我是種類',
             data: [1, 10, 5],
-        }]
+            backgroundColor: [
+                "rgba(255, 99, 132, 0.2)", // 第一個 bar 顏色
+                "rgba(54, 162, 235, 0.2)", // 第二個 bar 顏色
+                "rgba(255, 206, 86, 0.2)", // 第三個 bar 顏色
+            ],
+        },
+        {
+            type: 'line',
+            label: '安安',
+            data: [4,5,2],
+            backgroundColor: [
+                "rgba(153, 102, 255)",
+            ],
+            borderColor: [
+                "rgba(153, 102, 255)",
+            ],
+            borderWidth: 6,
+        }
+    ]
     }
 });
