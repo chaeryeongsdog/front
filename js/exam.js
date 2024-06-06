@@ -82,7 +82,7 @@ function loadImg(){
     quizImg.style.display = "flex";
     quizImg.style.height = "200px";
     quizImg.style.margin = "20px 0 20px 20px";
-    quizImg.src = quizData[currentQuiz].image;
+    quizImg.src = "../image/quizImg/"+quizData[currentQuiz].image;
   }
   else{
     quizImg.style.display = "none";
@@ -168,7 +168,7 @@ nextBtn.addEventListener("click", () => {
     localStorage.setItem("correctans",JSON.stringify(correctans));
     localStorage.setItem("testans",anstemp);
     window.location.href = "../html/result.html";
-    // sendUserAns()
+    sendUserAns()
 
     sendStar();
     }
@@ -276,44 +276,53 @@ document.addEventListener('DOMContentLoaded',function(){
 
 });
 
-// function sendUserAns() {
-//   var token = localStorage.getItem('JwtToken');
-//   var QuestionID = [];
-//   for (var i = 0; i < quizs.length; i++){    
-//     QuestionID.push(quizData[i].questionID);
-//   };
-//   var UserAnswer = testans;
-//   var TrueorFlase = "True";
-//   var ansdata ={
-//     // UserAnsID,
-//     QuestionID,
-//     // Account,
-//     UserAnswer,
-//     TrueorFlase,
-//   };
-//   var jsondata = JSON.stringify(ansdata);
-//   console.log(ansdata);
+function sendUserAns() {
+  var token = localStorage.getItem('JwtToken');
+  var QuestionID = [];
+  var data=[];
+  var trueorf = []
+  for (var i = 0; i < quizs.length; i++){    
+    if(testans[i] == correctans[i]){
+      trueorf.push(true)
+    }
+    else{
+      trueorf.push(false)
+    }
+  };
 
-
-//   fetch("http://localhost:5062/api/userans/GetAns", {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Authorization':`Bearer ${token}`
-//         },
-//         body: jsondata
-//     })
-//     .then(response => {
-//       if (!response.ok) {
-//         window.alert("失敗")
-//         throw new Error('Network response was not ok');
-//       }
-//       return response.text();
-//     })
-//     .then(data => {
-//       console.log('Response from server:', data);
-//     })
-//     .catch(error => {
-//       console.error('There was a problem with the fetch operation:', error);
-//     });
-// }
+  for (var i = 0; i < quizs.length; i++){    
+    var questionID=quizData[i].questionID;
+    var userAnswer = testans[i];
+    var trueorFlase = trueorf[i];
+    var temp = {
+      examHistoryID: 0,
+      questionID,
+      userAnswer,
+      trueorFlase
+    }
+    data.push(temp);
+  };
+  var jsondata = JSON.stringify(data);
+  console.log(jsondata);
+  fetch("http://localhost:5062/api/userans/CreateExamRecord", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization':`Bearer ${token}`
+        },
+        body:jsondata
+    })
+    .then(response => {
+      if (!response.ok) {
+        window.alert("失敗")
+        throw new Error('Network response was not ok');
+      }
+      return response.text();
+    })
+    .then(data => {
+      console.log('data:', data);
+    })
+    .catch(error => {
+      console.error('There was a problem with the fetch operation:', error);
+    });
+}

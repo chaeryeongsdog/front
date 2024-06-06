@@ -171,9 +171,9 @@ h3#questionNum{
   margin-right: 20px;
 }
 
-.quizImg{
+#quizImg{
   display: none;
-  background-color: #034A8C;
+  max-width: 1000px;
 }
 
 h3#question{

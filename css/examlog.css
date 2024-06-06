@@ -228,6 +228,7 @@ span#userid{
     width: 1200px;
     border-bottom: solid white 10px;
     display: flex;
+    align-items: end;
     margin-top: 60px;
 }
 
@@ -241,6 +242,20 @@ span#userid{
     border-radius: 16px 16px 0 0;
     margin: 0 1px;
     cursor: pointer;
+}
+
+.class-bar h2{
+    margin-left: 500px;
+    margin-bottom: 10px;
+    border: solid;
+    width: 120px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #034A8C;
+    border-radius: 10px;
+    color: white;
 }
 
 .tab{

@@ -71,6 +71,8 @@ bb[0] = bb[0].slice(2);
 bb[quizs.length-1] = bb[quizs.length-1].slice(0,1);
 console.log(bb);
 
+var TrueOrFalse=[];
+
 countscore();
 function countscore(){
     var score = 0;
@@ -78,6 +80,10 @@ function countscore(){
   {
     if(aa[i] == bb[i]){
       score++;
+      TrueOrFalse.push(true);
+    }
+    else{
+      TrueOrFalse.push(false);
     }
   }
   document.getElementById("score").innerHTML=`分數：${score} / ${quizs.length} 題`
